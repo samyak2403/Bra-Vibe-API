@@ -8,6 +8,8 @@ import re
 import logging
 from typing import List, Dict, Any
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from requests.adapters import HTTPAdapter
+from urllib3.util import Retry
 
 import config
 
@@ -26,6 +28,18 @@ class ScraperBase:
     """Base class providing shared utilities for all scrapers."""
     def __init__(self):
         self.session = requests.Session()
+        
+        # Robust Retry Strategy
+        retry_strategy = Retry(
+            total=config.RETRY_ATTEMPTS,
+            backoff_factor=2,  # Exponential backoff: 2, 4, 8...
+            status_forcelist=[429, 500, 502, 503, 504, 403], # Retry even on 403 for some stores
+            allowed_methods=["HEAD", "GET", "OPTIONS"],
+            raise_on_status=False
+        )
+        adapter = HTTPAdapter(max_retries=retry_strategy, pool_connections=10, pool_maxsize=10)
+        self.session.mount("https://", adapter)
+        self.session.mount("http://", adapter)
 
     def get_headers(self, site="common") -> Dict[str, str]:
         ua = config.get_random_ua()
