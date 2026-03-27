@@ -28,11 +28,17 @@ class ScraperBase:
         self.session = requests.Session()
 
     def get_headers(self, site="common") -> Dict[str, str]:
+        ua = config.get_random_ua()
+        # Extract OS/Platform for Sec-CH-UA
+        platform = "Windows"
+        if "Macintosh" in ua: platform = "macOS"
+        elif "Linux" in ua: platform = "Linux"
+
         headers = {
-            "User-Agent": config.get_random_ua(),
+            "User-Agent": ua,
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
             "Accept-Language": "en-US,en;q=0.9,hi;q=0.8",
-            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Encoding": "gzip, deflate, br, zstd",
             "DNT": "1",
             "Connection": "keep-alive",
             "Upgrade-Insecure-Requests": "1",
@@ -40,45 +46,82 @@ class ScraperBase:
             "Sec-Fetch-Mode": "navigate",
             "Sec-Fetch-Site": "none",
             "Sec-Fetch-User": "?1",
+            "Sec-CH-UA": '"Not(A:Brand";v="99", "Google Chrome";v="122", "Chromium";v="122"',
+            "Sec-CH-UA-Mobile": "?0",
+            "Sec-CH-UA-Platform": f'"{platform}"',
         }
+        
+        # Site-specific overrides for referer and host
         if "amazon" in site:
             headers.update({
                 "Host": "www.amazon.in",
-                "Referer": "https://www.google.com/"
+                "Referer": "https://www.amazon.in/ref=nav_logo",
+                "sec-ch-ua-platform": f'"{platform}"'
             })
         elif "flipkart" in site:
-            headers.update({"Referer": "https://www.flipkart.com/"})
+             headers.update({
+                 "Referer": "https://www.flipkart.com/",
+                 "x-user-agent-platform": "Desktop"
+             })
+        elif site in ["ajio", "nykaa"]:
+             headers["Accept"] = "application/json, text/plain, */*"
+             headers["Sec-Fetch-Mode"] = "cors"
+             headers["Sec-Fetch-Site"] = "same-origin"
+
         return headers
 
     def safe_request(self, url: str, site: str) -> str:
-        """Fetch HTML content with retries and adaptive delays."""
+        """Fetch content with professional retry logic and session management."""
         for attempt in range(config.RETRY_ATTEMPTS):
             try:
                 headers = self.get_headers(site)
-                # Production sleep: slightly more variance
-                time.sleep(random.uniform(3, 7))
+                
+                # Randomized delay with jitter
+                delay = random.uniform(2, 6) + (attempt * 2)
+                time.sleep(delay)
                 
                 response = self.session.get(url, headers=headers, timeout=config.REQUEST_TIMEOUT)
                 
+                # Check for rate limiting / blocking
                 if response.status_code == 200:
-                    if "captcha" in response.text.lower():
-                        logger.warning(f"[{site.upper()}] CAPTCHA detected on attempt {attempt+1}.")
+                    low_text = response.text.lower()
+                    if "captcha" in low_text or "robot check" in low_text:
+                        logger.warning(f"[{site.upper()}] CAPTCHA/Bot-Check triggered. Rotating agent...")
                         continue
                     return response.text
                 
-                logger.warning(f"[{site.upper()}] Status {response.status_code} on attempt {attempt+1}.")
-            except Exception as e:
-                logger.error(f"[{site.upper()}] Request error: {e}")
+                if response.status_code in [403, 503, 410]:
+                    logger.warning(f"[{site.upper()}] Blocked ({response.status_code}) on attempt {attempt+1}. Backing off...")
+                    time.sleep(pow(2, attempt + 2) + random.random())
+                else:
+                    logger.debug(f"[{site.upper()}] Status {response.status_code}")
             
-            time.sleep(pow(4, attempt)) # Exponential backoff
+            except Exception as e:
+                logger.error(f"[{site.upper()}] Network error: {str(e)[:100]}")
+            
         return ""
+
+    def pre_flight(self, site: str, url: str):
+        """Standard 'warm-up' request to establish cookies/sessions."""
+        try:
+            logger.debug(f"[{site.upper()}] Pre-flight session warm-up...")
+            self.session.get(url, headers=self.get_headers(site), timeout=10)
+        except: pass
 
     def clean_price(self, val: Any) -> float:
         if not val: return 0.0
         try:
+            # Handle list-like or dict-like price inputs
+            if isinstance(val, (list, tuple)): val = val[0]
+            if isinstance(val, dict): val = val.get('amount', val.get('value', 0))
             return float(re.sub(r'[^\d.]', '', str(val).replace(',', '')))
         except:
             return 0.0
+
+    def calculate_discount(self, original: float, discounted: float) -> int:
+        if original > 0 and discounted > 0 and original > discounted:
+            return int(((original - discounted) / original) * 100)
+        return 0
 
     def normalize(self, raw: Dict[str, Any], source: str) -> Dict[str, Any]:
         """Maps raw data to the unified production schema."""
@@ -120,7 +163,12 @@ class StoreScrapers(ScraperBase):
     def scrape_amazon(self) -> List[Dict[str, Any]]:
         logger.info("Scraping Amazon India...")
         conf = config.STORES['amazon']
-        html = self.safe_request(conf['url'], "amazon")
+        # Amazon bypass: Establish session context first
+        self.pre_flight("amazon", "https://www.amazon.in/")
+        
+        # Add realistic search parameters
+        search_url = f"{conf['url']}&ref=nb_sb_noss&sprefix=bras%2Caps%2C300"
+        html = self.safe_request(search_url, "amazon")
         if not html: return []
         
         soup = BeautifulSoup(html, 'html.parser')
@@ -130,7 +178,10 @@ class StoreScrapers(ScraperBase):
         for item in products:
             try:
                 name_tag = item.select_one('h2 a span')
-                if not name_tag or "bra" not in name_tag.text.lower(): continue
+                if not name_tag: continue
+                
+                low_name = name_tag.text.lower()
+                if "bra" not in low_name and "panty" in low_name: continue # Simple filter
                 
                 prices = item.select('.a-price-whole')
                 p_disc = self.clean_price(prices[0].text if prices else 0)
@@ -157,7 +208,10 @@ class StoreScrapers(ScraperBase):
     def scrape_flipkart(self) -> List[Dict[str, Any]]:
         logger.info("Scraping Flipkart...")
         conf = config.STORES['flipkart']
-        html = self.safe_request(conf['url'], "flipkart")
+        # Flipkart bypass: Homepage context
+        self.pre_flight("flipkart", "https://www.flipkart.com/")
+        
+        html = self.safe_request(conf['url'] + "&as-show=on&as-pos=1", "flipkart")
         if not html: return []
         
         soup = BeautifulSoup(html, 'html.parser')
