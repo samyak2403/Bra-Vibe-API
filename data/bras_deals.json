@@ -1,12 +1,12 @@
 {
   "metadata": {
     "source": "India Multi-Store Consolidated",
-    "timestamp": "2026-03-27T22:21:34.084484",
+    "timestamp": "2026-03-27T23:26:39.101832",
     "stats": {
       "total_extracted": 0,
       "total_filtered": 0,
       "final_count": 0,
-      "duration_seconds": 138.25
+      "duration_seconds": 344.31
     }
   },
   "deals": []
