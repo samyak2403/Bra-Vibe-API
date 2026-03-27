@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+*.log
+data/bras_deals.json
