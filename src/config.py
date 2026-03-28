@@ -10,12 +10,12 @@ RETRY_ATTEMPTS = 4
 # --- TARGET STORES ---
 STORES = {
     "amazon": {
-        "url": "https://www.amazon.in/s?k=bras+for+women+discount",
+        "url": "https://www.amazon.in/s?k=bras+discount",
         "name": "Amazon India",
         "selector": 'div[data-component-type="s-search-result"]'
     },
     "flipkart": {
-        "url": "https://www.flipkart.com/search?q=bras+for+women+discount",
+        "url": "https://www.flipkart.com/search?q=bras+discount",
         "name": "Flipkart",
         "selector": "div._1AtVbE, div._2k03n8, div._4ddW_X"
     },
@@ -24,7 +24,7 @@ STORES = {
         "name": "Myntra"
     },
     "ajio": {
-        "url": "https://www.ajio.com/api/query/v1/search?text=bras&currentPage=0&pageSize=45",
+        "url": "https://www.ajio.com/api/category/830311004?size=45&start=0",
         "name": "Ajio"
     },
     "zivame": {
@@ -33,13 +33,13 @@ STORES = {
         "selector": ".product-item"
     },
     "clovia": {
-        "url": "https://www.clovia.com/bras/s/",
-        "name": "Clovia",
-        "selector": ".product-list-item"
+        "url": "https://www.clovia.com/web/api/v1/category-products-desktop/bras/s/",
+        "name": "Clovia"
     },
     "nykaa": {
-        "url": "https://www.nykaafashion.com/api/gateway-fashion/v1/search/search-results?q=bras",
-        "name": "Nykaa Fashion"
+        "url": "https://www.nykaafashion.com/rest/appapi/V2/categories/products",
+        "name": "Nykaa Fashion",
+        "categoryId": "3947"
     }
 }
 

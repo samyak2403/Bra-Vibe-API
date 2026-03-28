@@ -44,7 +44,6 @@ class ScraperBase:
             "Accept-Encoding": "gzip, deflate, br, zstd",
             "DNT": "1",
             "Connection": "keep-alive",
-            "Upgrade-Insecure-Requests": "1",
             "Sec-Fetch-Dest": "document",
             "Sec-Fetch-Mode": "navigate",
             "Sec-Fetch-Site": "none",
@@ -55,20 +54,22 @@ class ScraperBase:
             "Cache-Control": "max-age=0",
         }
         
-        # Site-specific overrides for referer and host
+        # Site-specific overrides
         if "amazon" in site:
             headers.update({
                 "Host": "www.amazon.in",
                 "Referer": "https://www.google.com/",
-                "Sec-Fetch-Site": "cross-site"
+                "Sec-Fetch-Site": "cross-site",
+                "Upgrade-Insecure-Requests": "1"
             })
         elif "flipkart" in site:
              headers.update({
                  "Referer": "https://www.flipkart.com/",
                  "x-user-agent-platform": "Desktop",
-                 "x-user-agent-client": "Web"
+                 "x-user-agent-client": "Web",
+                 "Upgrade-Insecure-Requests": "1"
              })
-        elif site in ["ajio", "nykaa"]:
+        elif site in ["ajio", "nykaa", "clovia"]:
              headers.update({
                  "Accept": "application/json, text/plain, */*",
                  "Sec-Fetch-Mode": "cors",
@@ -77,6 +78,12 @@ class ScraperBase:
              })
              if site == "ajio":
                  headers["X-Ajio-App-Version-Name"] = "1.0.0"
+                 headers["Referer"] = "https://www.ajio.com/s/bras-4621-72911"
+             elif site == "nykaa":
+                 headers["domain"] = "NYKAA_FASHION"
+                 headers["Referer"] = "https://www.nykaafashion.com/bras/c/595"
+             elif site == "clovia":
+                 headers["Referer"] = "https://www.clovia.com/bras/s/"
 
         return headers
 
@@ -177,41 +184,43 @@ class StoreScrapers(ScraperBase):
         # Amazon bypass: Establish session context first
         self.pre_flight("amazon", "https://www.amazon.in/")
         
-        # Add realistic search parameters (Category search)
-        search_url = "https://www.amazon.in/s?k=bras&i=apparel&rh=n%3A1571271031%2Cn%3A1968253031&dc&qid=1711624444"
+        # Add realistic search parameters
+        search_url = f"{conf['url']}&ref=nb_sb_noss"
         html = self.safe_request(search_url, "amazon")
         if not html: return []
         
         soup = BeautifulSoup(html, 'html.parser')
-        # Robust selectors for Amazon
-        products = soup.select('div[data-component-type="s-search-result"]')
+        # Professional Amazon selectors
+        products = soup.select('div[data-component-type="s-search-result"], .s-result-item[data-asin]')
         results = []
 
         for item in products:
             try:
-                name_tag = item.select_one('h2 a span')
+                asin = item.get('data-asin')
+                if not asin: continue
+
+                name_tag = item.select_one('h2 a span, .a-size-base-plus.a-color-base.a-text-normal')
                 if not name_tag: continue
                 
                 low_name = name_tag.text.lower()
                 if "bra" not in low_name: continue 
                 
-                prices = item.select('.a-price-whole')
-                p_disc = self.clean_price(prices[0].text if prices else 0)
+                # Prices can be in multiple locations
+                p_disc_tag = item.select_one('.a-price .a-offscreen')
+                p_disc = self.clean_price(p_disc_tag.text if p_disc_tag else 0)
                 
-                orig_tag = item.select_one('.a-price.a-text-price span[aria-hidden="true"]')
-                p_orig = self.clean_price(orig_tag.text if orig_tag else p_disc)
+                p_orig_tag = item.select_one('.a-price.a-text-price span.a-offscreen')
+                p_orig = self.clean_price(p_orig_tag.text if p_orig_tag else p_disc)
                 
                 image_tag = item.select_one('img.s-image')
-                link_tag = item.select_one('h2 a')
+                link_tag = item.select_one('h2 a, a.a-link-normal.s-no-outline')
                 
                 raw = {
-                    "product_id": item.get('data-asin'),
+                    "product_id": asin,
                     "name": name_tag.text.strip(),
                     "brand": name_tag.text.split(' ')[0],
                     "price_original": p_orig,
                     "price_discounted": p_disc,
-                    "rating": item.select_one('span.a-icon-alt').text.split(' ')[0] if item.select_one('span.a-icon-alt') else "N/A",
-                    "review_count": item.select_one('span.a-size-base.s-underline-text').text if item.select_one('span.a-size-base.s-underline-text') else 0,
                     "image_url": image_tag.get('src') if image_tag else "",
                     "product_url": "https://www.amazon.in" + link_tag.get('href') if link_tag else "",
                 }
@@ -226,33 +235,33 @@ class StoreScrapers(ScraperBase):
         self.pre_flight("flipkart", "https://www.flipkart.com/")
         
         # Use a more natural search URL
-        url = "https://www.flipkart.com/search?q=bras&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off"
+        url = conf['url']
         html = self.safe_request(url, "flipkart")
         if not html: return []
         
         soup = BeautifulSoup(html, 'html.parser')
         # Grid items often use these classes
-        items = soup.select('div[data-id]')
+        items = soup.select('div[data-id], ._1AtVbE, ._4ddW_X')
         results = []
 
         for item in items:
             try:
                 # Common Flipkart selectors for title and brand
-                brand_tag = item.select_one('div._2Wk9SZ')
-                name_tag = item.select_one('a.IRpwTa, a.s1Q9rs')
+                brand_tag = item.select_one('div._2Wk9SZ, ._2Wk9SZ')
+                name_tag = item.select_one('a.IRpwTa, a.s1Q9rs, ._2mylT6')
                 if not name_tag: continue
                 
-                prices = item.select('div._30jeq3') # Discounted price
-                orig_prices = item.select('div._3I9_ca') # MRP
+                prices = item.select('div._30jeq3, ._30jeq3') # Discounted price
+                orig_prices = item.select('div._3I9_ca, ._3I9_ca') # MRP
                 
                 raw = {
-                    "product_id": item.get('data-id'),
+                    "product_id": item.get('data-id') or random.getrandbits(32),
                     "name": name_tag.text.strip(),
                     "brand": brand_tag.text.strip() if brand_tag else "N/A",
                     "price_original": orig_prices[0].text if orig_prices else 0,
                     "price_discounted": prices[0].text if prices else 0,
-                    "discount_percentage": item.select_one('div._3Ay6Wh').text if item.select_one('div._3Ay6Wh') else None,
-                    "rating": item.select_one('div._3LWZlK').text if item.select_one('div._3LWZlK') else "N/A",
+                    "discount_percentage": item.select_one('div._3Ay6Wh, ._3Ay6Wh').text if item.select_one('div._3Ay6Wh, ._3Ay6Wh') else None,
+                    "rating": item.select_one('div._3LWZlK, ._3LWZlK').text if item.select_one('div._3LWZlK, ._3LWZlK') else "N/A",
                     "image_url": item.select_one('img').get('src') if item.select_one('img') else "",
                     "product_url": "https://www.flipkart.com" + name_tag.get('href'),
                 }
@@ -377,24 +386,16 @@ class StoreScrapers(ScraperBase):
         logger.info("Scraping Clovia...")
         conf = config.STORES['clovia']
         # Clovia now uses an internal API
-        api_url = "https://www.clovia.com/web/api/v1/category-products-desktop/bras/s/?page=1"
+        # Clovia now uses an internal API identified by browser verification
+        api_url = f"{conf['url']}?path=/bras/s/&page=1&active_target=-tab2"
         
-        # Clovia requires cookies from the landing page
-        try:
-            self.session.get("https://www.clovia.com/bras/s/", headers=self.get_headers("clovia"), timeout=10)
-        except: pass
-
         headers = self.get_headers("clovia")
-        headers.update({
-            "Referer": "https://www.clovia.com/bras/s/",
-            "Accept": "application/json, text/plain, */*"
-        })
-        
         html = self.safe_request(api_url, "clovia")
         if not html: return []
         
         try:
             data = json.loads(html)
+            # The API returns data nested under 'data' -> 'products'
             products = data.get('data', {}).get('products', [])
             if not products and 'products' in data: products = data['products']
             
@@ -403,10 +404,10 @@ class StoreScrapers(ScraperBase):
                 "name": p.get('name'),
                 "brand": "Clovia",
                 "price_original": p.get('mrp'),
-                "price_discounted": p.get('price_actual') or p.get('offer_price') or p.get('price'),
-                "image_url": p.get('image_url') or p.get('imageUrl') or p.get('image'),
+                "price_discounted": p.get('offer_price') or p.get('price_actual') or p.get('price'),
+                "image_url": p.get('image_url') or p.get('imageUrl'),
                 "product_url": "https://www.clovia.com" + p.get('product_url', ''),
-            }, conf['name']) for p in products]
+            }, conf['name']) for p in products if p.get('name')]
         except Exception as e:
             logger.error(f"Clovia API parse error: {e}")
             return []
@@ -415,29 +416,30 @@ class StoreScrapers(ScraperBase):
         logger.info("Scraping Nykaa Fashion...")
         conf = config.STORES['nykaa']
         try:
+            # Nykaa V2 Category API requires categoryId
+            url = f"{conf['url']}?categoryId={conf['categoryId']}&PageSize=30&currentPage=1&sort=popularity&filter_format=v2"
+            
             self.pre_flight("nykaa", "https://www.nykaafashion.com/bras/c/595")
             headers = self.get_headers("nykaa")
-            headers.update({
-                "Referer": "https://www.nykaafashion.com/bras/c/595"
-            })
-            # Added more search filters to look realistic
-            url = f"{conf['url']}&searchType=Search&isSearch=true"
+            
             resp = self.session.get(url, headers=headers, timeout=config.REQUEST_TIMEOUT)
             if resp.status_code == 200:
                 data = resp.json()
-                products = data.get('products', []) or data.get('data', {}).get('products', [])
-                if not products and 'items' in data: products = data['items']
+                # Nykaa data structure: data -> products
+                products = data.get('data', {}).get('products', [])
                 
                 return [self.normalize({
-                    "product_id": p.get('id') or p.get('sku'),
+                    "product_id": p.get('id'),
                     "name": p.get('name'),
-                    "brand": p.get('brand_name') or p.get('brandName'),
+                    "brand": p.get('brandName') or p.get('brand_name'),
                     "price_original": p.get('mrp'),
                     "price_discounted": p.get('price'),
                     "discount_percentage": p.get('discount'),
-                    "image_url": p.get('image_url') or p.get('imageUrl'),
-                    "product_url": "https://www.nykaafashion.com" + p.get('product_url', ''),
-                }, conf['name']) for p in products]
+                    "image_url": p.get('imageUrl') or p.get('image_url'),
+                    "product_url": "https://www.nykaafashion.com" + p.get('productUrl', ''),
+                }, conf['name']) for p in products if p.get('name')]
+            else:
+                logger.warning(f"Nykaa API failed with status {resp.status_code}")
         except Exception as e:
             logger.error(f"Nykaa API error: {e}")
         return []
