@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://samyak2403.github.io/Bra-Vibe-API/website/sitemap.xml
