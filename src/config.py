@@ -3,9 +3,9 @@ import random
 # --- SCRAPER SETTINGS ---
 MIN_DISCOUNT = 20
 OUTPUT_FILE = "data/bras_deals.json"
-MAX_WORKERS = 5  # Number of concurrent scraper threads
-REQUEST_TIMEOUT = 20
-RETRY_ATTEMPTS = 3
+MAX_WORKERS = 3  # Reduced for better bypass (less aggressive)
+REQUEST_TIMEOUT = 30
+RETRY_ATTEMPTS = 4
 
 # --- TARGET STORES ---
 STORES = {
@@ -33,7 +33,7 @@ STORES = {
         "selector": ".product-item"
     },
     "clovia": {
-        "url": "https://www.clovia.com/buy/bras/",
+        "url": "https://www.clovia.com/bras/s/",
         "name": "Clovia",
         "selector": ".product-list-item"
     },
