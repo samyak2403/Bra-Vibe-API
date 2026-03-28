@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | Bra Vibe API</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .docs-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+        aside {
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--glass-border);
+            padding: 2rem;
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+        .docs-nav-group {
+            margin-bottom: 2rem;
+        }
+        .docs-nav-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .docs-nav-link {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            transition: var(--trans);
+        }
+        .docs-nav-link:hover, .docs-nav-link.active {
+            color: var(--accent-pink);
+        }
+        .docs-content {
+            padding: 4rem;
+            max-width: 900px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--glass-bg);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent-pink);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        .param-type {
+            color: var(--accent-purple);
+            font-family: monospace;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 900px) {
+            .docs-layout { grid-template-columns: 1fr; }
+            aside { display: none; }
+            .docs-content { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Bra Vibe API
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Back to Home</a>
+                <a href="https://github.com/samyak2403/Bra-Vibe-API" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="docs-layout">
+        <!-- Sidebar Navigation -->
+        <aside>
+            <div class="docs-nav-group">
+                <div class="docs-nav-title">Getting Started</div>
+                <a href="#intro" class="docs-nav-link active">Introduction</a>
+                <a href="#authentication" class="docs-nav-link">Authentication</a>
+                <a href="#endpoints" class="docs-nav-link">Endpoints</a>
+                <a href="#automation" class="docs-nav-link">Automation & Updates</a>
+            </div>
+            <div class="docs-nav-group">
+                <div class="docs-nav-title">Resource Models</div>
+                <a href="#schema" class="docs-nav-link">Full JSON Schema</a>
+                <a href="#stores" class="docs-nav-link">Supported Stores</a>
+            </div>
+            <div class="docs-nav-group">
+                <div class="docs-nav-title">Client Libraries</div>
+                <a href="#javascript" class="docs-nav-link">JavaScript</a>
+                <a href="#kotlin" class="docs-nav-link">Android (Kotlin)</a>
+                <a href="#java" class="docs-nav-link">Java Native</a>
+            </div>
+            <div class="docs-nav-group">
+                <div class="docs-nav-title">Support</div>
+                <a href="#troubleshooting" class="docs-nav-link">Troubleshooting</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="docs-content">
+            <section id="intro" style="padding: 0; margin-bottom: 4rem;">
+                <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Documentation</h1>
+                <p style="font-size: 1.2rem; color: var(--text-secondary);">Welcome to the official Bra Vibe API documentation. Our API provides a standardized, real-time data feed for lingerie discounts across India's top e-commerce platforms.</p>
+            </section>
+
+            <section id="authentication" style="padding: 0; margin-bottom: 4rem;">
+                <h2 style="color: var(--accent-pink); margin-bottom: 1rem;">Authentication</h2>
+                <div style="background: rgba(236, 72, 153, 0.05); padding: 1.5rem; border-left: 4px solid var(--accent-pink); border-radius: 4px;">
+                    Currently, the API is **publicly accessible** via GitHub Raw URLs. No API key is required for moderate usage.
+                </div>
+            </section>
+
+            <section id="endpoints" style="padding: 0; margin-bottom: 4rem;">
+                <h2 style="margin-bottom: 1.5rem;">Core Endpoints</h2>
+                <p>All requests are standard GET requests returning JSON content.</p>
+                <div class="code-block" style="display: flex; gap: 1rem; align-items: center; overflow-x: auto;">
+                    <span style="color: #4ade80; font-weight: 800; font-family: monospace; font-size: 0.9rem; background: rgba(74, 222, 128, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; white-space: nowrap;">GET</span>
+                    <code id="endpoint-url" style="flex-grow: 1; white-space: nowrap; overflow-x: auto; padding: 0.5rem 0;">https://raw.githubusercontent.com/samyak2403/Bra-Vibe-API/main/data/bras_deals.json</code>
+                    <button class="btn" onclick="copyText('endpoint-url', this)" style="padding: 0.5rem 1rem; font-size: 0.75rem; background: var(--bg-accent); color: var(--text-primary); border: 1px solid var(--glass-border); border-radius: 8px; cursor: pointer; white-space: nowrap;">Copy URL</button>
+                </div>
+            </section>
+
+            <section id="automation" style="padding: 0; margin-bottom: 4rem;">
+                <h2 style="margin-bottom: 1.5rem;">Automation & Updates</h2>
+                <p style="margin-bottom: 1rem;">The API is not a static file; it is a live feed managed by our high-performance scraping engine.</p>
+                <ul style="color: var(--text-secondary); margin-left: 1.5rem;">
+                    <li style="margin-bottom: 0.5rem;">**Update Frequency**: Synced every **1 hour** automatically.</li>
+                    <li style="margin-bottom: 0.5rem;">**Platform**: Powered by **GitHub Actions** via `.github/workflows/scrape_deals.yml`.</li>
+                    <li style="margin-bottom: 0.5rem;">**Filtering**: Only deals with a **minimum 20% discount** are included in the feed.</li>
+                </ul>
+            </section>
+
+            <section id="schema" style="padding: 0; margin-bottom: 4rem;">
+                <h2 style="margin-bottom: 1.5rem;">Full JSON Schema</h2>
+                <p>The response object contains a `metadata` header and a `deals` array.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>product_id</td><td class="param-type">String</td><td>Unique ID from the source store.</td></tr>
+                        <tr><td>name</td><td class="param-type">String</td><td>Normalized product title.</td></tr>
+                        <tr><td>brand</td><td class="param-type">String</td><td>Brand name or "N/A".</td></tr>
+                        <tr><td>price_original</td><td class="param-type">Float</td><td>MRP or original listed price.</td></tr>
+                        <tr><td>price_discounted</td><td class="param-type">Float</td><td>Current flash sale price.</td></tr>
+                        <tr><td>discount_percentage</td><td class="param-type">Integer</td><td>Percentage off (Min 20%).</td></tr>
+                        <tr><td>image_url</td><td class="param-type">String</td><td>High-resolution product image link.</td></tr>
+                        <tr><td>product_url</td><td class="param-type">String</td><td>Direct deep-link to the store page.</td></tr>
+                        <tr><td>website_source</td><td class="param-type">String</td><td>The source (e.g., Amazon, Ajio).</td></tr>
+                        <tr><td>scraped_at</td><td class="param-type">String</td><td>ISO timestamp of when the deal was found.</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="stores" style="padding: 0; margin-bottom: 4rem;">
+                <h2 style="margin-bottom: 1.5rem;">Supported Stores</h2>
+                <p style="margin-bottom: 1rem;">We currently aggregate data from 7 major Indian e-commerce leaders:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem;">
+                    <div style="background: var(--bg-accent); padding: 1rem; border-radius: 8px; text-align: center;">Amazon India</div>
+                    <div style="background: var(--bg-accent); padding: 1rem; border-radius: 8px; text-align: center;">Flipkart</div>
+                    <div style="background: var(--bg-accent); padding: 1rem; border-radius: 8px; text-align: center;">Myntra</div>
+                    <div style="background: var(--bg-accent); padding: 1rem; border-radius: 8px; text-align: center;">Ajio</div>
+                    <div style="background: var(--bg-accent); padding: 1rem; border-radius: 8px; text-align: center;">Zivame</div>
+                    <div style="background: var(--bg-accent); padding: 1rem; border-radius: 8px; text-align: center;">Clovia</div>
+                    <div style="background: var(--bg-accent); padding: 1rem; border-radius: 8px; text-align: center;">Nykaa Fashion</div>
+                </div>
+            </section>
+
+            <section id="javascript" style="padding: 0; margin-bottom: 4rem;">
+                <h2 style="margin-bottom: 1rem;">JavaScript Integration</h2>
+                <div class="code-block" style="position: relative;">
+                    <button class="btn" onclick="copyText('js-code', this)" style="position: absolute; top: 1rem; right: 1rem; padding: 0.4rem 0.8rem; font-size: 0.7rem; background: var(--bg-accent); color: var(--text-primary); border: 1px solid var(--glass-border); border-radius: 6px; cursor: pointer;">Copy</button>
+<pre id="js-code">
+fetch('https://raw.githubusercontent.com/samyak2403/Bra-Vibe-API/main/data/bras_deals.json')
+  .then(res => res.json())
+  .then(data => {
+    console.log(`Found ${data.metadata.stats.final_count} deals!`);
+  });
+</pre>
+                </div>
+            </section>
+
+            <section id="kotlin" style="padding: 0; margin-bottom: 4rem;">
+                <h2 style="margin-bottom: 1rem;">Android (Kotlin) Integration</h2>
+                <div class="code-block" style="position: relative;">
+                    <button class="btn" onclick="copyText('kotlin-code', this)" style="position: absolute; top: 1rem; right: 1rem; padding: 0.4rem 0.8rem; font-size: 0.7rem; background: var(--bg-accent); color: var(--text-primary); border: 1px solid var(--glass-border); border-radius: 6px; cursor: pointer;">Copy</button>
+<pre id="kotlin-code">
+// Using OkHttp in Kotlin/Android
+val client = OkHttpClient()
+val request = Request.Builder()
+    .url("https://raw.githubusercontent.com/samyak2403/Bra-Vibe-API/main/data/bras_deals.json")
+    .build()
+
+client.newCall(request).enqueue(object : Callback {
+    override fun onResponse(call: Call, response: Response) {
+        val body = response.body?.string()
+        // Parse with Gson: Gson().fromJson(body, DealsResponse::class.java)
+    }
+})
+</pre>
+                </div>
+            </section>
+
+            <section id="java" style="padding: 0; margin-bottom: 4rem;">
+                <h2 style="margin-bottom: 1rem;">Java Native Integration</h2>
+                <div class="code-block" style="position: relative;">
+                    <button class="btn" onclick="copyText('java-code', this)" style="position: absolute; top: 1rem; right: 1rem; padding: 0.4rem 0.8rem; font-size: 0.7rem; background: var(--bg-accent); color: var(--text-primary); border: 1px solid var(--glass-border); border-radius: 6px; cursor: pointer;">Copy</button>
+<pre id="java-code">
+URL url = new URL("https://raw.githubusercontent.com/samyak2403/Bra-Vibe-API/main/data/bras_deals.json");
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+conn.setRequestMethod("GET");
+
+BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+String inputLine;
+StringBuilder content = new StringBuilder();
+while ((inputLine = in.readLine()) != null) {
+    content.append(inputLine);
+}
+in.close();
+System.out.println(content.toString());
+</pre>
+                </div>
+            </section>
+
+            <section id="troubleshooting" style="padding: 0; margin-bottom: 4rem;">
+                <h2 style="margin-bottom: 1.5rem;">Troubleshooting</h2>
+                <div style="background: var(--bg-secondary); border: 1px solid var(--glass-border); padding: 2rem; border-radius: 12px;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--accent-pink); margin-bottom: 0.5rem;">CORS Issues</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">GitHub Raw does not altid permit cross-origin requests from some domains. Use a proxy like `cors-anywhere` if you hit restrictions in a browser.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-pink); margin-bottom: 0.5rem;">Stale Data</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Browser caching may show old results. Append a timestamp as a query parameter (e.g., `?t=12345`) to force a fresh fetch.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Bra Vibe API. Built for the Developer Community.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Use IntersectionObserver for ScrollSpy
+        const navLinks = document.querySelectorAll('.docs-nav-link');
+        const sections = document.querySelectorAll('main section');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-10% 0px -80% 0px', // Detect when section is near top
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        // Copy Feature
+        function copyText(elementId, btn) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'Copied!';
+                btn.style.color = 'var(--accent-pink)';
+                btn.style.borderColor = 'var(--accent-pink)';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.color = 'var(--text-primary)';
+                    btn.style.borderColor = 'var(--glass-border)';
+                }, 2000);
+            });
+        }
+
+        // Disable the tab-switching display:none logic to allow standard scrolling docs
+        function showSnippet(lang) {
+            // Smooth scroll to the specific integration section
+            const target = document.getElementById(lang);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>

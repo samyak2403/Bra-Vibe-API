@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bra Vibe API | Premium Lingerie Data for Developers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Bra Vibe API
+            </div>
+            <div class="nav-links">
+                <a href="#hero">Overview</a>
+                <a href="#deals">Current Deals</a>
+                <a href="docs.html">Documentation</a>
+                <a href="https://github.com/samyak2403/Bra-Vibe-API" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero-inner">
+            <h1>The <span class="gradient-text">Ultimate API</span> for Lingerie Deals</h1>
+            <p>Access normalized, high-discount bra data from major Indian e-commerce stores. 50+ fresh deals synced hourly via advanced scrapers.</p>
+            <div class="hero-actions">
+                <a href="#deals" class="btn btn-primary">Check Live Deals</a>
+                <a href="docs.html" class="btn" style="border: 1px solid var(--glass-border); margin-left:1rem; color:var(--text-secondary);">Read API Docs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Deals Section -->
+    <section id="deals">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center;">Live <span class="gradient-text">Flash Deals</span></h2>
+            <div class="deals-grid" id="deals-container">
+                <!-- Data will be injected here by JS -->
+                <div style="text-align: center; color: var(--text-muted); width: 100%; grid-column: 1/-1;">Loading latest deals...</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Bra Vibe API. Built for Developers.</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Source Code on <a href="https://github.com/samyak2403/Bra-Vibe-API" style="color: var(--accent-pink); text-decoration: none;">GitHub</a></p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
