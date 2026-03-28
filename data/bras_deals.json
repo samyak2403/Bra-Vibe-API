@@ -1,12 +1,12 @@
 {
   "metadata": {
     "source": "India Multi-Store Consolidated",
-    "timestamp": "2026-03-28T06:35:41.230719",
+    "timestamp": "2026-03-28T06:44:34.015898",
     "stats": {
-      "total_extracted": 52,
-      "total_filtered": 15,
-      "final_count": 13,
-      "duration_seconds": 100.66
+      "total_extracted": 46,
+      "total_filtered": 17,
+      "final_count": 16,
+      "duration_seconds": 93.09
     }
   },
   "deals": [
@@ -23,10 +23,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/81TtXhkPREL._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/London-Hills-Regular-Everyday-Coverage/dp/B0FN412Y8B/ref=sr_1_6?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-6",
+      "product_url": "https://www.amazon.in/London-Hills-Regular-Everyday-Coverage/dp/B0FN412Y8B/ref=sr_1_4?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-4",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.837450"
+      "scraped_at": "2026-03-28T06:43:05.418343"
     },
     {
       "product_id": "B0CS6N2Q98",
@@ -41,10 +41,28 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/71My5bQAQ3L._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/Fabluk-High-Performance-Breathable-Racerback-Removable/dp/B0CS6N2Q98/ref=sr_1_32?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-32",
+      "product_url": "https://www.amazon.in/Fabluk-High-Performance-Breathable-Racerback-Removable/dp/B0CS6N2Q98/ref=sr_1_34?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-34",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.913023"
+      "scraped_at": "2026-03-28T06:43:05.491095"
+    },
+    {
+      "product_id": "B0DG331QYY",
+      "name": "Bra for Women Cotton Non Padded, Cotton Bras Full Coverage, Comfort, Comfy, Everyday,Women Pack,Jockey Inspired Fit",
+      "brand": "Bra",
+      "category": "Bras",
+      "price_original": 1200.0,
+      "price_discounted": 349.0,
+      "discount_percentage": 70,
+      "rating": "N/A",
+      "review_count": 0,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/51jxqeECZYL._AC_UL320_.jpg",
+      "product_url": "https://www.amazon.in/EMPISTO-Non-Padded-Coverage-Wire-Free-Multicolour/dp/B0DG331QYY/ref=sr_1_41?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-41",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-28T06:43:05.503715"
     },
     {
       "product_id": "B014H8DCOQ",
@@ -59,13 +77,13 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/51jouRl0tFL._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/amant%C3%A9-Cotton-Coverage-BRA10202_Dark-Blue_38D/dp/B014H8DCOQ/ref=sr_1_17?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-17",
+      "product_url": "https://www.amazon.in/amant%C3%A9-Cotton-Coverage-BRA10202_Dark-Blue_38D/dp/B014H8DCOQ/ref=sr_1_16?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-16",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.872981"
+      "scraped_at": "2026-03-28T06:43:05.450462"
     },
     {
-      "product_id": "B00ISSHIGK",
+      "product_id": "B00ISSHT6E",
       "name": "Lace Padded Underwire Full Coverage Bridal T-Shirt Bra",
       "brand": "Lace",
       "category": "Bras",
@@ -77,10 +95,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/51yIhR-H-WL._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/amant%C3%A9-Padded-Wired-Shirt-BRA10301_Maroon_32B/dp/B00ISSHIGK/ref=sr_1_18?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-18",
+      "product_url": "https://www.amazon.in/amant%C3%A9-Padded-Wired-Shirt-BRA10301_Maroon_32C/dp/B00ISSHT6E/ref=sr_1_25?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-25",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.876515"
+      "scraped_at": "2026-03-28T06:43:05.471667"
     },
     {
       "product_id": "B0CCYNDQMH",
@@ -95,13 +113,13 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/610lwACtlgL._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/SkyBeauty-Womens-Cotton-Padded-Multicolour/dp/B0CCYNDQMH/ref=sr_1_34?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-34",
+      "product_url": "https://www.amazon.in/SkyBeauty-Womens-Cotton-Padded-Multicolour/dp/B0CCYNDQMH/ref=sr_1_19?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-19",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.915830"
+      "scraped_at": "2026-03-28T06:43:05.454445"
     },
     {
-      "product_id": "B0F9FRG18P",
+      "product_id": "B0F9FRVQWY",
       "name": "Regular Bra for Women Everyday Non Padded Wire Free Full Coverage Cotton Blend",
       "brand": "Regular",
       "category": "Bras",
@@ -112,14 +130,50 @@
       "review_count": 0,
       "sizes_available": [],
       "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/511FbHmB+-L._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/London-Hills-Regular-Everyday-Coverage/dp/B0F9FRG18P/ref=sr_1_30?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-30",
+      "image_url": "https://m.media-amazon.com/images/I/51ERk8fgzLL._AC_UL320_.jpg",
+      "product_url": "https://www.amazon.in/London-Hills-Regular-Everyday-Coverage/dp/B0F9FRVQWY/ref=sr_1_22?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-22",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.906382"
+      "scraped_at": "2026-03-28T06:43:05.463073"
     },
     {
-      "product_id": "B0CS6S92L7",
+      "product_id": "B0CKFJ51ZK",
+      "name": "Everyday Non-Padded Non-Wired Bra for Women and Girls (Combo Pack of 02)",
+      "brand": "Everyday",
+      "category": "Bras",
+      "price_original": 1399.0,
+      "price_discounted": 499.0,
+      "discount_percentage": 64,
+      "rating": "N/A",
+      "review_count": 0,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/6119cKg8hbL._AC_UL320_.jpg",
+      "product_url": "https://www.amazon.in/ComfyLegance-Everyday-Non-Padded-Non-Wired-Blushing/dp/B0CKFJ51ZK/ref=sr_1_33?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-33",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-28T06:43:05.488118"
+    },
+    {
+      "product_id": "B0GKNN4T6L",
+      "name": "Women's Seamless Everyday Bra - Pack of 2",
+      "brand": "Women's",
+      "category": "Bras",
+      "price_original": 799.0,
+      "price_discounted": 286.0,
+      "discount_percentage": 64,
+      "rating": "N/A",
+      "review_count": 0,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/61oU+UjJp2L._AC_UL320_.jpg",
+      "product_url": "https://www.amazon.in/Fabme-Womens-Seamless-Everyday-Bra/dp/B0GKNN4T6L/ref=sr_1_44?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-44",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-28T06:43:05.512489"
+    },
+    {
+      "product_id": "B0CS6X5VXM",
       "name": "Women's Seamless White Tube Bra/Crop Top, Padded",
       "brand": "Women's",
       "category": "Bras",
@@ -131,10 +185,46 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61rMKoktXSL._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/Fabme-Womens-Casual-Full-Coverage-BR0297_Skin/dp/B0CS6S92L7/ref=sr_1_33?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-33",
+      "product_url": "https://www.amazon.in/Fabme-Womens-Casual-Full-Coverage-BR0297_Skin/dp/B0CS6X5VXM/ref=sr_1_20?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-20",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.914399"
+      "scraped_at": "2026-03-28T06:43:05.455860"
+    },
+    {
+      "product_id": "B0CS6V8448",
+      "name": "Women's Seamless Skin Non Padded Full Coverage Bra",
+      "brand": "Women's",
+      "category": "Bras",
+      "price_original": 399.0,
+      "price_discounted": 182.0,
+      "discount_percentage": 54,
+      "rating": "N/A",
+      "review_count": 0,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/61CspaUdqwL._AC_UL320_.jpg",
+      "product_url": "https://www.amazon.in/Fabme-Womens-Casual-Full-Coverage-BR0298_White/dp/B0CS6V8448/ref=sr_1_37?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-37",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-28T06:43:05.499142"
+    },
+    {
+      "product_id": "B0GQZN15JD",
+      "name": "Women Padded Non Wire Bra | Comfortable Bra for Girls | Soft Cotton Full Coverage Ladies Innerwear",
+      "brand": "Women",
+      "category": "Bras",
+      "price_original": 549.0,
+      "price_discounted": 260.0,
+      "discount_percentage": 52,
+      "rating": "N/A",
+      "review_count": 0,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/61R9kx3mPCL._AC_UL320_.jpg",
+      "product_url": "https://www.amazon.in/Padded-Comfortable-Cotton-Coverage-Innerwear/dp/B0GQZN15JD/ref=sr_1_18?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-18",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-28T06:43:05.453035"
     },
     {
       "product_id": "B0DP55CSRZ",
@@ -149,28 +239,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61srRiSMZJL._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/WACOAL-Balconette-Padded-Everyday-Multicolour/dp/B0DP55CSRZ/ref=sr_1_43?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-43",
+      "product_url": "https://www.amazon.in/WACOAL-Balconette-Padded-Everyday-Multicolour/dp/B0DP55CSRZ/ref=sr_1_28?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-28",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.933447"
-    },
-    {
-      "product_id": "B0GS5H6T3R",
-      "name": "Bra for Women| Cotton Bra for Women Comfortable Everyday Bra for Womens | Non Padded Non Wired Regular Basic Women Bra' | Cotton Brafor Woman | Daily Comfortable Women's Braa",
-      "brand": "Bra",
-      "category": "Bras",
-      "price_original": 699.0,
-      "price_discounted": 349.0,
-      "discount_percentage": 50,
-      "rating": "N/A",
-      "review_count": 0,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/51sclo7ALIL._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/London-Hills-Comfortable-Everyday-Regular/dp/B0GS5H6T3R/ref=sr_1_40?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-40",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.927484"
+      "scraped_at": "2026-03-28T06:43:05.476525"
     },
     {
       "product_id": "B0C822ZX59",
@@ -185,10 +257,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/51cqjgMzNhL._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/YUCI-Beginners-Non-Padded-Non-Wired-Teenager/dp/B0C822ZX59/ref=sr_1_21?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-21",
+      "product_url": "https://www.amazon.in/YUCI-Beginners-Non-Padded-Non-Wired-Teenager/dp/B0C822ZX59/ref=sr_1_13?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-13",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.883983"
+      "scraped_at": "2026-03-28T06:43:05.441990"
     },
     {
       "product_id": "B08KDSCFSP",
@@ -203,28 +275,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/71MspN5M7QL._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/andra-Womens-Coverage-Non-Wired-Non-Padded/dp/B08KDSCFSP/ref=sr_1_47?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-47",
+      "product_url": "https://www.amazon.in/andra-Womens-Coverage-Non-Wired-Non-Padded/dp/B08KDSCFSP/ref=sr_1_35?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-35",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.944654"
-    },
-    {
-      "product_id": "B0BN8K3876",
-      "name": "Women Bra",
-      "brand": "Women",
-      "category": "Bras",
-      "price_original": 460.0,
-      "price_discounted": 342.0,
-      "discount_percentage": 25,
-      "rating": "N/A",
-      "review_count": 0,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/71+EHlr8l-L._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/TRYLO-ALPA-36-Nude-Cup/dp/B0BN8K3876/ref=sr_1_14?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-14",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.862514"
+      "scraped_at": "2026-03-28T06:43:05.493935"
     },
     {
       "product_id": "B0F891YR8H",
@@ -239,10 +293,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61ahFPvm3+L._AC_UL320_.jpg",
-      "product_url": "https://www.amazon.in/Women-Cotton-Wifefree-T_Shirt-1Piece/dp/B0F891YR8H/ref=sr_1_10?dib=eyJ2IjoiMSJ9.7Ij8z8sqEtfYpy-lEeVFu_phTlBJ5WGQV9I7HoEXpPoeDDugBzy10yMoss-TyAwqpWQawVKz_APvIhinG1SIeQU03QvEa1fsGXvzO3RSv83CeeqR3EQEgLt9xsEqE__rxg6Op4jU4pE7IlhMz7dbe9TxESEVEgsxoucrqZKu8NhZ4bn0Qwn7sspZ37LiefZ2KlSmUFDjsQ2XgEtGV5N3um7VsCbI2S1OpuEAYp-AnZ5-Bfo2ePWPyhUCokBfbngsjJUXhgH48yC5VulCvZGDtdPWgWfbuk3EpY6DaXx6ams.KVOWdLJ6o2iQWtMHOFoC4Xj4o_aOR7KIz1gABowYTAk&dib_tag=se&keywords=bras+discount&qid=1774679644&sr=8-10",
+      "product_url": "https://www.amazon.in/Women-Cotton-Wifefree-T_Shirt-1Piece/dp/B0F891YR8H/ref=sr_1_6?dib=eyJ2IjoiMSJ9.kzW5-IZdiY_BcGNiUlLYNpGFW0ZtcSubxAXRdexuyvp-PJ4lO_dEL8JWtOvVRDNr7lp5OqPlaAs8GK6eU2xCUDwhIlm4DBttgBc-Ous1iaIB2VkXy0fE-krxKDv6km-85_3Z1SCaVJB7sR04B9BsHqSsqkDVQi5AJ3Q20iTfCPGkDLn6ffNjHDFuR5KTHaMFi4oifoASiREDVN6-Qntq2VvfBFozmKzuinT6pVbd0peMt554MGb-Nc4cYwNZ_ABReo8dSKJs8tz0Rz2Oi9JFWx-fWlAPDeFrT9YLRo4IMzA.kVot3KaVd2FgavP2XD23rM1X3lUyudyS1F6ylmqxS48&dib_tag=se&keywords=bras+discount&qid=1774680184&sr=8-6",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-28T06:34:05.848513"
+      "scraped_at": "2026-03-28T06:43:05.422151"
     }
   ]
 }
