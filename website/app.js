@@ -43,8 +43,20 @@ function createProductCard(deal) {
     const discountTagHTML = disc_perc > 0 ? `<div class="discount-tag">${disc_perc}% OFF</div>` : '';
     const priceOldHTML = disc_perc > 0 ? `<span class="price-old">₹${p_orig}</span>` : '';
 
+    const image_urls = (deal.image_urls || [deal.image_url]).filter(u => u);
+    let dotsHTML = '';
+    if (image_urls.length > 1) {
+        dotsHTML = `<div class="image-dots-container">`;
+        // Limit dots to 5 for UI clarity
+        image_urls.slice(0, 7).forEach((url, index) => {
+            dotsHTML += `<span class="image-dot ${index === 0 ? 'active' : ''}" data-url="${url}"></span>`;
+        });
+        dotsHTML += `</div>`;
+    }
+
     card.innerHTML = `
         ${discountTagHTML}
+        ${dotsHTML}
         <img src="${deal.image_url}" alt="${deal.name}" class="card-img" onerror="this.src='https://via.placeholder.com/300x400?text=Premium+Lingerie'">
         <div class="card-content">
             <span class="brand-badge">${deal.brand || deal.website_source}</span>
@@ -56,6 +68,23 @@ function createProductCard(deal) {
             <a href="${deal.product_url}" target="_blank" class="btn btn-primary" style="padding: 0.6rem 1rem; width: 100%; justify-content: center; margin-top: 1.5rem; border-radius: 12px; font-size: 0.85rem;">View Deal</a>
         </div>
     `;
+
+    // Add image switching logic
+    if (image_urls.length > 1) {
+        const dots = card.querySelectorAll('.image-dot');
+        const img = card.querySelector('.card-img');
+        dots.forEach(dot => {
+            const updateImage = () => {
+                const url = dot.getAttribute('data-url');
+                img.src = url;
+                dots.forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+            };
+            dot.addEventListener('mouseenter', updateImage);
+            dot.addEventListener('click', updateImage);
+        });
+    }
+
     return card;
 }
 
