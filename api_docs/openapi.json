@@ -1,0 +1,285 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Bra Vibe India Deals API",
+    "description": "REST API for aggregated lingerie discounts across Indian e-commerce stores.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "General"
+        ],
+        "summary": "Root",
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deals": {
+      "get": {
+        "tags": [
+          "Deals"
+        ],
+        "summary": "Get Deals",
+        "description": "Retrieve all current deals with optional filtering.",
+        "operationId": "get_deals_deals_get",
+        "parameters": [
+          {
+            "name": "brand",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by brand name (case-insensitive)",
+              "title": "Brand"
+            },
+            "description": "Filter by brand name (case-insensitive)"
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by website source (e.g. Amazon India)",
+              "title": "Source"
+            },
+            "description": "Filter by website source (e.g. Amazon India)"
+          },
+          {
+            "name": "min_discount",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Minimum discount percentage",
+              "default": 20,
+              "title": "Min Discount"
+            },
+            "description": "Minimum discount percentage"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/brands": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "Get Brands",
+        "description": "Get a list of all unique brands in the current deal set.",
+        "operationId": "get_brands_brands_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "APIResponse": {
+        "properties": {
+          "metadata": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Metadata"
+          },
+          "deals": {
+            "items": {
+              "$ref": "#/components/schemas/Deal"
+            },
+            "type": "array",
+            "title": "Deals"
+          }
+        },
+        "type": "object",
+        "required": [
+          "metadata",
+          "deals"
+        ],
+        "title": "APIResponse"
+      },
+      "Deal": {
+        "properties": {
+          "product_id": {
+            "type": "string",
+            "title": "Product Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "brand": {
+            "type": "string",
+            "title": "Brand"
+          },
+          "category": {
+            "type": "string",
+            "title": "Category"
+          },
+          "price_original": {
+            "type": "number",
+            "title": "Price Original"
+          },
+          "price_discounted": {
+            "type": "number",
+            "title": "Price Discounted"
+          },
+          "discount_percentage": {
+            "type": "integer",
+            "title": "Discount Percentage"
+          },
+          "image_url": {
+            "type": "string",
+            "title": "Image Url"
+          },
+          "product_url": {
+            "type": "string",
+            "title": "Product Url"
+          },
+          "website_source": {
+            "type": "string",
+            "title": "Website Source"
+          },
+          "stock_status": {
+            "type": "string",
+            "title": "Stock Status"
+          },
+          "scraped_at": {
+            "type": "string",
+            "title": "Scraped At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "product_id",
+          "name",
+          "brand",
+          "category",
+          "price_original",
+          "price_discounted",
+          "discount_percentage",
+          "image_url",
+          "product_url",
+          "website_source",
+          "stock_status",
+          "scraped_at"
+        ],
+        "title": "Deal"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
