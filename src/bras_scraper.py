@@ -251,6 +251,28 @@ class ScraperBase:
             # Join multiple categories if found, or just take the first
             category = found_cats[0] 
 
+        # --- IMAGE MULTI-URL LOGIC ---
+        image_url = str(raw.get('image_url', ''))
+        raw_image_urls = raw.get('image_urls', [])
+        if not isinstance(raw_image_urls, list):
+            raw_image_urls = [raw_image_urls] if raw_image_urls else []
+            
+        enhanced_urls = []
+        for u in raw_image_urls:
+            e = self.enhance_image_quality(str(u))
+            if e and e not in enhanced_urls:
+                enhanced_urls.append(e)
+                
+        if image_url:
+            e_main = self.enhance_image_quality(image_url)
+            if e_main and e_main not in enhanced_urls:
+                enhanced_urls.insert(0, e_main)
+            elif e_main in enhanced_urls and enhanced_urls.index(e_main) != 0:
+                enhanced_urls.remove(e_main)
+                enhanced_urls.insert(0, e_main)
+                
+        final_main_image = enhanced_urls[0] if enhanced_urls else ""
+
         return {
             "product_id": str(raw.get('product_id', '')),
             "name": str(raw.get('name', 'N/A')).strip(),
@@ -264,7 +286,8 @@ class ScraperBase:
             "review_count": int(self.clean_price(raw.get('review_count', 0))),
             "sizes_available": raw.get('sizes_available', []),
             "colors_available": raw.get('colors_available', []),
-            "image_url": self.enhance_image_quality(str(raw.get('image_url', ''))),
+            "image_url": final_main_image,
+            "image_urls": enhanced_urls,
             "product_url": str(raw.get('product_url', '')),
             "website_source": source,
             "stock_status": raw.get('stock_status', 'In Stock'),
@@ -285,6 +308,201 @@ class StoreScrapers(ScraperBase):
                 seen.add(key)
                 unique.append(p)
         return unique
+
+    # ── PDP (Product Detail Page) Multi-Image Enrichment ────────────────
+
+    def _fetch_amazon_pdp_images(self, asin: str) -> List[str]:
+        """Visit Amazon PDP to extract all gallery images."""
+        if not asin:
+            return []
+        url = f"https://www.amazon.in/dp/{asin}"
+        html = self.safe_request(url, "amazon")
+        if not html:
+            return []
+
+        images = []
+
+        # Strategy 1: colorImages JS blob (best source – has hiRes URLs)
+        ci_pos = html.find("'colorImages'")
+        if ci_pos == -1:
+            ci_pos = html.find('"colorImages"')
+        if ci_pos != -1:
+            init_pos = html.find("'initial'", ci_pos, ci_pos + 300)
+            if init_pos == -1:
+                init_pos = html.find('"initial"', ci_pos, ci_pos + 300)
+            if init_pos != -1:
+                arr_start = html.find('[', init_pos, init_pos + 50)
+                if arr_start != -1:
+                    depth, end_pos = 0, arr_start
+                    for i in range(arr_start, min(len(html), arr_start + 100_000)):
+                        if html[i] == '[':
+                            depth += 1
+                        elif html[i] == ']':
+                            depth -= 1
+                            if depth == 0:
+                                end_pos = i
+                                break
+                    if depth == 0:
+                        try:
+                            for obj in json.loads(html[arr_start:end_pos + 1]):
+                                hi = obj.get('hiRes') or obj.get('large') or ''
+                                if isinstance(hi, dict):
+                                    hi = hi.get('url', '')
+                                if hi and hi not in images:
+                                    images.append(hi)
+                        except Exception:
+                            pass
+
+        # Strategy 2: Regex for hiRes URLs in page JS
+        if not images:
+            for m in re.finditer(r'"hiRes"\s*:\s*"(https://[^"]+)"', html):
+                u = m.group(1)
+                if u not in images and 'media-amazon' in u:
+                    images.append(u)
+
+        # Strategy 3: data-a-dynamic-image on #landingImage
+        if not images:
+            dyn_m = re.search(
+                r'data-a-dynamic-image\s*=\s*["\']({.+?})["\']',
+                html[:500_000],
+            )
+            if dyn_m:
+                try:
+                    raw_json = dyn_m.group(1).replace('&amp;', '&').replace('&quot;', '"')
+                    dyn = json.loads(raw_json)
+                    for u in sorted(dyn, key=lambda k: dyn[k][0] * dyn[k][1], reverse=True):
+                        if u not in images:
+                            images.append(u)
+                except Exception:
+                    pass
+
+        # Strategy 4: Sweep for unique media-amazon image IDs
+        if len(images) < 3:
+            seen_ids = set()
+            for u in images:
+                id_m = re.search(r'/images/I/([^.]+)', u)
+                if id_m:
+                    seen_ids.add(id_m.group(1))
+            for m in re.finditer(
+                r'https://m\.media-amazon\.com/images/I/([A-Za-z0-9+%_-]{6,})(?:\._[^"\']+_)?\.(?:jpg|png|webp)',
+                html,
+            ):
+                img_id = m.group(1)
+                if img_id in seen_ids:
+                    continue
+                if any(s in m.group(0).lower() for s in ('sprite', 'icon', 'play-button', 'video-thumb', 'loading')):
+                    continue
+                images.append(f"https://m.media-amazon.com/images/I/{img_id}.jpg")
+                seen_ids.add(img_id)
+
+        logger.debug(f"  [AMAZON PDP] ASIN={asin} -> {len(images)} images")
+        return images[:10]
+
+    def _fetch_flipkart_pdp_images(self, product_url: str) -> List[str]:
+        """Visit a Flipkart PDP to extract all gallery images."""
+        if not product_url:
+            return []
+        html = self.safe_request(product_url, "flipkart")
+        if not html:
+            return []
+
+        images = []
+
+        # Strategy 1: JSON-LD @type=Product
+        for m in re.finditer(
+            r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',
+            html, re.DOTALL,
+        ):
+            try:
+                ld = json.loads(m.group(1))
+                if isinstance(ld, dict) and ld.get('@type') == 'Product':
+                    img = ld.get('image', [])
+                    if isinstance(img, list):
+                        for u in img:
+                            if u and u not in images:
+                                images.append(str(u))
+                    elif isinstance(img, str) and img not in images:
+                        images.append(img)
+            except Exception:
+                continue
+
+        # Strategy 2: Regex for high-res rukminim URLs
+        if len(images) < 3:
+            for m in re.finditer(
+                r'(https?://rukminim[12]\.flixcart\.com/image/(\d+)/(\d+)/[^\s"\'\\]+)',
+                html,
+            ):
+                w = int(m.group(2))
+                if w < 200:
+                    continue  # skip tiny thumbnails
+                raw_url = m.group(1).rstrip('\\')
+                upgraded = re.sub(r'/image/\d+/\d+/', '/image/1080/1080/', raw_url)
+                if upgraded not in images:
+                    images.append(upgraded)
+
+        # Strategy 3: imageUrls arrays in embedded JSON
+        if len(images) < 3:
+            for m in re.finditer(r'"imageUrl"\s*:\s*"(https?://[^"]+)"', html):
+                u = m.group(1)
+                if ('rukminim' in u or 'flixcart' in u) and u not in images:
+                    upgraded = re.sub(r'/image/\d+/\d+/', '/image/1080/1080/', u)
+                    if upgraded not in images:
+                        images.append(upgraded)
+
+        # Dedup by normalized path (ignore size params)
+        seen_paths = set()
+        unique = []
+        for u in images:
+            norm = re.sub(r'/image/\d+/\d+/', '/image/X/X/', u)
+            if norm not in seen_paths:
+                seen_paths.add(norm)
+                unique.append(u)
+
+        logger.debug(f"  [FLIPKART PDP] -> {len(unique)} images")
+        return unique[:10]
+
+    def _enrich_with_pdp_images(self, results: List[Dict], store: str) -> List[Dict]:
+        """Batch-enrich products with multi-image data from their PDPs."""
+        if not results:
+            return results
+
+        to_enrich = [(i, p) for i, p in enumerate(results) if len(p.get('image_urls', [])) <= 1]
+        if not to_enrich:
+            logger.info(f"  [{store.upper()}] All products already have multiple images")
+            return results
+
+        logger.info(f"  [{store.upper()}] Enriching {len(to_enrich)}/{len(results)} products with PDP images...")
+
+        def _fetch_one(item):
+            idx, product = item
+            try:
+                if store == 'amazon':
+                    pdp_imgs = self._fetch_amazon_pdp_images(product.get('product_id', ''))
+                elif store == 'flipkart':
+                    pdp_imgs = self._fetch_flipkart_pdp_images(product.get('product_url', ''))
+                else:
+                    return
+                if pdp_imgs:
+                    enhanced = [self.enhance_image_quality(u) for u in pdp_imgs]
+                    enhanced = list(dict.fromkeys(u for u in enhanced if u))
+                    product['image_urls'] = enhanced
+                    product['image_url'] = enhanced[0]
+            except Exception as e:
+                logger.debug(f"  [{store.upper()}] PDP enrich error: {e}")
+
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            futures = [pool.submit(_fetch_one, item) for item in to_enrich]
+            for future in as_completed(futures):
+                try:
+                    future.result()
+                except Exception as e:
+                    logger.debug(f"  [{store.upper()}] PDP thread error: {e}")
+
+        counts = [len(p.get('image_urls', [])) for p in results]
+        avg = sum(counts) / len(counts) if counts else 0
+        multi = sum(1 for c in counts if c > 1)
+        logger.info(f"  [{store.upper()}] PDP enrichment done: avg {avg:.1f} imgs/product, {multi}/{len(results)} multi-image")
+        return results
 
     def scrape_amazon(self) -> List[Dict[str, Any]]:
         logger.info("Scraping Amazon India (multi-page, multi-query)...")
@@ -326,6 +544,55 @@ class StoreScrapers(ScraperBase):
                         image_tag = item.select_one('img.s-image')
                         link_tag = item.select_one('h2 a, a.a-link-normal.s-no-outline')
                         
+                        # --- MULTI-IMAGE EXTRACTION (Amazon) ---
+                        amazon_image_urls = []
+                        main_img_url = ''
+                        if image_tag:
+                            main_img_url = image_tag.get('src', '')
+                            # 1) Extract from data-a-dynamic-image JSON attr
+                            dyn_img = image_tag.get('data-a-dynamic-image', '')
+                            if dyn_img:
+                                try:
+                                    dyn_data = json.loads(dyn_img)
+                                    # Keys are URLs, values are [w,h] — pick the largest
+                                    sorted_urls = sorted(dyn_data.keys(), key=lambda u: dyn_data[u][0] * dyn_data[u][1], reverse=True)
+                                    for u in sorted_urls:
+                                        if u not in amazon_image_urls:
+                                            amazon_image_urls.append(u)
+                                except: pass
+                            
+                            # 2) Extract from srcset attribute
+                            srcset = image_tag.get('srcset', '')
+                            if srcset:
+                                for part in srcset.split(','):
+                                    src_url = part.strip().split(' ')[0]
+                                    if src_url and src_url not in amazon_image_urls:
+                                        amazon_image_urls.append(src_url)
+                            
+                            # 3) Add main src if not already present
+                            if main_img_url and main_img_url not in amazon_image_urls:
+                                amazon_image_urls.insert(0, main_img_url)
+                        
+                        # 4) Extract color/variant swatch images from the same card
+                        swatch_imgs = item.select('img.s-image-swatch, .s-color-swatch-outer-circle img, [class*="swatch"] img, li.a-spacing-mini img')
+                        for sw_img in swatch_imgs:
+                            sw_src = sw_img.get('src', '') or sw_img.get('data-src', '')
+                            if sw_src and sw_src not in amazon_image_urls:
+                                amazon_image_urls.append(sw_src)
+                        
+                        # 5) Generate alternate-view URLs from ASIN pattern
+                        #    Amazon images: /images/I/{ID}._SUFFIX_.jpg
+                        #    Main listing image is typically _AC_UL..., the product page has
+                        #    images with IDs like 51Abc+XyZL, 41DefGhiJL, etc.
+                        if main_img_url and 'media-amazon' in main_img_url:
+                            base_match = re.search(r'/images/I/([A-Za-z0-9+%-]+)\.', main_img_url)
+                            if base_match:
+                                base_id = base_match.group(1)
+                                # Strip any resize suffix to get clean full-res URL
+                                clean_url = f"https://m.media-amazon.com/images/I/{base_id}.jpg"
+                                if clean_url not in amazon_image_urls:
+                                    amazon_image_urls.insert(0, clean_url)
+                        
                         # Rating extraction
                         rating_tag = item.select_one('.a-icon-star-small .a-icon-alt, .a-icon-star .a-icon-alt')
                         rating = 'N/A'
@@ -345,7 +612,8 @@ class StoreScrapers(ScraperBase):
                             "brand": name_tag.text.split(' ')[0],
                             "price_original": p_orig,
                             "price_discounted": p_disc,
-                            "image_url": image_tag.get('src') if image_tag else "",
+                            "image_url": amazon_image_urls[0] if amazon_image_urls else (main_img_url or ""),
+                            "image_urls": amazon_image_urls if amazon_image_urls else ([main_img_url] if main_img_url else []),
                             "product_url": "https://www.amazon.in" + link_tag.get('href') if link_tag else "",
                             "rating": rating,
                             "review_count": review_count,
@@ -359,6 +627,7 @@ class StoreScrapers(ScraperBase):
                 time.sleep(random.uniform(2, 4))  # Inter-page delay
         
         results = self._dedup_results(all_results)
+        results = self._enrich_with_pdp_images(results, 'amazon')
         logger.info(f"[AMAZON] Total unique items: {len(results)}")
         return results
 
@@ -398,6 +667,7 @@ class StoreScrapers(ScraperBase):
                                         "price_original": offers.get('highPrice', offers.get('price', 0)),
                                         "price_discounted": offers.get('lowPrice', offers.get('price', 0)),
                                         "image_url": p.get('image', [''])[0] if isinstance(p.get('image'), list) else str(p.get('image', '')),
+                                        "image_urls": p.get('image', []) if isinstance(p.get('image'), list) else [str(p.get('image', ''))],
                                         "product_url": p.get('url', ''),
                                     }
                                     page_results.append(self.normalize(raw, conf['name']))
@@ -455,8 +725,24 @@ class StoreScrapers(ScraperBase):
                                 p_disc = prices[0] if prices else 0
                                 p_orig = prices[-1] if len(prices) > 1 else p_disc
                                 
-                                img = card.select_one('img[src*="rukminim"], img[src*="flixcart"]')
-                                img_url = img.get('src', '') if img else ''
+                                # --- MULTI-IMAGE EXTRACTION (Flipkart HTML) ---
+                                fk_image_urls = []
+                                all_imgs = card.select('img[src*="rukminim"], img[src*="flixcart"], img[data-src*="rukminim"], img[data-src*="flixcart"]')
+                                for fk_img in all_imgs:
+                                    fk_src = fk_img.get('src', '') or fk_img.get('data-src', '')
+                                    if fk_src and fk_src not in fk_image_urls:
+                                        fk_image_urls.append(fk_src)
+                                
+                                # Also check for srcset on flipkart images
+                                for fk_img in all_imgs:
+                                    fk_srcset = fk_img.get('srcset', '')
+                                    if fk_srcset:
+                                        for part in fk_srcset.split(','):
+                                            src_url = part.strip().split(' ')[0]
+                                            if src_url and src_url not in fk_image_urls:
+                                                fk_image_urls.append(src_url)
+                                
+                                img_url = fk_image_urls[0] if fk_image_urls else ''
                                 
                                 if name and (p_disc > 0 or p_orig > 0):
                                     raw = {
@@ -466,6 +752,7 @@ class StoreScrapers(ScraperBase):
                                         "price_original": p_orig,
                                         "price_discounted": p_disc,
                                         "image_url": img_url,
+                                        "image_urls": fk_image_urls if fk_image_urls else [],
                                         "product_url": "https://www.flipkart.com" + href if not href.startswith('http') else href,
                                     }
                                     page_results.append(self.normalize(raw, conf['name']))
@@ -480,6 +767,7 @@ class StoreScrapers(ScraperBase):
                 time.sleep(random.uniform(2, 4))
         
         results = self._dedup_results(all_results)
+        results = self._enrich_with_pdp_images(results, 'flipkart')
         logger.info(f"[FLIPKART] Total unique items: {len(results)}")
         return results
 
@@ -547,6 +835,7 @@ class StoreScrapers(ScraperBase):
                                     "rating": p.get('rating', 'N/A'),
                                     "review_count": p.get('ratingCount', 0),
                                     "image_url": p.get('searchImage', ''),
+                                    "image_urls": [img.get('src') if isinstance(img, dict) else str(img) for img in p.get('images', [])] if p.get('images') else [p.get('searchImage', '')],
                                     "product_url": "https://www.myntra.com/" + str(p.get('landingPageUrl', '')),
                                 }
                                 page_results.append(self.normalize(raw, conf['name']))
@@ -584,6 +873,7 @@ class StoreScrapers(ScraperBase):
                                         "rating": p.get('rating', 'N/A'),
                                         "review_count": p.get('ratingCount', 0),
                                         "image_url": p.get('searchImage', ''),
+                                        "image_urls": [img.get('src') if isinstance(img, dict) else str(img) for img in p.get('images', [])] if p.get('images') else [p.get('searchImage', '')],
                                         "product_url": "https://www.myntra.com/" + str(p.get('landingPageUrl', '')),
                                     }
                                     page_results.append(self.normalize(raw, conf['name']))
@@ -612,14 +902,20 @@ class StoreScrapers(ScraperBase):
         for p in products:
             try:
                 img_url = ''
+                image_urls = []
                 images = p.get('images', [])
                 if images:
-                    if isinstance(images[0], dict):
-                        img_url = images[0].get('url', '')
-                    else:
-                        img_url = str(images[0])
+                    for img in images:
+                        if isinstance(img, dict) and img.get('url'):
+                            image_urls.append(img.get('url'))
+                        elif isinstance(img, str):
+                            image_urls.append(img)
+                    if image_urls:
+                        img_url = image_urls[0]
                 if not img_url:
                     img_url = p.get('imageUrl', '') or p.get('image', '')
+                    if img_url:
+                        image_urls.append(img_url)
                 
                 was_price = p.get('wasPriceData', {})
                 if isinstance(was_price, dict):
@@ -641,6 +937,7 @@ class StoreScrapers(ScraperBase):
                     "price_discounted": disc_price,
                     "discount_percentage": p.get('discount', None),
                     "image_url": img_url,
+                    "image_urls": image_urls,
                     "product_url": "https://www.ajio.com" + str(p.get('url', '')),
                 }
                 results.append(self.normalize(raw, conf['name']))
@@ -702,7 +999,8 @@ class StoreScrapers(ScraperBase):
                                     "brand": p.get('brandName', 'AJIO'),
                                     "price_discounted": float(p.get('price', {}).get('value', 0)),
                                     "price_original": float(p.get('wasPriceData', {}).get('value', 0)) or float(p.get('price', {}).get('value', 0)) * 1.5,
-                                    "image_url": p.get('images', [{}])[0].get('url', ''),
+                                    "image_url": p.get('images', [{}])[0].get('url', '') if p.get('images') else '',
+                                    "image_urls": [img.get('url') for img in p.get('images', []) if isinstance(img, dict) and img.get('url')],
                                     "product_url": "https://www.ajio.com" + p.get('url', '')
                                 }, "Ajio"))
                             except: pass
@@ -800,6 +1098,7 @@ class StoreScrapers(ScraperBase):
                                                 "price_discounted": float(item.get('price', 0)),
                                                 "price_original": float(item.get('mrp', 0)),
                                                 "image_url": item.get('image_url', ''),
+                                                "image_urls": item.get('gallery', [item.get('image_url', '')]),
                                                 "product_url": "https://www.zivame.com" + item.get('product_url', ''),
                                                 "brand": item.get('brand_name', 'Zivame'),
                                             }, "Zivame"))
@@ -880,6 +1179,7 @@ class StoreScrapers(ScraperBase):
                             "price_discounted": p.get('offer_price', p.get('price_actual', p.get('price', 0))),
                             "discount_percentage": p.get('discount', None),
                             "image_url": p.get('image_url', p.get('imageUrl', p.get('image', ''))),
+                            "image_urls": p.get('gallery', [p.get('image_url', p.get('imageUrl', p.get('image', '')))]),
                             "product_url": "https://www.clovia.com" + str(p.get('product_url', p.get('url', ''))),
                         }
                         all_results.append(self.normalize(raw, conf['name']))
@@ -956,6 +1256,7 @@ class StoreScrapers(ScraperBase):
                                         "price_discounted": float(p.get('price', {}).get('discounted', 0)),
                                         "price_original": float(p.get('price', {}).get('regular', 0)),
                                         "image_url": p.get('imageUrl', ''),
+                                        "image_urls": [img.get('url', '') for img in p.get('media', [])] if p.get('media') else [p.get('imageUrl', '')],
                                         "product_url": "https://www.nykaafashion.com" + p.get('url', ''),
                                         "brand": p.get('brandName', ''),
                                     }, "Nykaa"))
