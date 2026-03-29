@@ -5,7 +5,29 @@ const DEALS_JSON_PATH = '../data/bras_deals.json';
 document.addEventListener('DOMContentLoaded', () => {
     fetchDeals();
     initializeTabs();
+    updateHomeMetrics();
 });
+
+async function updateHomeMetrics() {
+    const totalCountEl = document.getElementById('total-count');
+    const storeCountEl = document.getElementById('store-count');
+    
+    if (!totalCountEl || !storeCountEl) return;
+
+    try {
+        const response = await fetch('../data/all_bras.json');
+        const data = await response.json();
+        const deals = data.deals || [];
+        
+        const total = deals.length;
+        const stores = [...new Set(deals.map(d => d.website_source))].length;
+
+        totalCountEl.innerText = total;
+        storeCountEl.innerText = stores;
+    } catch (err) {
+        console.error("Failed to load metrics:", err);
+    }
+}
 
 async function fetchDeals() {
     const dealsContainer = document.getElementById('deals-container');

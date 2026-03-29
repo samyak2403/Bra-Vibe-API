@@ -92,6 +92,7 @@
             </a>
             <div class="nav-links">
                 <a href="index.html">Back to Home</a>
+                <a href="stats.html">Stats</a>
                 <a href="https://github.com/samyak2403/Bra-Vibe-API" target="_blank">GitHub</a>
             </div>
         </div>
@@ -173,13 +174,17 @@
                         <tr><td>product_id</td><td class="param-type">String</td><td>Unique ID from the source store.</td></tr>
                         <tr><td>name</td><td class="param-type">String</td><td>Normalized product title.</td></tr>
                         <tr><td>brand</td><td class="param-type">String</td><td>Brand name or "N/A".</td></tr>
+                        <tr><td>category</td><td class="param-type">String</td><td>Primary product category (e.g., Push-Up Bra).</td></tr>
                         <tr><td>price_original</td><td class="param-type">Float</td><td>MRP or original listed price.</td></tr>
                         <tr><td>price_discounted</td><td class="param-type">Float</td><td>Current flash sale price.</td></tr>
                         <tr><td>discount_percentage</td><td class="param-type">Integer</td><td>Percentage off (Min 20%).</td></tr>
-                        <tr><td>image_url</td><td class="param-type">String</td><td>High-resolution product image link.</td></tr>
+                        <tr><td>sizes_available</td><td class="param-type">Array[String]</td><td>List of available sizes (e.g., ["32B", "34C"]).</td></tr>
+                        <tr><td>colors_available</td><td class="param-type">Array[String]</td><td>List of available color variants.</td></tr>
+                        <tr><td>image_url</td><td class="param-type">String</td><td>High-resolution primary product image.</td></tr>
+                        <tr><td>image_urls</td><td class="param-type">Array[String]</td><td>List of all available product image variants.</td></tr>
                         <tr><td>product_url</td><td class="param-type">String</td><td>Direct deep-link to the store page.</td></tr>
-                        <tr><td>website_source</td><td class="param-type">String</td><td>The source (e.g., Amazon, Ajio).</td></tr>
-                        <tr><td>scraped_at</td><td class="param-type">String</td><td>ISO timestamp of when the deal was found.</td></tr>
+                        <tr><td>website_source</td><td class="param-type">String</td><td>The source store (e.g., Amazon, Ajio).</td></tr>
+                        <tr><td>scraped_at</td><td class="param-type">String</td><td>ISO timestamp of the deal discovery.</td></tr>
                     </tbody>
                 </table>
             </section>
