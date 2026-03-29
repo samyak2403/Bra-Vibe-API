@@ -1,11 +1,11 @@
 {
   "metadata": {
     "source": "India Multi-Store Consolidated - Premium",
-    "timestamp": "2026-03-29T14:37:22.881816",
+    "timestamp": "2026-03-29T15:05:46.562931",
     "stats": {
-      "total_extracted": 673,
-      "premium_count": 26,
-      "duration_seconds": 2377.86
+      "total_extracted": 667,
+      "premium_count": 20,
+      "duration_seconds": 1466.21
     }
   },
   "deals": [
@@ -26,82 +26,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/51R7Ar7PN+L.jpg",
-      "product_url": "https://www.amazon.in/GLAMORAS-Polyester-Spandex-Longline-Fitness/dp/B0CTTXLSCN/ref=sr_1_68?dib=eyJ2IjoiMSJ9.-TnLq6uE6LmAuQaCjSDECWGZS1YsGVxTiLL9x88332rtZmvFX2vTzU72LFhNNtviMqkcVx0lQ590BpgR5ae0tiTRDx4JP0RN46fhUWmaBjlL_MfhERQ9u2tf8tPCMptn7nHXPjEL0UcfLWmx2KrU3PPVyXFbvdM9xBKharhg8iZVIZgNlHNWQ2YIWca4SRFhUdnsJh8ijo_KYcOZKwcHzbtE7Mmc31PwKH4zquARRN4W3iA_sZghA7tVZDHZ5Wn2lD3bqv0qhfUg51cgUQEFUBPJQDYGXi5sTHD4krjebu4.hgTSzIe7sZiMyb06VTQ197YVyRG48uBo0H_MSq4Arok&dib_tag=se&keywords=sports+bra+women&qid=1774792739&sr=8-68",
+      "product_url": "https://www.amazon.in/GLAMORAS-Polyester-Spandex-Longline-Fitness/dp/B0CTTXLSCN/ref=sr_1_90?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-90",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:59:00.686129",
-      "premium": true
-    },
-    {
-      "product_id": "B0CVVPTCBB",
-      "name": "Women Polyester Spandex Medium Impact Front Zip Sports Bra Longline Fitness Criss Cross Back Crop Tops Tank Gym Yoga Workout, Size: M-2XL",
-      "brand": "Women",
-      "category": "Sports Bra",
-      "category_all": [
-        "Sports Bra",
-        "Longline Bra"
-      ],
-      "price_original": 2999.0,
-      "price_discounted": 783.0,
-      "discount_percentage": 73,
-      "rating": "N/A",
-      "review_count": 121,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/61xt50uqRHL.jpg",
-      "product_url": "https://www.amazon.in/GLAMORAS-Polyester-Spandex-Longline-Fitness/dp/B0CVVPTCBB/ref=sr_1_84?dib=eyJ2IjoiMSJ9.-TnLq6uE6LmAuQaCjSDECWGZS1YsGVxTiLL9x88332rtZmvFX2vTzU72LFhNNtviMqkcVx0lQ590BpgR5ae0tiTRDx4JP0RN46fhUWmaBjlL_MfhERQ9u2tf8tPCMptn7nHXPjEL0UcfLWmx2KrU3PPVyXFbvdM9xBKharhg8iZVIZgNlHNWQ2YIWca4SRFhUdnsJh8ijo_KYcOZKwcHzbtE7Mmc31PwKH4zquARRN4W3iA_sZghA7tVZDHZ5Wn2lD3bqv0qhfUg51cgUQEFUBPJQDYGXi5sTHD4krjebu4.hgTSzIe7sZiMyb06VTQ197YVyRG48uBo0H_MSq4Arok&dib_tag=se&keywords=sports+bra+women&qid=1774792739&sr=8-84",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:59:00.778820",
-      "premium": true
-    },
-    {
-      "product_id": "B001GCUVMI",
-      "name": "Women's Active Lifestyle Bra",
-      "brand": "Women's",
-      "category": "Sports Bra",
-      "category_all": [
-        "Sports Bra"
-      ],
-      "price_original": 12247.95,
-      "price_discounted": 3203.96,
-      "discount_percentage": 73,
-      "rating": "N/A",
-      "review_count": 15,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/81ge1cTO7bL.jpg",
-      "product_url": "https://www.amazon.in/Playtex-Womens-Active-Lifestyle-Light/dp/B001GCUVMI/ref=sr_1_67?dib=eyJ2IjoiMSJ9.Zk65beivIKUTFK79_8kh7MY8h32ll1ExyY4TwfCcOEJa7VzIwqGP7fD-uk0DEYWAXLAbe5CHHR-DFrPlHhpSTCYiH22GcmtH4f41PldaBpSLsVpGEulF6tzQvFLz6lpdQ89VlV4amfenQCH_rDkyGQ5Vm57R3tgtr_utLSOGEghsqMMhd87vfjM1zpbkoCbYgUJEH4gHfX-QOd6NFHsBNB0bwHi4-c0iVGgHv_Y4DhTTOEPMYgJLYzDU-l4tQtrPgrmMWqQBP2g2Lc2hQ5j2fh9W570r3kvbvumu4mWToSY.-m2IlU-6GOZ0HajXNIWlEgSOQdEgkVY1F8OwevCJtA8&dib_tag=se&keywords=bras+discount&qid=1774792823&sr=8-67",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:00:25.247344",
-      "premium": true
-    },
-    {
-      "product_id": "B0FBRC7T89",
-      "name": "Women Everyday Padded Bra (Pack of 4) - Made of Pure Cotton Full Coverage Non Wired Pushup Soft Cup for T-Shirt Saree Dress Sports Garment for Daily Use Everyday",
-      "brand": "Women",
-      "category": "T-Shirt Bra",
-      "category_all": [
-        "T-Shirt Bra",
-        "Full Coverage Bra",
-        "Underwire Bra",
-        "Push-Up Bra",
-        "Padded Bra",
-        "Sports Bra"
-      ],
-      "price_original": 2549.0,
-      "price_discounted": 706.0,
-      "discount_percentage": 72,
-      "rating": "N/A",
-      "review_count": 0,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/719dLj-Q1iL.jpg",
-      "product_url": "https://www.amazon.in/Tulzott-Women-Everyday-Padded-Pack/dp/B0FBRC7T89/ref=sr_1_93?dib=eyJ2IjoiMSJ9.A8-EHtruS1pXqcIFN7KC10TJQET_oa_4w8t9Kiw5hMVMTxSbLco6shqNRR39OjQz_ShYf6-xbkCNotiM_yOYBk9JEXRCJxxCqsDsEotJmzgzND8EjH7QO-hekKT1TJTPPBXB6fQZ3kohfTKodLDvXSHJwMpwmK5QXjXgqanMpzExCqCVUBZCGEdrGv11XLsth8Dl2AddoDzIfsPa63HCJsEvRms_sPo8OCYR3lV0Ps97O-8n97xHWNwwqsfXih5s_lTZ4PpkQx5O9bJYd_GwGU9yR_EmpMsa-DDJeJLR3Sk.yw2bofDQuZ8GNOtX_CsC3E-w_QCWAzcC7I4aHjmUyZc&dib_tag=se&keywords=t-shirt+bra&qid=1774792697&sr=8-93",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:58:19.405601",
+      "scraped_at": "2026-03-29T14:42:34.181891",
       "premium": true
     },
     {
@@ -121,37 +49,14 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/51OXrJ9E+qL.jpg",
-      "product_url": "https://www.amazon.in/GLAMORAS-Polyester-Spandex-Wirefree-Adjustable/dp/B0CV42PQ2M/ref=sr_1_48?dib=eyJ2IjoiMSJ9.okw2BeUJo84r5Kfd3Qnm8P-xFs5K-wi71JgW36ZhgQRtdFb6BVnwZPt1v9QKKLOiRA6Bq70KiDLynkY5dJGvLtEeZh58PmOntzNXseb_HG9ZZzQY8zfpUQf7n12-zkA2qwfsnSubXe2blb2FWUso3Iw0FxrzIWQTK2gB3Qo212wPKuS0av67kPtxMArr3jInOzB0J4tkLahJHi5gVNC8GdU9TgDzZxy1ilHmbA0hmvAtWaFjXHOKvPrr9WMDYlZzSm4_uXk9x9G6WRVSHIeJVUoqR4JJ7WbZETCsmZ1MjHA.7DMJ1t5UQTAzK7OjdcmN3pN47xT35owniTDMcZ9hhYs&dib_tag=se&keywords=push+up+bra&qid=1774792708&sr=8-48",
+      "product_url": "https://www.amazon.in/GLAMORAS-Polyester-Spandex-Wirefree-Adjustable/dp/B0CV42PQ2M/ref=sr_1_67?dib=eyJ2IjoiMSJ9.cdsNruVFXtHorzsrXNFolBk2q21zpGiMPk2FIUoRcRqRtNbrm3lNn6eFMm2Zx0iJI67iXh8QLeX3VCVmXRarsthN4h3FojDRB-Vu2lgE2e0J_TjlAId8Lbc_lFOad_mXI0oeexRNoa_4Iy7FnyHNAdHEysaaeWrxPjhidhwNv3njQNKwBeEAyHB9JSnM-ctNMObd-nuDaCqfilA1T6aGuBsWA8L8QmQKo9IBawMPolJJEA7OCZfKys85hyS5PunsCe4sf4dQwswCIa7RIYPIXQ0PeX2breiNXEVUY-Hgyyg.1kADcO4oFfHfwTGtswa1_dEXEEhpVwP_KuzSn-6naDo&dib_tag=se&keywords=push+up+bra&qid=1774795334&sr=8-67",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:58:30.219778",
+      "scraped_at": "2026-03-29T14:42:15.737897",
       "premium": true
     },
     {
-      "product_id": "B0CSND3DFV",
-      "name": "Polyamide Women's Medium Impact Padded Front Zip Racerback Sports Bra With Adjustable Strap",
-      "brand": "Polyamide",
-      "category": "Padded Bra",
-      "category_all": [
-        "Padded Bra",
-        "Sports Bra"
-      ],
-      "price_original": 1899.0,
-      "price_discounted": 536.0,
-      "discount_percentage": 71,
-      "rating": "N/A",
-      "review_count": 73,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/81RCReo3t4L.jpg",
-      "product_url": "https://www.amazon.in/PLUMBURY-Polyamide-Support-Racerback-Adjustable/dp/B0CSND3DFV/ref=sr_1_79?dib=eyJ2IjoiMSJ9.-TnLq6uE6LmAuQaCjSDECWGZS1YsGVxTiLL9x88332rtZmvFX2vTzU72LFhNNtviMqkcVx0lQ590BpgR5ae0tiTRDx4JP0RN46fhUWmaBjlL_MfhERQ9u2tf8tPCMptn7nHXPjEL0UcfLWmx2KrU3PPVyXFbvdM9xBKharhg8iZVIZgNlHNWQ2YIWca4SRFhUdnsJh8ijo_KYcOZKwcHzbtE7Mmc31PwKH4zquARRN4W3iA_sZghA7tVZDHZ5Wn2lD3bqv0qhfUg51cgUQEFUBPJQDYGXi5sTHD4krjebu4.hgTSzIe7sZiMyb06VTQ197YVyRG48uBo0H_MSq4Arok&dib_tag=se&keywords=sports+bra+women&qid=1774792739&sr=8-79",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:59:00.752437",
-      "premium": true
-    },
-    {
-      "product_id": "B0DK3PD14P",
+      "product_id": "B0DK3PTV2C",
       "name": "Women's Sports Bra | Wirefree Full Coverage Sports Bra | High Impact Racerback Design with Front Zip & Removable Pads | Sports Bra for Gym, Yoga, Fitness Workouts Size: S-5XL",
       "brand": "Women's",
       "category": "Full Coverage Bra",
@@ -167,11 +72,11 @@
       "review_count": 38,
       "sizes_available": [],
       "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/41AP+Agz4CL.jpg",
-      "product_url": "https://www.amazon.in/GLAMORAS-Wirefree-Coverage-Racerback-Removable/dp/B0DK3PD14P/ref=sr_1_91?dib=eyJ2IjoiMSJ9.-TnLq6uE6LmAuQaCjSDECWGZS1YsGVxTiLL9x88332rtZmvFX2vTzU72LFhNNtviMqkcVx0lQ590BpgR5ae0tiTRDx4JP0RN46fhUWmaBjlL_MfhERQ9u2tf8tPCMptn7nHXPjEL0UcfLWmx2KrU3PPVyXFbvdM9xBKharhg8iZVIZgNlHNWQ2YIWca4SRFhUdnsJh8ijo_KYcOZKwcHzbtE7Mmc31PwKH4zquARRN4W3iA_sZghA7tVZDHZ5Wn2lD3bqv0qhfUg51cgUQEFUBPJQDYGXi5sTHD4krjebu4.hgTSzIe7sZiMyb06VTQ197YVyRG48uBo0H_MSq4Arok&dib_tag=se&keywords=sports+bra+women&qid=1774792739&sr=8-91",
+      "image_url": "https://m.media-amazon.com/images/I/41l7jYFOYqL.jpg",
+      "product_url": "https://www.amazon.in/GLAMORAS-Wirefree-Coverage-Racerback-Removable/dp/B0DK3PTV2C/ref=sr_1_95?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-95",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:59:00.818691",
+      "scraped_at": "2026-03-29T14:42:34.212649",
       "premium": true
     },
     {
@@ -191,33 +96,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/71My5bQAQ3L.jpg",
-      "product_url": "https://www.amazon.in/Fabluk-High-Performance-Breathable-Racerback-Removable/dp/B0CS6N2Q98/ref=sr_1_17?dib=eyJ2IjoiMSJ9.Hfx_VwHuYTKd1q1UGOxKepCDxwKLDAyC4_qHpBXzBLmuMBI8S--EkJe5QhT0MOGVyMCeGp0f12UrzdownNQ9kUvgBuOn217NhoSXj9aIDwTGXcZ-h6BYAfyts3nbLfXE4Z9ClkGnWouKG8dLvLcDi0kEXmVQhDUX_JInh36rEYfqw98JVzAghs4gpZnJ3Sqkqd5mOcO5RRk8MgCCKMnvOHQP5mR-xfnqn_GoX5L69uAM55OXKQniUpohGhPeGFAAQ2YlN56e11a8kcYHArxgBSCo4x6wHdCmJQkiRKWnnws.Wma4lrVbI5dGW1hsv-tv8lBn0g2f3AzoTwD_U6Kt0Aw&dib_tag=se&keywords=bras+discount&qid=1774792814&sr=8-17",
+      "product_url": "https://www.amazon.in/Fabluk-High-Performance-Breathable-Racerback-Removable/dp/B0CS6N2Q98/ref=sr_1_36?dib=eyJ2IjoiMSJ9.Hfx_VwHuYTKd1q1UGOxKeko5zov5zEps4WBuVQbgAU8eDDugBzy10yMoss-TyAwqW-5pRKkNRfwKDFUv-uG7AZkob25kd-O8MxOgTIkWZpXGXcZ-h6BYAfyts3nbLfXE85BmFPgC65_qiSTzLptxz_QO-wDHCiDIBPP1TAu_W64mG0lIVxe7VB6jk2p0iQEvxQXuA_wZNYPGhDGBB6wvxK-rHy5DzQXElxgbdPrxWx6W6hEf85l6T_zInHuqFOasrwMspxpGcxPpf3iDuW2x6iCo4x6wHdCmJQkiRKWnnws.LFIVv7Y-gsXcD3HZ98UzXZHZkr4JeWMmp_FHIf2tCkY&dib_tag=se&keywords=bras+discount&qid=1774795433&sr=8-36",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:00:15.855841",
-      "premium": true
-    },
-    {
-      "product_id": "B0DSLD1LCM",
-      "name": "Women Nylon Ealstane Racer Back Padded Sports Bra for Gym Workout Yoga",
-      "brand": "Women",
-      "category": "Padded Bra",
-      "category_all": [
-        "Padded Bra",
-        "Sports Bra"
-      ],
-      "price_original": 1599.0,
-      "price_discounted": 504.0,
-      "discount_percentage": 68,
-      "rating": "N/A",
-      "review_count": 6,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/61RKu6SfdeL.jpg",
-      "product_url": "https://www.amazon.in/PLUMBURY-Women-Padded-Sports-Workout/dp/B0DSLD1LCM/ref=sr_1_86?dib=eyJ2IjoiMSJ9.-TnLq6uE6LmAuQaCjSDECWGZS1YsGVxTiLL9x88332rtZmvFX2vTzU72LFhNNtviMqkcVx0lQ590BpgR5ae0tiTRDx4JP0RN46fhUWmaBjlL_MfhERQ9u2tf8tPCMptn7nHXPjEL0UcfLWmx2KrU3PPVyXFbvdM9xBKharhg8iZVIZgNlHNWQ2YIWca4SRFhUdnsJh8ijo_KYcOZKwcHzbtE7Mmc31PwKH4zquARRN4W3iA_sZghA7tVZDHZ5Wn2lD3bqv0qhfUg51cgUQEFUBPJQDYGXi5sTHD4krjebu4.hgTSzIe7sZiMyb06VTQ197YVyRG48uBo0H_MSq4Arok&dib_tag=se&keywords=sports+bra+women&qid=1774792739&sr=8-86",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:59:00.792417",
+      "scraped_at": "2026-03-29T14:43:55.580078",
       "premium": true
     },
     {
@@ -241,14 +123,14 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/51m4KHpRdcL.jpg",
-      "product_url": "https://www.amazon.in/Nippetals-Strapless-Invisible-Sweatproof-Skin-Friendly/dp/B0DP26NT14/ref=sr_1_67?dib=eyJ2IjoiMSJ9.yYoYST6qScC4WHk0zuFWSaNi_Uo7DSawT7H-gA2McHDIRHcyT9dC6e2elkkBgW_UiEcUrArACzSv1YrZRUQhUk2Rivi0UONvEMmZoqzVci4SmCclUX8iPxsEhqZFJv4O_KD87xA9r8yGfwSTAxeXlRl6-MMX8N_JqnGMGVOLVX4eO1JhtVoJJ7Pp2H_G5OB27Wq2wU-mj_9IQDFH_tJIh3ANCq_4sm40s_kPSMNPTFxym6CJ6DkkDraZpZBLWsA_Cwf6FyKkJydkUcGHCNIs8hm8V4HpN0cU907DDLIvMW0.SvPFOR97FFF9sezv17wDFC2WBcFY_DhDmZGf65xwtqs&dib_tag=se&keywords=strapless+bra&qid=1774792803&sr=8-67",
+      "product_url": "https://www.amazon.in/Nippetals-Strapless-Invisible-Sweatproof-Skin-Friendly/dp/B0DP26NT14/ref=sr_1_96?dib=eyJ2IjoiMSJ9.YcA85NbVu5LLJHknaYroMrCjl7Mdy8MupWQwW-ASW15ff0JRUcmLmUGhFUGeozVlcnqMNQFuRi2joeXEZNCVAf7n8d8leJDD0xKZ1KiNIn9bKnhn1d_6qvzqBF_jaLLvOxkfQOjupnzM-smS0G4A9BN8WZ-DBRzbsBRkr1hM_vOuv7VHOenTL9GTDgm7Ovdh8blqPJLVyWBAPM8a1jTOYXDIB3bDAZtxNrg9KgLbqd4EWhcPueC6YBppoXqEF0AmSbxKL8VBamR6C2_HBOytsFTt32HQ29KdjgsmtS5aUz4.VFoZz10dFxhd8iaKMlJZkDaoT-BOW15n_8f1-9L2mko&dib_tag=se&keywords=strapless+bra&qid=1774795417&sr=8-96",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:00:05.392911",
+      "scraped_at": "2026-03-29T14:43:38.967679",
       "premium": true
     },
     {
-      "product_id": "B08W3BPKD9",
+      "product_id": "B08W3DSN27",
       "name": "Women's Lace Solid Padded Full Cup Wire Free Bralette Bra - Black",
       "brand": "Women's",
       "category": "Full Coverage Bra",
@@ -267,10 +149,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61yZuifLPDL.jpg",
-      "product_url": "https://www.amazon.in/Clovia-Wirefree-Coverage-Bralette-BR2169P13_Black_34B/dp/B08W3BPKD9/ref=sr_1_49?dib=eyJ2IjoiMSJ9.nhS1kqcXP6PkDT1xkjM6SRlJXHuTCNVGp3Sw0i_QxwPcO6j7l5YcP412H0b_xNEsvcgFAItBtAvABAg5yAwbAPGW8mIFdkIzd2kFrD9S8N0i7cwlM3gpKLJ0zf5n1oAQAlAz5e3SLOx5mxFpSfAroMIP9vM0qqz6gCofiqo-C4wYN0DOlkS_qvaHhh7Wc-9V1Outxdt1YJhA9B2CMEJxqgo5lVDZiPYlQXRvfkNihMdzgviRg9oCbAC8uNNQlqjzmqWob5XRdEEGilEplmDqfYnQzW4H5O43I_mSNTQfJoM.-DGhZD6W0Vttqe5s9HSo3CUMt4y53vNacySLW4VH9SM&dib_tag=se&keywords=push+up+bra&qid=1774792718&sr=8-49",
+      "product_url": "https://www.amazon.in/Clovia-Wirefree-Coverage-Bralette-BR2169P13_Black_32B/dp/B08W3DSN27/ref=sr_1_9?dib=eyJ2IjoiMSJ9.2J3q47Rm6WvgltBXhZPZiurtoayJGeCru8SK9FIYCcv354l6NXpl3HYjF_aEl3m9xSJEYAJ68OoI9Ekvn56LQfPbziOIvyK1CUnlGkHiPt5hnZPpVb0PpNJx56K8w5eESsT-So0b5sfsH_QMlQOLfHNTM6Of3BUKSknBP5_y-m7KpgNm0h6MD35nqg53D1oIX8lj9iR62zWpQn0QG6FML5QWGw0P-ihhHOKk1y5m62179rslkNfX8aJorTwNOpjY1dHTIPoCRtUabixUKtED6pef9DrwRvbHkO-S01SL7H4.-mtEFImLlAZIiXn5F13fKwFu1erCK2TTYX5vg00uuK0&dib_tag=se&keywords=bralette+for+women&qid=1774795361&sr=8-9",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:58:39.823814",
+      "scraped_at": "2026-03-29T14:42:42.868899",
       "premium": true
     },
     {
@@ -290,10 +172,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/710ziIFCx3L.jpg",
-      "product_url": "https://www.amazon.in/GG-RAGS-Bralette-Crisscross-Adjustable/dp/B0FHBTCPCF/ref=sr_1_56?dib=eyJ2IjoiMSJ9.20sHopjoZW3LyYd6_9efUHiM6EerRORszuchiAtNhOvvvv5IiwTfH6Hr252bXdVShjS34UH0_9OFsQ4MaSXbNQCh81NB7WG-eZo15Wko1z6Mq7ap2j-OlWG8FrHh9iR0tSLx_qqtdsQW_FfQfvsC7Vbb7rgqHAqbUlSccQyRRaulJOfL7XcZgy31veYJINCCARM8ZQldjkBbt2uXSWJ-1Fh_qOfOvLD0dc46IpMEossKtsaU0bKgwrmwImHIhOnUYtgKPikg6mJR54sTezaaJRCkFRCEXMxvEglZcpjVzZw.3WtWDDqiU6tCiFWdej0O96EO8w_8f5ZAeBFFfooRI8o&dib_tag=se&keywords=bralette+for+women&qid=1774792756&sr=8-56",
+      "product_url": "https://www.amazon.in/GG-RAGS-Bralette-Crisscross-Adjustable/dp/B0FHBTCPCF/ref=sr_1_65?dib=eyJ2IjoiMSJ9.NYNvfkpMCE-EOS9tMJxY9ZpDa7xBIixSk00aeVSYMcLwnFloHhhEzrGudIUlLPwnZ1eX8bsfQiqn850JFYDqdVYW2yru38tNpzZSHrpNNWCI6NL168HYA2ohweYskK-9xc_58I2PhcEjN_d4FO7-rm8Bc0kvzYYsCbYOaV0XSm_q7Mup_JAjNVo3m1zXSHpQkRtY4-8KoAhIcvjAbDYYRrCJgIV7_14e-BINQPe-Q21IbG2pQBQuvcZIYXN9L9-RRTY48L6xYMW6rNMkdS78TlovlBCGSlVkzeXHG50_RS4.LkZ4oBesJx_-gEI_-VCn5Dfz6Wi5bKmJ34IVDWlcdaU&dib_tag=se&keywords=bralette+for+women&qid=1774795367&sr=8-65",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:59:18.164165",
+      "scraped_at": "2026-03-29T14:42:49.396084",
       "premium": true
     },
     {
@@ -313,10 +195,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/71aWRnBk8SL.jpg",
-      "product_url": "https://www.amazon.in/PLUMBURY-Womens-Padded-Racerback-Workout/dp/B0CMTPG8FD/ref=sr_1_55?dib=eyJ2IjoiMSJ9.-TnLq6uE6LmAuQaCjSDECWGZS1YsGVxTiLL9x88332rtZmvFX2vTzU72LFhNNtviMqkcVx0lQ590BpgR5ae0tiTRDx4JP0RN46fhUWmaBjlL_MfhERQ9u2tf8tPCMptn7nHXPjEL0UcfLWmx2KrU3PPVyXFbvdM9xBKharhg8iZVIZgNlHNWQ2YIWca4SRFhUdnsJh8ijo_KYcOZKwcHzbtE7Mmc31PwKH4zquARRN4W3iA_sZghA7tVZDHZ5Wn2lD3bqv0qhfUg51cgUQEFUBPJQDYGXi5sTHD4krjebu4.hgTSzIe7sZiMyb06VTQ197YVyRG48uBo0H_MSq4Arok&dib_tag=se&keywords=sports+bra+women&qid=1774792739&sr=8-55",
+      "product_url": "https://www.amazon.in/PLUMBURY-Womens-Padded-Racerback-Workout/dp/B0CMTPG8FD/ref=sr_1_74?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-74",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:59:00.613273",
+      "scraped_at": "2026-03-29T14:42:34.089521",
       "premium": true
     },
     {
@@ -338,10 +220,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/51T5YppmEuL.jpg",
-      "product_url": "https://www.amazon.in/PLUMBURY-Womens-Polyamide-Seamless-Coverage/dp/B0CLSTZS9B/ref=sr_1_49?dib=eyJ2IjoiMSJ9.-TnLq6uE6LmAuQaCjSDECWGZS1YsGVxTiLL9x88332rtZmvFX2vTzU72LFhNNtviMqkcVx0lQ590BpgR5ae0tiTRDx4JP0RN46fhUWmaBjlL_MfhERQ9u2tf8tPCMptn7nHXPjEL0UcfLWmx2KrU3PPVyXFbvdM9xBKharhg8iZVIZgNlHNWQ2YIWca4SRFhUdnsJh8ijo_KYcOZKwcHzbtE7Mmc31PwKH4zquARRN4W3iA_sZghA7tVZDHZ5Wn2lD3bqv0qhfUg51cgUQEFUBPJQDYGXi5sTHD4krjebu4.hgTSzIe7sZiMyb06VTQ197YVyRG48uBo0H_MSq4Arok&dib_tag=se&keywords=sports+bra+women&qid=1774792739&sr=8-49",
+      "product_url": "https://www.amazon.in/PLUMBURY-Womens-Polyamide-Seamless-Coverage/dp/B0CLSTZS9B/ref=sr_1_66?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-66",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:59:00.577651",
+      "scraped_at": "2026-03-29T14:42:34.045205",
       "premium": true
     },
     {
@@ -362,10 +244,33 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/513667EqozL.jpg",
-      "product_url": "https://www.amazon.in/PLUMBURY-Polyamide-Womens-Seamless-Support/dp/B0CLV1CGSR/ref=sr_1_73?dib=eyJ2IjoiMSJ9.-TnLq6uE6LmAuQaCjSDECWGZS1YsGVxTiLL9x88332rtZmvFX2vTzU72LFhNNtviMqkcVx0lQ590BpgR5ae0tiTRDx4JP0RN46fhUWmaBjlL_MfhERQ9u2tf8tPCMptn7nHXPjEL0UcfLWmx2KrU3PPVyXFbvdM9xBKharhg8iZVIZgNlHNWQ2YIWca4SRFhUdnsJh8ijo_KYcOZKwcHzbtE7Mmc31PwKH4zquARRN4W3iA_sZghA7tVZDHZ5Wn2lD3bqv0qhfUg51cgUQEFUBPJQDYGXi5sTHD4krjebu4.hgTSzIe7sZiMyb06VTQ197YVyRG48uBo0H_MSq4Arok&dib_tag=se&keywords=sports+bra+women&qid=1774792739&sr=8-73",
+      "product_url": "https://www.amazon.in/PLUMBURY-Polyamide-Womens-Seamless-Support/dp/B0CLV1CGSR/ref=sr_1_94?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-94",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:59:00.719446",
+      "scraped_at": "2026-03-29T14:42:34.205393",
+      "premium": true
+    },
+    {
+      "product_id": "B082QBQ1GT",
+      "name": "Women's Recycled Polyester Blend Wire Free Non-Wired Full-Coverage Wireless Bra",
+      "brand": "Women's",
+      "category": "Underwire Bra",
+      "category_all": [
+        "Underwire Bra",
+        "Wireless Bra"
+      ],
+      "price_original": 2699.0,
+      "price_discounted": 1080.0,
+      "discount_percentage": 59,
+      "rating": "N/A",
+      "review_count": 7,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/71IosGRZiHL.jpg",
+      "product_url": "https://www.amazon.in/Reebok-Womens-Non-Wired-Wireless-FI6800_Black_Large/dp/B082QBQ1GT/ref=sr_1_91?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-91",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T14:42:34.185597",
       "premium": true
     },
     {
@@ -385,10 +290,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61W6kmqOzOL.jpg",
-      "product_url": "https://www.amazon.in/Clovia-Womens-Colourblocked-Racerback-BRS051P09_Maroon_M/dp/B0BS3VGP7H/ref=sr_1_16?dib=eyJ2IjoiMSJ9.yY84isK-Dywcug20R9S3WN0HX0VZr2O-Uh2ygbgELfEY21_DJCLxTKVJU_KL2SERfp-PpmILDm9gcSn5UklHt3Pae_u-nhgaEotGqyNDepVntgiW4hUFQqNc3e5SWhM3lKimleKRzezmgaiLgHPKkquTOw2m5T7YJzGIZlduchn5j2PRVEf3jNkqZtd_FJ-sXPqKB_ibC3K5UkfEeatB_AjT8JKDwjIhbc58X1sjAUm88v9IPJTRDsGiOpPhroYUljR3PANNO2NgPu6rfaiTLkRvmVu5Bvh09sw-cxI8B1U.Q3CR7wduTo_Wi5vChpwhgEmB0qEHqi-OJtX-4twSZ4I&dib_tag=se&keywords=sports+bra+women&qid=1774792728&sr=8-16",
+      "product_url": "https://www.amazon.in/Clovia-Womens-Colourblocked-Racerback-BRS051P09_Maroon_M/dp/B0BS3VGP7H/ref=sr_1_18?dib=eyJ2IjoiMSJ9.sWxpMXJsk_kR2EHnEB3_sE6otmUL5GFu_sfSLDb6U6fu92cjJwJo4Y5CLLN1uuXYPeZzfC07lb9Tt6Fh2_y115DAGO0sOeDbMoeI1LbltrZdznVA6qlzj2WOEZEB0s9wBeJclObbSkNVUHYCUXT3rBiRP3BcJleeUcPls-zixi1OupXeNQ9GyvwuzP181JHSxaYQO2yshG9A9drstRUcmZqG8PVaBq4fPQAfvG5MbXIlTNuMtXPlmz25R4ru4Unsb4NAOIvRS9w8eM8JzZY9k9MgGtomInucdF0SikdyaaU.adD4jU7e2TgvfuLujbToe467RC0f4NozWPy91kV2C7Q&dib_tag=se&keywords=sports+bra+women&qid=1774795342&sr=8-18",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:58:50.144774",
+      "scraped_at": "2026-03-29T14:42:24.091247",
       "premium": true
     },
     {
@@ -408,10 +313,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/71fGl17RYFL.jpg",
-      "product_url": "https://www.amazon.in/Boldfit-Womens-Spandex-Modern-BFTBW2001SBlackXXL_Black/dp/B0D93QYCM8/ref=sr_1_58?dib=eyJ2IjoiMSJ9.VTY9pxqoS95DSnWSNFcyEHRq45Cfaox8PKhiJN1vpFwHirYlLIUoW2FyouGHUb-cV0JuQP1ipUF-OzxzhHb6aM0PBxvRx7paoPl3WNbd3vuDbLv5SxN82YmT_PS-PngdS9NdJopN12WNxg8krg-3GAXTg71mYv331Wr7pY6u3xku1f6nUu_lDDqE_zShj_g3wAETXqxfDYmLAZexUiJ5xCeY3gkIxP7s6HEVVZ8YFkt-gTGB0_oadERO34CITj_qQcVIrhZftwwWa8L2bcBTbJ99Xe92GkzasYjITxUhBs0.2TAKdAz-kkd-S0hIPdg8_awD7F6lTKsDHSvhXziYzm4&dib_tag=se&keywords=bras+for+women&qid=1774792680&sr=8-58",
+      "product_url": "https://www.amazon.in/Boldfit-Womens-Spandex-Modern-BFTBW2001SBlackXXL_Black/dp/B0D93QYCM8/ref=sr_1_93?dib=eyJ2IjoiMSJ9.IaOpKPJimgeck7mnFlsyT_rMjOoBOnMxL9dWmmKlJjS_GMzwoXI8pjavfbULbcDd4zeKpfuGVemvEF9VSKZYUdHDbfRrEPNnCqwm-ddz4g74YwdQh0-NUGM6piTeTZuM1b_s0Vr5mIrRvG_jqYy-EQsRaBs1MSBY8UoLNzzOuNKt1zZNRiS15T3WgffX8vFQa_X3YQ9UhpQ72ZLIBp--Rf8Juv7gkxOYf-l6V4nclaG5Y8E3EVjupgpvKzbH2yXySb9KRFT1a7JajyDBv-p8Pkq0jasb83OdozMmno3mChA.xIL_aDlINlmtv6slHEOYxoFaw-uWzspdzoncTiawA4A&dib_tag=se&keywords=bras+for+women&qid=1774795294&sr=8-93",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:58:01.544985",
+      "scraped_at": "2026-03-29T14:41:36.368300",
       "premium": true
     },
     {
@@ -433,62 +338,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61srRiSMZJL.jpg",
-      "product_url": "https://www.amazon.in/WACOAL-Balconette-Padded-Everyday-Multicolour/dp/B0DP55CSRZ/ref=sr_1_48?dib=eyJ2IjoiMSJ9.Hfx_VwHuYTKd1q1UGOxKepCDxwKLDAyC4_qHpBXzBLmuMBI8S--EkJe5QhT0MOGVyMCeGp0f12UrzdownNQ9kUvgBuOn217NhoSXj9aIDwTGXcZ-h6BYAfyts3nbLfXE4Z9ClkGnWouKG8dLvLcDi0kEXmVQhDUX_JInh36rEYfqw98JVzAghs4gpZnJ3Sqkqd5mOcO5RRk8MgCCKMnvOHQP5mR-xfnqn_GoX5L69uAM55OXKQniUpohGhPeGFAAQ2YlN56e11a8kcYHArxgBSCo4x6wHdCmJQkiRKWnnws.Wma4lrVbI5dGW1hsv-tv8lBn0g2f3AzoTwD_U6Kt0Aw&dib_tag=se&keywords=bras+discount&qid=1774792814&sr=8-48",
+      "product_url": "https://www.amazon.in/WACOAL-Balconette-Padded-Everyday-Multicolour/dp/B0DP55CSRZ/ref=sr_1_52?dib=eyJ2IjoiMSJ9.hziBjbQ0kkp4ADugozzoRdLbQc2hcNkraDbKSZMyxEzXaHmDac8yY7ygsJjIQinJOzQ7VUDVmaoQrhFCfHfy-yDobg_G6t3c_c_H9As0YdNAX-wdzN1S8iF6vsStx0g63m8mSQBc-Nf-FSVI4tvd7FfdQpCG8Zn_JYa6PwqDpXII2_MvuLdGBcVdvG_lcuCeR9aiacM6RCwSOVNPgtb47faR1nV9ERr2NoOpYhJrngqUfY_nsNdxLO5o9QkbaqSO7h784oYLl0wHb4lZD03722jyMKbgv37ZUkPAkEpjXw8.VqAjPpkYTFpqAHKU9hjV918isseQc02ho_rMX-VubBs&dib_tag=se&keywords=bras+discount&qid=1774795444&sr=8-52",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:00:16.002465",
-      "premium": true
-    },
-    {
-      "product_id": "B0DV5D3SY7",
-      "name": "Push Up Deep U-Shaped Plunge Sticky Bra Silicone Invisible Bra Strapless Bras Backless Breast Lifting Dress Black and Beige.",
-      "brand": "Push",
-      "category": "Push-Up Bra",
-      "category_all": [
-        "Push-Up Bra",
-        "Plunge Bra",
-        "Strapless Bra",
-        "Backless Bra",
-        "Silicone Bra"
-      ],
-      "price_original": 1299.0,
-      "price_discounted": 745.0,
-      "discount_percentage": 42,
-      "rating": "N/A",
-      "review_count": 26,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/51jjImFCxSL.jpg",
-      "product_url": "https://www.amazon.in/SIQULIX-U-Shaped-Silicone-Invisible-Strapless/dp/B0DV5D3SY7/ref=sr_1_73?dib=eyJ2IjoiMSJ9.yYoYST6qScC4WHk0zuFWSaNi_Uo7DSawT7H-gA2McHDIRHcyT9dC6e2elkkBgW_UiEcUrArACzSv1YrZRUQhUk2Rivi0UONvEMmZoqzVci4SmCclUX8iPxsEhqZFJv4O_KD87xA9r8yGfwSTAxeXlRl6-MMX8N_JqnGMGVOLVX4eO1JhtVoJJ7Pp2H_G5OB27Wq2wU-mj_9IQDFH_tJIh3ANCq_4sm40s_kPSMNPTFxym6CJ6DkkDraZpZBLWsA_Cwf6FyKkJydkUcGHCNIs8hm8V4HpN0cU907DDLIvMW0.SvPFOR97FFF9sezv17wDFC2WBcFY_DhDmZGf65xwtqs&dib_tag=se&keywords=strapless+bra&qid=1774792803&sr=8-73",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:00:05.418623",
-      "premium": true
-    },
-    {
-      "product_id": "B0DS18P4R6",
-      "name": "Bra Push Up Deep U-Shaped Plunge Sticky Bra Silicone Invisible Bra Strapless Bras Backless Breast (Skin)",
-      "brand": "Bra",
-      "category": "Push-Up Bra",
-      "category_all": [
-        "Push-Up Bra",
-        "Plunge Bra",
-        "Strapless Bra",
-        "Backless Bra",
-        "Silicone Bra"
-      ],
-      "price_original": 1299.0,
-      "price_discounted": 799.0,
-      "discount_percentage": 38,
-      "rating": "N/A",
-      "review_count": 24,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/31WP3J6ndSL.jpg",
-      "product_url": "https://www.amazon.in/SIQULIX-U-Shaped-Silicone-Invisible-Strapless/dp/B0DS18P4R6/ref=sr_1_94?dib=eyJ2IjoiMSJ9.yYoYST6qScC4WHk0zuFWSaNi_Uo7DSawT7H-gA2McHDIRHcyT9dC6e2elkkBgW_UiEcUrArACzSv1YrZRUQhUk2Rivi0UONvEMmZoqzVci4SmCclUX8iPxsEhqZFJv4O_KD87xA9r8yGfwSTAxeXlRl6-MMX8N_JqnGMGVOLVX4eO1JhtVoJJ7Pp2H_G5OB27Wq2wU-mj_9IQDFH_tJIh3ANCq_4sm40s_kPSMNPTFxym6CJ6DkkDraZpZBLWsA_Cwf6FyKkJydkUcGHCNIs8hm8V4HpN0cU907DDLIvMW0.SvPFOR97FFF9sezv17wDFC2WBcFY_DhDmZGf65xwtqs&dib_tag=se&keywords=strapless+bra&qid=1774792803&sr=8-94",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:00:05.506957",
+      "scraped_at": "2026-03-29T14:44:05.488510",
       "premium": true
     },
     {
@@ -509,39 +362,55 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/316k4EO8qhL.jpg",
-      "product_url": "https://www.amazon.in/Kidsnx-Breathable-Adjustable-Lightweight-Off-Shoulder/dp/B0G38SDYJH/ref=sr_1_92?dib=eyJ2IjoiMSJ9.yYoYST6qScC4WHk0zuFWSaNi_Uo7DSawT7H-gA2McHDIRHcyT9dC6e2elkkBgW_UiEcUrArACzSv1YrZRUQhUk2Rivi0UONvEMmZoqzVci4SmCclUX8iPxsEhqZFJv4O_KD87xA9r8yGfwSTAxeXlRl6-MMX8N_JqnGMGVOLVX4eO1JhtVoJJ7Pp2H_G5OB27Wq2wU-mj_9IQDFH_tJIh3ANCq_4sm40s_kPSMNPTFxym6CJ6DkkDraZpZBLWsA_Cwf6FyKkJydkUcGHCNIs8hm8V4HpN0cU907DDLIvMW0.SvPFOR97FFF9sezv17wDFC2WBcFY_DhDmZGf65xwtqs&dib_tag=se&keywords=strapless+bra&qid=1774792803&sr=8-92",
+      "product_url": "https://www.amazon.in/Kidsnx-Breathable-Adjustable-Lightweight-Off-Shoulder/dp/B0G38SDYJH/ref=sr_1_87?dib=eyJ2IjoiMSJ9.YcA85NbVu5LLJHknaYroMrCjl7Mdy8MupWQwW-ASW15ff0JRUcmLmUGhFUGeozVlcnqMNQFuRi2joeXEZNCVAf7n8d8leJDD0xKZ1KiNIn9bKnhn1d_6qvzqBF_jaLLvOxkfQOjupnzM-smS0G4A9BN8WZ-DBRzbsBRkr1hM_vOuv7VHOenTL9GTDgm7Ovdh8blqPJLVyWBAPM8a1jTOYXDIB3bDAZtxNrg9KgLbqd4EWhcPueC6YBppoXqEF0AmSbxKL8VBamR6C2_HBOytsFTt32HQ29KdjgsmtS5aUz4.VFoZz10dFxhd8iaKMlJZkDaoT-BOW15n_8f1-9L2mko&dib_tag=se&keywords=strapless+bra&qid=1774795417&sr=8-87",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:00:05.499923",
+      "scraped_at": "2026-03-29T14:43:38.927208",
       "premium": true
     },
     {
-      "product_id": "B0C71FFSPT",
-      "name": "YUCI Pack of 4 Girls Sports Beginners Bra| 2 Sports & 2 Uniform| Activewear Non-Padded Non-Wired Gym Training Workout |Cotton Full Coverage Wire Free T-Shirt Yoga Bra with Regular Strap",
-      "brand": "YUCI",
-      "category": "T-Shirt Bra",
+      "product_id": "B0FF24HHW6",
+      "name": "Super Stretch Brami for Women | Cross-Strap, Buttery Soft, 4-Way Stretch, Breathable, Light Support | Activewear Bra Top",
+      "brand": "Super",
+      "category": "Sports Bra",
       "category_all": [
-        "T-Shirt Bra",
-        "Full Coverage Bra",
-        "Unlined Bra",
-        "Underwire Bra",
-        "Wireless Bra",
-        "Padded Bra",
         "Sports Bra",
-        "Trainer Bra"
+        "Cooling Bra"
       ],
-      "price_original": 999.0,
-      "price_discounted": 699.0,
-      "discount_percentage": 30,
+      "price_original": 1699.0,
+      "price_discounted": 1139.0,
+      "discount_percentage": 32,
       "rating": "N/A",
-      "review_count": 2,
+      "review_count": 16,
       "sizes_available": [],
       "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/71qlfF+8OBL.jpg",
-      "product_url": "https://www.amazon.in/YUCI-Beginners-Non-Padded-Non-Wired-Teenager/dp/B0C71FFSPT/ref=sr_1_96?dib=eyJ2IjoiMSJ9.Zk65beivIKUTFK79_8kh7MY8h32ll1ExyY4TwfCcOEJa7VzIwqGP7fD-uk0DEYWAXLAbe5CHHR-DFrPlHhpSTCYiH22GcmtH4f41PldaBpSLsVpGEulF6tzQvFLz6lpdQ89VlV4amfenQCH_rDkyGQ5Vm57R3tgtr_utLSOGEghsqMMhd87vfjM1zpbkoCbYgUJEH4gHfX-QOd6NFHsBNB0bwHi4-c0iVGgHv_Y4DhTTOEPMYgJLYzDU-l4tQtrPgrmMWqQBP2g2Lc2hQ5j2fh9W570r3kvbvumu4mWToSY.-m2IlU-6GOZ0HajXNIWlEgSOQdEgkVY1F8OwevCJtA8&dib_tag=se&keywords=bras+discount&qid=1774792823&sr=8-96",
+      "image_url": "https://m.media-amazon.com/images/I/71vZ+xmQlWL.jpg",
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTozMDEwMTIwMzU5OTM5ODUzOjE3NzQ3OTUzNTI6c3Bfc2VhcmNoX3RoZW1hdGljX2J0ZjozMDA3ODIwMjgxMTExMzI6OjA6Og&url=%2FCAVA-Stretch-Cross-Strap-Breathable-Activewear%2Fdp%2FB0FF24HHW6%2Fref%3Dsxbs_pa_sp_search_thematic_btf_sspa%3Fcontent-id%3Damzn1.sym.5298acb7-37ab-4bc0-a659-56dfae35672f%253Aamzn1.sym.5298acb7-37ab-4bc0-a659-56dfae35672f%26cv_ct_cx%3Dsports%2Bbra%2Bwomen%26keywords%3Dsports%2Bbra%2Bwomen%26pd_rd_i%3DB0FF24HHW6%26pd_rd_r%3Dda404e88-be62-4ca3-bf6c-f8bbfca03fb3%26pd_rd_w%3D5ZzVw%26pd_rd_wg%3DoP8yj%26pf_rd_p%3D5298acb7-37ab-4bc0-a659-56dfae35672f%26pf_rd_r%3DRYWNJTDK5PJ0XE9PQ336%26qid%3D1774795352%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-49-39d2cf51-924d-44a4-921d-0c8fa4cce3c9-spons%26aref%3DMdvfKNgS3Y%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWNfYnRm%26psc%3D1&aref=MdvfKNgS3Y&sp_cr=ZAZ",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:00:25.365634",
+      "scraped_at": "2026-03-29T14:42:34.224838",
+      "premium": true
+    },
+    {
+      "product_id": "B0DZCZ3D78",
+      "name": "Cross Back Sports Bra for Women | High Support, Soft Fabric, Wide Underbust Band, Minimal Seams | Activewear for Gym",
+      "brand": "Cross",
+      "category": "Sports Bra",
+      "category_all": [
+        "Sports Bra"
+      ],
+      "price_original": 1699.0,
+      "price_discounted": 1139.0,
+      "discount_percentage": 32,
+      "rating": "N/A",
+      "review_count": 8,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/71zP-0oeIwL.jpg",
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTozMDEwMTIwMzU5OTM5ODUzOjE3NzQ3OTUzNTI6c3Bfc2VhcmNoX3RoZW1hdGljX2J0ZjozMDA3ODE4MTI5MzQ5MzI6OjE6Og&url=%2FBlack-Cross-Sports-Alpha-Moscow%2Fdp%2FB0DZCZ3D78%2Fref%3Dsxbs_pa_sp_search_thematic_btf_sspa%3Fcontent-id%3Damzn1.sym.5298acb7-37ab-4bc0-a659-56dfae35672f%253Aamzn1.sym.5298acb7-37ab-4bc0-a659-56dfae35672f%26cv_ct_cx%3Dsports%2Bbra%2Bwomen%26keywords%3Dsports%2Bbra%2Bwomen%26pd_rd_i%3DB0DZCZ3D78%26pd_rd_r%3Dda404e88-be62-4ca3-bf6c-f8bbfca03fb3%26pd_rd_w%3D5ZzVw%26pd_rd_wg%3DoP8yj%26pf_rd_p%3D5298acb7-37ab-4bc0-a659-56dfae35672f%26pf_rd_r%3DRYWNJTDK5PJ0XE9PQ336%26qid%3D1774795352%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-50-39d2cf51-924d-44a4-921d-0c8fa4cce3c9-spons%26aref%3DhbyLnbJNBd%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWNfYnRm%26psc%3D1&aref=hbyLnbJNBd&sp_cr=ZAZ",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T14:42:34.229375",
       "premium": true
     },
     {
@@ -563,10 +432,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61IHqzHkFYL.jpg",
-      "product_url": "https://www.amazon.in/Van-Heusen-Womens-ILIBR1AWSBU44003_Ocean-Blue_34DD/dp/B09FC4R4M8/ref=sr_1_46?dib=eyJ2IjoiMSJ9.yY84isK-Dywcug20R9S3WN0HX0VZr2O-Uh2ygbgELfEY21_DJCLxTKVJU_KL2SERfp-PpmILDm9gcSn5UklHt3Pae_u-nhgaEotGqyNDepVntgiW4hUFQqNc3e5SWhM3lKimleKRzezmgaiLgHPKkquTOw2m5T7YJzGIZlduchn5j2PRVEf3jNkqZtd_FJ-sXPqKB_ibC3K5UkfEeatB_AjT8JKDwjIhbc58X1sjAUm88v9IPJTRDsGiOpPhroYUljR3PANNO2NgPu6rfaiTLkRvmVu5Bvh09sw-cxI8B1U.Q3CR7wduTo_Wi5vChpwhgEmB0qEHqi-OJtX-4twSZ4I&dib_tag=se&keywords=sports+bra+women&qid=1774792728&sr=8-46",
+      "product_url": "https://www.amazon.in/Van-Heusen-Womens-ILIBR1AWSBU44003_Ocean-Blue_34DD/dp/B09FC4R4M8/ref=sr_1_72?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-72",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:58:50.324262",
+      "scraped_at": "2026-03-29T14:42:34.079807",
       "premium": true
     },
     {
@@ -588,10 +457,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61hiW+X3VtL.jpg",
-      "product_url": "https://www.amazon.in/UNDERNEAT-Supportable-Adhesive-Strapless-Invisible/dp/B0FMY1VDJW/ref=sr_1_71?dib=eyJ2IjoiMSJ9.yYoYST6qScC4WHk0zuFWSaNi_Uo7DSawT7H-gA2McHDIRHcyT9dC6e2elkkBgW_UiEcUrArACzSv1YrZRUQhUk2Rivi0UONvEMmZoqzVci4SmCclUX8iPxsEhqZFJv4O_KD87xA9r8yGfwSTAxeXlRl6-MMX8N_JqnGMGVOLVX4eO1JhtVoJJ7Pp2H_G5OB27Wq2wU-mj_9IQDFH_tJIh3ANCq_4sm40s_kPSMNPTFxym6CJ6DkkDraZpZBLWsA_Cwf6FyKkJydkUcGHCNIs8hm8V4HpN0cU907DDLIvMW0.SvPFOR97FFF9sezv17wDFC2WBcFY_DhDmZGf65xwtqs&dib_tag=se&keywords=strapless+bra&qid=1774792803&sr=8-71",
+      "product_url": "https://www.amazon.in/UNDERNEAT-Supportable-Adhesive-Strapless-Invisible/dp/B0FMY1VDJW/ref=sr_1_94?dib=eyJ2IjoiMSJ9.YcA85NbVu5LLJHknaYroMrCjl7Mdy8MupWQwW-ASW15ff0JRUcmLmUGhFUGeozVlcnqMNQFuRi2joeXEZNCVAf7n8d8leJDD0xKZ1KiNIn9bKnhn1d_6qvzqBF_jaLLvOxkfQOjupnzM-smS0G4A9BN8WZ-DBRzbsBRkr1hM_vOuv7VHOenTL9GTDgm7Ovdh8blqPJLVyWBAPM8a1jTOYXDIB3bDAZtxNrg9KgLbqd4EWhcPueC6YBppoXqEF0AmSbxKL8VBamR6C2_HBOytsFTt32HQ29KdjgsmtS5aUz4.VFoZz10dFxhd8iaKMlJZkDaoT-BOW15n_8f1-9L2mko&dib_tag=se&keywords=strapless+bra&qid=1774795417&sr=8-94",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:00:05.408377",
+      "scraped_at": "2026-03-29T14:43:38.957428",
       "premium": true
     },
     {
@@ -612,34 +481,10 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/51SGkaAe86L.jpg",
-      "product_url": "https://www.amazon.in/Van-Heusen-Women-Padded-Push-Up/dp/B0CFFGKQBT/ref=sr_1_30?dib=eyJ2IjoiMSJ9._GpPTMCmU6Tlg70G4bhcaVt4QGi9qQIqbbWZdvOftfc9sB9zCaNdDOUXYrfOZ-lnnm04hDmu8KhqmD7ddHp2CHZLWWvUjVCtQmJnpvvuCviU9rG46vm2sQFcs8SZ1XdOORjWMJ6-QyeVVp12AIoqkGDbklwU9FeTaURQ1aSzpNhjPjcvZorYuSgjqpppkJ0NyhfB3xeTBS-y2vFVOOSGRvF_4-EqEpegN5b0OQiMMSGt-oWo0pA5bBXgBJ3LXuluoZsiMPAFjaeYUI0R5mvFPfE_PC47MU2-fVE6amhMoN0.k5oVOEgchXd2W9aQxciKKHtkf7MBodr_DozBYLmTj08&dib_tag=se&keywords=bras+for+women&qid=1774792673&sr=8-30",
+      "product_url": "https://www.amazon.in/Van-Heusen-Women-Padded-Push-Up/dp/B0CFFGKQBT/ref=sr_1_47?dib=eyJ2IjoiMSJ9.LhD1Z-GCbqL4Jw2kJnSJou8k2pljyI0qglhjMZlJ4yqovisKZgTwlSFQzRWVUc8QTuYiAnZP4Ki2957NwKbaTVDeavqDmm-ZE1MFVpKkhi9RbLPyIz3kZsTu73907EPBdycL7WTSOqycGjXWqTo6NhcSV1HA82XnERGoz97gd61H8k66PL_pNTYmS9phtXWEIhFuHInXgNi306Su0rfdiy1vzgAEw2sJN-nche4D-BevRZ6kJMDvG-bw6JT2K1F-qtvz3aG1Ec0qaqPOKWCLiAhFtbRMsT67t9--XCBFGnM.geYLIDTG-6bT7cZyQTsvEa8KjTJspSd9_798sk4Lu14&dib_tag=se&keywords=bras+for+women&qid=1774795286&sr=8-47",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:57:54.815919",
-      "premium": true
-    },
-    {
-      "product_id": "B0CJ5DS76N",
-      "name": "(NYB252) Cotton Padded & Wired T-Shirt Bra for Women | Comfortable Bra with Ultra Soft Detachable Straps | Ideal for Low Necklines",
-      "brand": "(NYB252)",
-      "category": "T-Shirt Bra",
-      "category_all": [
-        "T-Shirt Bra",
-        "Underwire Bra",
-        "Padded Bra"
-      ],
-      "price_original": 899.0,
-      "price_discounted": 719.0,
-      "discount_percentage": 20,
-      "rating": "N/A",
-      "review_count": 59,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/618yfFYS02L.jpg",
-      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo2NzcwNjc2NDYyMDExMTIxOjE3NzQ3OTI3ODc6c3BfYnRmOjMwMDU5NjU4MzQ5MTczMjo6MDo6&url=%2FNYKD-Iconic-Coverage-Lightweight-Adjustable%2Fdp%2FB0CJ5DS76N%2Fref%3Dsr_1_105_sspa%3Fdib%3DeyJ2IjoiMSJ9.6aie3o6A7I-zboutMjmitkB5L2WIiK1cMsQc13suKGS-8p0NO56tcG1o-g-rtYTLQgd2O5tH0FGxfaHCErNJGCEu28jEs2Rk_KfpxpgbzsvNtsq3_ok8epH1INGb35aJWdZJ7wpsDe5H1ed7Ct_HjJxZGj7ja8ra8qAekk6c9qKBCrrfiE-wMPn1RAGLH0_dls0_X-ZhPV_qronK9J6ornFVD5-4Hmz-afJzQRGRADtBEuYYNQgcZ0Edf6SJaJQkhn__AGCAag2szwhVVdwdoKIMSo4yHDaUCH38PWD4q64.y_PViTwrqbpLIlV9mBHhKr3dKoS9aSdaFpSJYrkXPxA%26dib_tag%3Dse%26keywords%3Dpadded%2Bbra%26qid%3D1774792787%26sr%3D8-105-spons%26aref%3DzfdmMhAMSh%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9idGY%26psc%3D1&aref=zfdmMhAMSh&sp_cr=ZAZ",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T13:59:49.228453",
+      "scraped_at": "2026-03-29T14:41:28.351791",
       "premium": true
     }
   ]
