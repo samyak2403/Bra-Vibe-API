@@ -1,16 +1,67 @@
 {
   "metadata": {
     "source": "India Multi-Store Consolidated - Premium",
-    "timestamp": "2026-03-29T15:05:46.562931",
+    "timestamp": "2026-03-29T20:32:12.402754",
     "stats": {
-      "total_extracted": 667,
-      "premium_count": 20,
-      "duration_seconds": 1466.21
+      "total_extracted": 1776,
+      "premium_count": 69,
+      "duration_seconds": 348.62
     }
   },
   "deals": [
     {
-      "product_id": "B0CTTXLSCN",
+      "product_id": "B0F6N5XLW2",
+      "name": "Women Polyester Spandex High Impact Front Zip Sports Bra Fitness Criss Cross Back Crop Tops for Gym, Yoga & Workout - Size: M-4XL",
+      "brand": "Women",
+      "category": "Sports Bra",
+      "category_all": [
+        "Sports Bra"
+      ],
+      "price_original": 2999.0,
+      "price_discounted": 688.0,
+      "discount_percentage": 77,
+      "rating": "N/A",
+      "review_count": 411,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/41eL-5yD0uL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/41eL-5yD0uL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/Fabluk-High-Impact-Bra-Adjustable-Front-Zip/dp/B0F6N5XLW2/ref=sr_1_76?dib=eyJ2IjoiMSJ9.pmh6RJ02fax1R4vD-y-OEA0ODSuueOKV37oJCkBc0wtJceQdOBeRZtAjN0FqgcLL-MON6HjEP9dALdfCQTtRLm1TIz3yZEgSVr4rN9HOMRAfSIlHifHcMurxpKLUJEYTRtODCxG93LjQyaruZWpTk4gIDuoGn4CatUcURzINUT8Q5XBNjIuZKHrUwwgwPFoMWUgSaP3Quvh_5zdVDBDQVCKbyw1ns63myWL4IkAbfUMKqMLHgrj4fCm4DzqAx3H0bz-oH4wsw3EYhwcOOMFImQNr0CrKYxZ8-nTSf-IB8So.BZhQy0sX_4diA5tBt03VQ1tnqqGX4hfYPG6BcQtulVU&dib_tag=se&keywords=sports+bra+women&qid=1774796258&sr=8-76",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:27:39.562071",
+      "premium": true
+    },
+    {
+      "product_id": "B0CVVQKYPB",
+      "name": "Women Polyester Spandex Medium Impact Front Zip Sports Bra Longline Fitness Criss Cross Back Crop Tops Tank Gym Yoga Workout, Size: M-2XL",
+      "brand": "Women",
+      "category": "Sports Bra",
+      "category_all": [
+        "Sports Bra",
+        "Longline Bra"
+      ],
+      "price_original": 2999.0,
+      "price_discounted": 783.0,
+      "discount_percentage": 73,
+      "rating": "N/A",
+      "review_count": 121,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/61l0CZCPmVL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/61l0CZCPmVL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/GLAMORAS-Polyester-Spandex-Longline-Fitness/dp/B0CVVQKYPB/ref=sr_1_67?dib=eyJ2IjoiMSJ9.pmh6RJ02fax1R4vD-y-OEA0ODSuueOKV37oJCkBc0wtJceQdOBeRZtAjN0FqgcLL-MON6HjEP9dALdfCQTtRLm1TIz3yZEgSVr4rN9HOMRAfSIlHifHcMurxpKLUJEYTRtODCxG93LjQyaruZWpTk4gIDuoGn4CatUcURzINUT8Q5XBNjIuZKHrUwwgwPFoMWUgSaP3Quvh_5zdVDBDQVCKbyw1ns63myWL4IkAbfUMKqMLHgrj4fCm4DzqAx3H0bz-oH4wsw3EYhwcOOMFImQNr0CrKYxZ8-nTSf-IB8So.BZhQy0sX_4diA5tBt03VQ1tnqqGX4hfYPG6BcQtulVU&dib_tag=se&keywords=sports+bra+women&qid=1774796258&sr=8-67",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:27:39.540518",
+      "premium": true
+    },
+    {
+      "product_id": "B0CTTH8511",
       "name": "Women Polyester Spandex Medium Impact Front Zip Sports Bra Longline Fitness Criss Cross Back Crop Tops for Gym, Yoga & Workout - Size: M-2XL",
       "brand": "Women",
       "category": "Sports Bra",
@@ -25,11 +76,39 @@
       "review_count": 282,
       "sizes_available": [],
       "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/51R7Ar7PN+L.jpg",
-      "product_url": "https://www.amazon.in/GLAMORAS-Polyester-Spandex-Longline-Fitness/dp/B0CTTXLSCN/ref=sr_1_90?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-90",
+      "image_url": "https://m.media-amazon.com/images/I/5185sjSupsL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/5185sjSupsL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/GLAMORAS-Polyester-Spandex-Longline-Fitness/dp/B0CTTH8511/ref=sr_1_74?dib=eyJ2IjoiMSJ9.pmh6RJ02fax1R4vD-y-OEA0ODSuueOKV37oJCkBc0wtJceQdOBeRZtAjN0FqgcLL-MON6HjEP9dALdfCQTtRLm1TIz3yZEgSVr4rN9HOMRAfSIlHifHcMurxpKLUJEYTRtODCxG93LjQyaruZWpTk4gIDuoGn4CatUcURzINUT8Q5XBNjIuZKHrUwwgwPFoMWUgSaP3Quvh_5zdVDBDQVCKbyw1ns63myWL4IkAbfUMKqMLHgrj4fCm4DzqAx3H0bz-oH4wsw3EYhwcOOMFImQNr0CrKYxZ8-nTSf-IB8So.BZhQy0sX_4diA5tBt03VQ1tnqqGX4hfYPG6BcQtulVU&dib_tag=se&keywords=sports+bra+women&qid=1774796258&sr=8-74",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:34.181891",
+      "scraped_at": "2026-03-29T20:27:39.555782",
+      "premium": true
+    },
+    {
+      "product_id": "B001GCUVMI",
+      "name": "Women's Active Lifestyle Bra",
+      "brand": "Women's",
+      "category": "Sports Bra",
+      "category_all": [
+        "Sports Bra"
+      ],
+      "price_original": 12247.95,
+      "price_discounted": 3203.96,
+      "discount_percentage": 73,
+      "rating": "N/A",
+      "review_count": 15,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/81ge1cTO7bL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/81ge1cTO7bL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/Playtex-Womens-Active-Lifestyle-Light/dp/B001GCUVMI/ref=sr_1_88?dib=eyJ2IjoiMSJ9.Gpl9uhDWi5g08EV-pNsEauCVqZWl1k8eNOiN41fbLl7MOmxcuPnBmr8gan9bKCOOJ5vR8-8ETpy92ri6XMe_GCQMzJgkd14ix8WKKgLSElQAH_VJf1lXx6TItm6BvS-af1bWwB0pCnXGyTJiKOpKLt6Es9At3cuegDb9c3Pn86cuSeBTlAyqJ1aq3jQjfBeP5sEyQzCW8IazJSWF_lNJ_JKpUxcuzk0ZPKmwPnG6ZSaNCMeD121ettHE5GKTglSLwvbG_2GfpPf3EsdtSuNzzJ6wzG2XEU94XlWLRqA0Hvo.sMS6mz_jCODyG3K2iQcSAgRx2F4vywpxCPKvE8e_2QI&dib_tag=se&keywords=bras+discount&qid=1774796336&sr=8-88",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:28:57.137374",
       "premium": true
     },
     {
@@ -49,34 +128,13 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/51OXrJ9E+qL.jpg",
-      "product_url": "https://www.amazon.in/GLAMORAS-Polyester-Spandex-Wirefree-Adjustable/dp/B0CV42PQ2M/ref=sr_1_67?dib=eyJ2IjoiMSJ9.cdsNruVFXtHorzsrXNFolBk2q21zpGiMPk2FIUoRcRqRtNbrm3lNn6eFMm2Zx0iJI67iXh8QLeX3VCVmXRarsthN4h3FojDRB-Vu2lgE2e0J_TjlAId8Lbc_lFOad_mXI0oeexRNoa_4Iy7FnyHNAdHEysaaeWrxPjhidhwNv3njQNKwBeEAyHB9JSnM-ctNMObd-nuDaCqfilA1T6aGuBsWA8L8QmQKo9IBawMPolJJEA7OCZfKys85hyS5PunsCe4sf4dQwswCIa7RIYPIXQ0PeX2breiNXEVUY-Hgyyg.1kADcO4oFfHfwTGtswa1_dEXEEhpVwP_KuzSn-6naDo&dib_tag=se&keywords=push+up+bra&qid=1774795334&sr=8-67",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:15.737897",
-      "premium": true
-    },
-    {
-      "product_id": "B0DK3PTV2C",
-      "name": "Women's Sports Bra | Wirefree Full Coverage Sports Bra | High Impact Racerback Design with Front Zip & Removable Pads | Sports Bra for Gym, Yoga, Fitness Workouts Size: S-5XL",
-      "brand": "Women's",
-      "category": "Full Coverage Bra",
-      "category_all": [
-        "Full Coverage Bra",
-        "Wireless Bra",
-        "Sports Bra"
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/51OXrJ9E+qL.jpg"
       ],
-      "price_original": 1999.0,
-      "price_discounted": 599.0,
-      "discount_percentage": 70,
-      "rating": "N/A",
-      "review_count": 38,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/41l7jYFOYqL.jpg",
-      "product_url": "https://www.amazon.in/GLAMORAS-Wirefree-Coverage-Racerback-Removable/dp/B0DK3PTV2C/ref=sr_1_95?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-95",
+      "product_url": "https://www.amazon.in/GLAMORAS-Polyester-Spandex-Wirefree-Adjustable/dp/B0CV42PQ2M/ref=sr_1_65?dib=eyJ2IjoiMSJ9.dIIIzVxINjx6F3ayw5-glP9CuAzbnSHa2BZSDkGZWD6bda6j7g1sfNDphhHxJH1DThDSSnujZn5932EG9os9JInrTxGQsgschG5l_TCe7wkVT53FUSKPTV6pCtEbwx_-cHn9rzWe455FQAFF-u49YKst3v7GgEN0oeo0O2DYsI3jvPcyBS3uKA1Na6V-TwjmnLZYM491Nfrrt-Cg-yjLhTMVh6Gyzc51LL1V2BIUBxtHccBLzTrPG4IMsOI0qcF4J3gUPLwa7O6Du7v8G71HmCMv3VHRDKgfLn5oKbvbdIE.dmmR3qHQIn9NioWhxZW5HrAqZVFQ8tx_7uFQ30prAzY&dib_tag=se&keywords=push+up+bra&qid=1774796243&sr=8-65",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:34.212649",
+      "scraped_at": "2026-03-29T20:27:24.772444",
       "premium": true
     },
     {
@@ -96,14 +154,46 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/71My5bQAQ3L.jpg",
-      "product_url": "https://www.amazon.in/Fabluk-High-Performance-Breathable-Racerback-Removable/dp/B0CS6N2Q98/ref=sr_1_36?dib=eyJ2IjoiMSJ9.Hfx_VwHuYTKd1q1UGOxKeko5zov5zEps4WBuVQbgAU8eDDugBzy10yMoss-TyAwqW-5pRKkNRfwKDFUv-uG7AZkob25kd-O8MxOgTIkWZpXGXcZ-h6BYAfyts3nbLfXE85BmFPgC65_qiSTzLptxz_QO-wDHCiDIBPP1TAu_W64mG0lIVxe7VB6jk2p0iQEvxQXuA_wZNYPGhDGBB6wvxK-rHy5DzQXElxgbdPrxWx6W6hEf85l6T_zInHuqFOasrwMspxpGcxPpf3iDuW2x6iCo4x6wHdCmJQkiRKWnnws.LFIVv7Y-gsXcD3HZ98UzXZHZkr4JeWMmp_FHIf2tCkY&dib_tag=se&keywords=bras+discount&qid=1774795433&sr=8-36",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/71My5bQAQ3L.jpg"
+      ],
+      "product_url": "https://www.amazon.in/Fabluk-High-Performance-Breathable-Racerback-Removable/dp/B0CS6N2Q98/ref=sr_1_31?dib=eyJ2IjoiMSJ9.Hfx_VwHuYTKd1q1UGOxKepCDxwKLDAyC4_qHpBXzBLkeDDugBzy10yMoss-TyAwqW-5pRKkNRfwKDFUv-uG7AU4h7qbLiyLyg3mpfsWrUIneDrS-uLyZ9bJDqLWx167UyhoIqC1vbsgN0tnvGexXiEbbCxIgoFCGL36NYscnMXBf-gnBjBvRTfdVcpDOtxi3tOt7cnGML9em6HizJi6Wf0W7jfjFcJTyGWm1I4fqzkZ5bqlg_SQJgvo0WERFMXqE9E0_HeK4HcVB2WbGlKaZkqOUhUkWweX3Ws850Fei3gg.pAfdviLNb1k_wnWhXpzns4X0MfLzPh33u_XNO15vYP8&dib_tag=se&keywords=bras+discount&qid=1774796326&sr=8-31",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:43:55.580078",
+      "scraped_at": "2026-03-29T20:28:48.207285",
       "premium": true
     },
     {
-      "product_id": "B0DP26NT14",
+      "product_id": "25017160",
+      "name": "LULU & SKY Sweetheart Neck Bralette Crop Top",
+      "brand": "LULU & SKY",
+      "category": "Bralette",
+      "category_all": [
+        "Bralette"
+      ],
+      "price_original": 2393.0,
+      "price_discounted": 694.0,
+      "discount_percentage": 70,
+      "rating": "4.417910575866699",
+      "review_count": 67,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/APRIL/24/RtHKnRLl_dcd5c8add83f4c8a83bc9c1e17664092.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/APRIL/24/RtHKnRLl_dcd5c8add83f4c8a83bc9c1e17664092.jpg",
+        "http://assets.myntassets.com/assets/images/2025/APRIL/24/2xJRGPI0_68666afdd0a348d382d490fbfb7de926.jpg",
+        "http://assets.myntassets.com/assets/images/2025/APRIL/24/wQ88A5G8_6c60d6d1d44542eabb0e6378ef5b44ae.jpg",
+        "http://assets.myntassets.com/assets/images/2025/APRIL/24/fx2Qhike_fa13f63fe04d4da8a5e248efc176ac9e.jpg",
+        "http://assets.myntassets.com/assets/images/2025/APRIL/24/SFvEL8k8_c7b0298d97014aa9837b05f5b31618df.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Tops/LULU+%26+SKY/LULU--SKY-Sweetheart-Neck-Bralette-Crop-Top/25017160/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:38.826649",
+      "premium": true
+    },
+    {
+      "product_id": "B0F91SLPMH",
       "name": "Strapless Sticky Bra | Stick On Bra for Backless Dress | Adhesive Strapless Bra for Women | Reusable Silicone Invisible Push-Up | Seamless, Sweatproof, & Skin-Friendly",
       "brand": "Strapless",
       "category": "Seamless Bra",
@@ -122,15 +212,52 @@
       "review_count": 97,
       "sizes_available": [],
       "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/51m4KHpRdcL.jpg",
-      "product_url": "https://www.amazon.in/Nippetals-Strapless-Invisible-Sweatproof-Skin-Friendly/dp/B0DP26NT14/ref=sr_1_96?dib=eyJ2IjoiMSJ9.YcA85NbVu5LLJHknaYroMrCjl7Mdy8MupWQwW-ASW15ff0JRUcmLmUGhFUGeozVlcnqMNQFuRi2joeXEZNCVAf7n8d8leJDD0xKZ1KiNIn9bKnhn1d_6qvzqBF_jaLLvOxkfQOjupnzM-smS0G4A9BN8WZ-DBRzbsBRkr1hM_vOuv7VHOenTL9GTDgm7Ovdh8blqPJLVyWBAPM8a1jTOYXDIB3bDAZtxNrg9KgLbqd4EWhcPueC6YBppoXqEF0AmSbxKL8VBamR6C2_HBOytsFTt32HQ29KdjgsmtS5aUz4.VFoZz10dFxhd8iaKMlJZkDaoT-BOW15n_8f1-9L2mko&dib_tag=se&keywords=strapless+bra&qid=1774795417&sr=8-96",
+      "image_url": "https://m.media-amazon.com/images/I/71PCQzH7+SL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/71PCQzH7+SL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo3Mzc4NDc2NDY1NzI1ODQzOjE3NzQ3OTYzMDc6c3BfYXRmOjMwMDcxMzk0NTEzNzEzMjo6MDo6&url=%2FNippetals-Strapless-Invisible-Sweatproof-Skin-Friendly%2Fdp%2FB0F91SLPMH%2Fref%3Dsr_1_3_sspa%3Fdib%3DeyJ2IjoiMSJ9.8VQgKg3kaH-M5C-AdYyK241H8lr2IUKl0WF8uCoY_gYX5it_TiU63wU3cULnXuMDIEHbmxos_v9cJ16IXN4Tg22BnNg2FublZHtOjIbSdkY_1uJMDS7y7sHJKM598LjG62V--A3BACeiVGTEnaOPkKwXrziaHI_1AlNyFV0LVvBJBC3z23ZQl8051wL_OedWyZbAdTdNSCKqdfT77N2eMs4686Mu8Iz0iH0IokcELzAaTBEB0Pv0ACd2B2ikk1uf3b6L2hZNBg2xjUUCOHhEicK_ot4uhU6XspQbGqoa2TA._X5eGOpg9I4yD4Iqik3MQB7s_5Q60TBLvh3nAQdXOWU%26dib_tag%3Dse%26keywords%3Dstrapless%2Bbra%26qid%3D1774796307%26sr%3D8-3-spons%26aref%3DQ8l0E843lC%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=Q8l0E843lC&sp_cr=ZAZ",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:43:38.967679",
+      "scraped_at": "2026-03-29T20:28:29.864527",
       "premium": true
     },
     {
-      "product_id": "B08W3DSN27",
+      "product_id": "34936966",
+      "name": "Evamomies Pack Of 3 Full Coverage Seamless Cotton Maternity Bra",
+      "brand": "Evamomies",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra",
+        "Seamless Bra",
+        "Maternity Bra"
+      ],
+      "price_original": 2997.0,
+      "price_discounted": 999.0,
+      "discount_percentage": 66,
+      "rating": "4.285714149475098",
+      "review_count": 70,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/JUNE/14/koNfJj3s_1458f8dbab1547dbaec9dfef8d8fbf5e.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/JUNE/14/koNfJj3s_1458f8dbab1547dbaec9dfef8d8fbf5e.jpg",
+        "http://assets.myntassets.com/assets/images/2025/JUNE/14/tZRBtf5q_100d5861b443e8601efeb49ff7f14.jpg",
+        "http://assets.myntassets.com/assets/images/2025/JUNE/14/PrkvUWam_2096850c5ba54eadb900a9de3152ac36.jpg",
+        "http://assets.myntassets.com/assets/images/2025/JUNE/14/hfnK0UKl_1621c969d5b141d2909ac91d8cd1f503.jpg",
+        "http://assets.myntassets.com/assets/images/2025/JUNE/14/yOASpOKI_ff3fd2fa2f2c4048b1d1898c43d007f6.jpg",
+        "http://assets.myntassets.com/assets/images/2025/JUNE/14/MJBm1YdB_2c0f0b48b51f4463a0a97ecac1f9be04.jpg",
+        "http://assets.myntassets.com/assets/images/2025/JUNE/14/j0O1tb23_334c783d612e44f0a373b46e1d91b446.jpg",
+        "http://assets.myntassets.com/assets/images/2025/JUNE/14/jNuGwffj_ab8978b5ea4840249fe4be19ce544677.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Evamomies/Evamomies-Pack-Of-3-Full-Coverage-Seamless-Cotton-Maternity-Bra/34936966/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.452554",
+      "premium": true
+    },
+    {
+      "product_id": "B08W3BPKD9",
       "name": "Women's Lace Solid Padded Full Cup Wire Free Bralette Bra - Black",
       "brand": "Women's",
       "category": "Full Coverage Bra",
@@ -149,10 +276,96 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61yZuifLPDL.jpg",
-      "product_url": "https://www.amazon.in/Clovia-Wirefree-Coverage-Bralette-BR2169P13_Black_32B/dp/B08W3DSN27/ref=sr_1_9?dib=eyJ2IjoiMSJ9.2J3q47Rm6WvgltBXhZPZiurtoayJGeCru8SK9FIYCcv354l6NXpl3HYjF_aEl3m9xSJEYAJ68OoI9Ekvn56LQfPbziOIvyK1CUnlGkHiPt5hnZPpVb0PpNJx56K8w5eESsT-So0b5sfsH_QMlQOLfHNTM6Of3BUKSknBP5_y-m7KpgNm0h6MD35nqg53D1oIX8lj9iR62zWpQn0QG6FML5QWGw0P-ihhHOKk1y5m62179rslkNfX8aJorTwNOpjY1dHTIPoCRtUabixUKtED6pef9DrwRvbHkO-S01SL7H4.-mtEFImLlAZIiXn5F13fKwFu1erCK2TTYX5vg00uuK0&dib_tag=se&keywords=bralette+for+women&qid=1774795361&sr=8-9",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/61yZuifLPDL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/Clovia-Wirefree-Coverage-Bralette-BR2169P13_Black_34B/dp/B08W3BPKD9/ref=sr_1_61?dib=eyJ2IjoiMSJ9.dIIIzVxINjx6F3ayw5-glP9CuAzbnSHa2BZSDkGZWD6bda6j7g1sfNDphhHxJH1DThDSSnujZn5932EG9os9JInrTxGQsgschG5l_TCe7wkVT53FUSKPTV6pCtEbwx_-cHn9rzWe455FQAFF-u49YKst3v7GgEN0oeo0O2DYsI3jvPcyBS3uKA1Na6V-TwjmnLZYM491Nfrrt-Cg-yjLhTMVh6Gyzc51LL1V2BIUBxtHccBLzTrPG4IMsOI0qcF4J3gUPLwa7O6Du7v8G71HmCMv3VHRDKgfLn5oKbvbdIE.dmmR3qHQIn9NioWhxZW5HrAqZVFQ8tx_7uFQ30prAzY&dib_tag=se&keywords=push+up+bra&qid=1774796243&sr=8-61",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:42.868899",
+      "scraped_at": "2026-03-29T20:27:24.761917",
+      "premium": true
+    },
+    {
+      "product_id": "14052842",
+      "name": "Clovia Black Solid Non-Wired Lightly Padded Bralette Bra RB2169P1336E",
+      "brand": "Clovia",
+      "category": "Underwire Bra",
+      "category_all": [
+        "Underwire Bra",
+        "Wireless Bra",
+        "Padded Bra",
+        "Bralette"
+      ],
+      "price_original": 1499.0,
+      "price_discounted": 524.0,
+      "discount_percentage": 65,
+      "rating": "4.486486434936523",
+      "review_count": 185,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/14052842/2021/4/8/ae3a1064-cdaa-40df-82ec-299b8f0c695f1617898997334CloviaWomenBlackSolid1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/14052842/2021/4/8/ae3a1064-cdaa-40df-82ec-299b8f0c695f1617898997334CloviaWomenBlackSolid1.jpg",
+        "http://assets.myntassets.com/assets/images/14052842/2021/4/8/7e28ae82-64cb-43c5-b151-eb0fcfb15b161617898997427CloviaWomenBlackSolid4.jpg",
+        "http://assets.myntassets.com/assets/images/14052842/2021/4/8/3bda4017-21f6-4f5a-9093-b658685e85be1617898997395CloviaWomenBlackSolid3.jpg",
+        "http://assets.myntassets.com/assets/images/14052842/2021/4/8/a6c32186-1156-4a7d-b5ab-849e73d0918a1617898997454CloviaWomenBlackSolid5.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Clovia/Clovia-Black-Solid-Non-Wired-Lightly-Padded-Bralette-Bra-RB2169P1336E/14052842/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:38.826146",
+      "premium": true
+    },
+    {
+      "product_id": "B0G6L49T35",
+      "name": "Shoppy Villa Women\u2019s Padded Sports Bra with Mesh Racerback | 4-Way Stretch, Moisture-Wicking, Removable Pads, Adjustable Hook Closure for Gym, Yoga & Workout",
+      "brand": "Shoppy",
+      "category": "Padded Bra",
+      "category_all": [
+        "Padded Bra",
+        "Sports Bra"
+      ],
+      "price_original": 1899.0,
+      "price_discounted": 699.0,
+      "discount_percentage": 63,
+      "rating": "N/A",
+      "review_count": 18,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/51eXN6w2Y6L.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/51eXN6w2Y6L.jpg"
+      ],
+      "product_url": "https://www.amazon.in/Racerback-Stretch-Moisture-Wicking-Removable-Adjustable/dp/B0G6L49T35/ref=sr_1_91?dib=eyJ2IjoiMSJ9.pmh6RJ02fax1R4vD-y-OEA0ODSuueOKV37oJCkBc0wtJceQdOBeRZtAjN0FqgcLL-MON6HjEP9dALdfCQTtRLm1TIz3yZEgSVr4rN9HOMRAfSIlHifHcMurxpKLUJEYTRtODCxG93LjQyaruZWpTk4gIDuoGn4CatUcURzINUT8Q5XBNjIuZKHrUwwgwPFoMWUgSaP3Quvh_5zdVDBDQVCKbyw1ns63myWL4IkAbfUMKqMLHgrj4fCm4DzqAx3H0bz-oH4wsw3EYhwcOOMFImQNr0CrKYxZ8-nTSf-IB8So.BZhQy0sX_4diA5tBt03VQ1tnqqGX4hfYPG6BcQtulVU&dib_tag=se&keywords=sports+bra+women&qid=1774796258&sr=8-91",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:27:39.599248",
+      "premium": true
+    },
+    {
+      "product_id": "B0CMTT6H2Z",
+      "name": "Women's Padded Crop Top Sports Bra with Mesh Racerback for Gym/Yoga/Workout, Size M to 2XL",
+      "brand": "Women's",
+      "category": "Padded Bra",
+      "category_all": [
+        "Padded Bra",
+        "Sports Bra"
+      ],
+      "price_original": 1599.0,
+      "price_discounted": 581.0,
+      "discount_percentage": 63,
+      "rating": "N/A",
+      "review_count": 166,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/61d3LTXGKWL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/61d3LTXGKWL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/PLUMBURY-Womens-Padded-Racerback-Workout/dp/B0CMTT6H2Z/ref=sr_1_99?dib=eyJ2IjoiMSJ9.pmh6RJ02fax1R4vD-y-OEA0ODSuueOKV37oJCkBc0wtJceQdOBeRZtAjN0FqgcLL-MON6HjEP9dALdfCQTtRLm1TIz3yZEgSVr4rN9HOMRAfSIlHifHcMurxpKLUJEYTRtODCxG93LjQyaruZWpTk4gIDuoGn4CatUcURzINUT8Q5XBNjIuZKHrUwwgwPFoMWUgSaP3Quvh_5zdVDBDQVCKbyw1ns63myWL4IkAbfUMKqMLHgrj4fCm4DzqAx3H0bz-oH4wsw3EYhwcOOMFImQNr0CrKYxZ8-nTSf-IB8So.BZhQy0sX_4diA5tBt03VQ1tnqqGX4hfYPG6BcQtulVU&dib_tag=se&keywords=sports+bra+women&qid=1774796258&sr=8-99",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:27:39.614902",
       "premium": true
     },
     {
@@ -172,105 +385,198 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/710ziIFCx3L.jpg",
-      "product_url": "https://www.amazon.in/GG-RAGS-Bralette-Crisscross-Adjustable/dp/B0FHBTCPCF/ref=sr_1_65?dib=eyJ2IjoiMSJ9.NYNvfkpMCE-EOS9tMJxY9ZpDa7xBIixSk00aeVSYMcLwnFloHhhEzrGudIUlLPwnZ1eX8bsfQiqn850JFYDqdVYW2yru38tNpzZSHrpNNWCI6NL168HYA2ohweYskK-9xc_58I2PhcEjN_d4FO7-rm8Bc0kvzYYsCbYOaV0XSm_q7Mup_JAjNVo3m1zXSHpQkRtY4-8KoAhIcvjAbDYYRrCJgIV7_14e-BINQPe-Q21IbG2pQBQuvcZIYXN9L9-RRTY48L6xYMW6rNMkdS78TlovlBCGSlVkzeXHG50_RS4.LkZ4oBesJx_-gEI_-VCn5Dfz6Wi5bKmJ34IVDWlcdaU&dib_tag=se&keywords=bralette+for+women&qid=1774795367&sr=8-65",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/710ziIFCx3L.jpg"
+      ],
+      "product_url": "https://www.amazon.in/GG-RAGS-Bralette-Crisscross-Adjustable/dp/B0FHBTCPCF/ref=sr_1_67?dib=eyJ2IjoiMSJ9.1Ph34gW3cVFNaz0yKGxT5_9assKqug1YKmJBTkk_xpto-6_Ta1cNzFwqtUm_a3DQq-8iiJVsi30sJYSU1rUVnEFJzHZ4LZwPxVBGU_CrgWdhrCwz3OTfibqhMJ4GNXYstLyByPPus3gNpMT26zzC91XvwUhw37ITcUgkCoU24TOOGaAtXd8bpbIYIo8GzTwFlXNnn2ZIeK6GB5l9YrXqhKh7CWtYs7iO9Vaxj9FC1gsGfLdF7te5yJbCk5F9zj_YSNfItj6mLlcDaIRvMbkkXKPmt2hshbnQ4ozVsVTtjvM.lvMtF7zCo1hTWIFeyHUFlKRrCMWuTKZS05s7Qci66XI&dib_tag=se&keywords=bralette+for+women&qid=1774796275&sr=8-67",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:49.396084",
+      "scraped_at": "2026-03-29T20:27:57.203963",
       "premium": true
     },
     {
-      "product_id": "B0CMTPG8FD",
-      "name": "Women's Padded Sports Bra with Mesh Racerback for Gym/Yoga/Workout, Size S to 2XL",
-      "brand": "Women's",
+      "product_id": "B0C4TS8335",
+      "name": "Double Layer Full Coverage with Seamless U Back Non-Padded T-Shirt Bra Single Pack",
+      "brand": "Double",
+      "category": "T-Shirt Bra",
+      "category_all": [
+        "T-Shirt Bra",
+        "Full Coverage Bra",
+        "Seamless Bra",
+        "Unlined Bra",
+        "Padded Bra"
+      ],
+      "price_original": 1497.0,
+      "price_discounted": 544.0,
+      "discount_percentage": 63,
+      "rating": "N/A",
+      "review_count": 48,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/71Uawyy-jDL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/71Uawyy-jDL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MToyMzkwMDAwODQ2MjcwNDEzOjE3NzQ3OTYzMjY6c3Bfc2VhcmNoX3RoZW1hdGljX2J0ZjozMDA3ODIxMzExNzMxMzI6OjI6Og&url=%2FPOOJARAGENEE-Ragenee-Womens-Coverage-MQ3033D_3P_SK_WH_BL_36D%2Fdp%2FB0C4TS8335%2Fref%3Dsxbs_pa_sp_search_thematic_btf_sspa%3Fcontent-id%3Damzn1.sym.6748dafd-1857-4dd2-9058-aab807cb526e%253Aamzn1.sym.6748dafd-1857-4dd2-9058-aab807cb526e%26cv_ct_cx%3Dbras%2Bdiscount%26keywords%3Dbras%2Bdiscount%26pd_rd_i%3DB0C4TS8335%26pd_rd_r%3Dc07f8297-2698-49aa-98ac-693985efcc4e%26pd_rd_w%3DpPPg9%26pd_rd_wg%3DOCN4N%26pf_rd_p%3D6748dafd-1857-4dd2-9058-aab807cb526e%26pf_rd_r%3DC1TXEST03AVGEF108D5X%26qid%3D1774796326%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-3-2907eac4-8056-42c7-8014-fdf7bd4c5395-spons%26aref%3DyTfw6kReTA%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWNfYnRm%26psc%3D1&aref=yTfw6kReTA&sp_cr=ZAZ",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:28:48.272349",
+      "premium": true
+    },
+    {
+      "product_id": "21492258",
+      "name": "Clovia Embellished Bralette Heavily Padded Bra",
+      "brand": "Clovia",
       "category": "Padded Bra",
       "category_all": [
         "Padded Bra",
-        "Sports Bra"
+        "Bralette"
       ],
-      "price_original": 1899.0,
-      "price_discounted": 712.0,
-      "discount_percentage": 62,
-      "rating": "N/A",
-      "review_count": 53,
+      "price_original": 1299.0,
+      "price_discounted": 506.0,
+      "discount_percentage": 61,
+      "rating": "4.413533687591553",
+      "review_count": 1197,
       "sizes_available": [],
       "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/71aWRnBk8SL.jpg",
-      "product_url": "https://www.amazon.in/PLUMBURY-Womens-Padded-Racerback-Workout/dp/B0CMTPG8FD/ref=sr_1_74?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-74",
-      "website_source": "Amazon India",
+      "image_url": "http://assets.myntassets.com/assets/images/21492258/2023/1/11/c83e15cf-e6d0-464f-b9e8-6f24e8f2db561673408939184CloviaMaroonBraletteBraHeavilyPadded1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/21492258/2023/1/11/c83e15cf-e6d0-464f-b9e8-6f24e8f2db561673408939184CloviaMaroonBraletteBraHeavilyPadded1.jpg",
+        "http://assets.myntassets.com/assets/images/21492258/2023/1/11/9c9b83f3-1c48-448b-81ba-1d41fe0254451673408939194CloviaMaroonBraletteBraHeavilyPadded2.jpg",
+        "http://assets.myntassets.com/assets/images/21492258/2023/1/11/39e4149b-f76d-4c2d-8f20-8d297a1061151673408939173CloviaMaroonBraletteBraHeavilyPadded3.jpg",
+        "http://assets.myntassets.com/assets/images/21492258/2023/1/11/fed3583e-de09-480b-9ee6-6c7f169c41521673408939211CloviaMaroonBraletteBraHeavilyPadded5.jpg",
+        "http://assets.myntassets.com/assets/images/21492258/2023/1/11/74f5ad79-7ae0-425e-836b-79eddb81b7af1673408939202CloviaMaroonBraletteBraHeavilyPadded4.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Clovia/Clovia-Embellished-Bralette-Heavily-Padded-Bra/21492258/buy",
+      "website_source": "Myntra",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:34.089521",
+      "scraped_at": "2026-03-29T20:29:38.825092",
       "premium": true
     },
     {
-      "product_id": "B0CLSTZS9B",
-      "name": "Women's Seamless Padded Full Coverage Front Zip Cross Back Sports Bra, Size S to XL",
-      "brand": "Women's",
+      "product_id": "25813592",
+      "name": "Clovia Lightly Padded Full Coverage All Day Comfort Rapid-Dry Sports Bra",
+      "brand": "Clovia",
       "category": "Full Coverage Bra",
       "category_all": [
         "Full Coverage Bra",
-        "Seamless Bra",
         "Padded Bra",
         "Sports Bra"
       ],
-      "price_original": 1599.0,
-      "price_discounted": 631.0,
+      "price_original": 1299.0,
+      "price_discounted": 519.0,
       "discount_percentage": 60,
-      "rating": "N/A",
-      "review_count": 88,
+      "rating": "4.263858318328857",
+      "review_count": 451,
       "sizes_available": [],
       "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/51T5YppmEuL.jpg",
-      "product_url": "https://www.amazon.in/PLUMBURY-Womens-Polyamide-Seamless-Coverage/dp/B0CLSTZS9B/ref=sr_1_66?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-66",
-      "website_source": "Amazon India",
-      "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:34.045205",
-      "premium": true
-    },
-    {
-      "product_id": "B0CLV1CGSR",
-      "name": "Polyamide Women's Seamless Padded High Support Front Zip Cross Back Sports Bra",
-      "brand": "Polyamide",
-      "category": "Seamless Bra",
-      "category_all": [
-        "Seamless Bra",
-        "Padded Bra",
-        "Sports Bra"
+      "image_url": "http://assets.myntassets.com/assets/images/25813592/2025/7/18/7c20c391-2356-4403-9c59-04d0c495beb01752836516161-Clovia-Lightly-Padded-Full-Coverage-All-Day-Comfort-Rapid-Dr-1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/25813592/2025/7/18/7c20c391-2356-4403-9c59-04d0c495beb01752836516161-Clovia-Lightly-Padded-Full-Coverage-All-Day-Comfort-Rapid-Dr-1.jpg",
+        "http://assets.myntassets.com/assets/images/25813592/2025/7/18/2f0a04aa-2a4a-4004-96fd-1e5f895018d41752836516049-Clovia-Lightly-Padded-Full-Coverage-All-Day-Comfort-Rapid-Dr-5.jpg",
+        "http://assets.myntassets.com/assets/images/25813592/2025/7/18/97a1a9c9-d712-429f-acbd-e428e6efb0061752836516076-Clovia-Lightly-Padded-Full-Coverage-All-Day-Comfort-Rapid-Dr-4.jpg",
+        "http://assets.myntassets.com/assets/images/25813592/2025/7/18/53c290c4-13fc-427f-9762-d10bf058be5b1752836516105-Clovia-Lightly-Padded-Full-Coverage-All-Day-Comfort-Rapid-Dr-3.jpg",
+        "http://assets.myntassets.com/assets/images/25813592/2025/7/18/1d0148a1-0c36-4920-90fa-97632b2984431752836516133-Clovia-Lightly-Padded-Full-Coverage-All-Day-Comfort-Rapid-Dr-2.jpg"
       ],
-      "price_original": 1599.0,
-      "price_discounted": 630.0,
-      "discount_percentage": 60,
-      "rating": "N/A",
-      "review_count": 170,
-      "sizes_available": [],
-      "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/513667EqozL.jpg",
-      "product_url": "https://www.amazon.in/PLUMBURY-Polyamide-Womens-Seamless-Support/dp/B0CLV1CGSR/ref=sr_1_94?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-94",
-      "website_source": "Amazon India",
+      "product_url": "https://www.myntra.com/Bra/Clovia/Clovia-Lightly-Padded-Full-Coverage-All-Day-Comfort-Rapid-Dry-Sports-Bra/25813592/buy",
+      "website_source": "Myntra",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:34.205393",
+      "scraped_at": "2026-03-29T20:26:44.451554",
       "premium": true
     },
     {
-      "product_id": "B082QBQ1GT",
-      "name": "Women's Recycled Polyester Blend Wire Free Non-Wired Full-Coverage Wireless Bra",
-      "brand": "Women's",
+      "product_id": "33255053",
+      "name": "Amante Floral Half Coverage Underwired Lightly Padded Bralette Bra",
+      "brand": "Amante",
       "category": "Underwire Bra",
       "category_all": [
         "Underwire Bra",
-        "Wireless Bra"
+        "Padded Bra",
+        "Bralette"
       ],
-      "price_original": 2699.0,
-      "price_discounted": 1080.0,
-      "discount_percentage": 59,
-      "rating": "N/A",
-      "review_count": 7,
+      "price_original": 1869.0,
+      "price_discounted": 747.0,
+      "discount_percentage": 60,
+      "rating": "0",
+      "review_count": 0,
       "sizes_available": [],
       "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/71IosGRZiHL.jpg",
-      "product_url": "https://www.amazon.in/Reebok-Womens-Non-Wired-Wireless-FI6800_Black_Large/dp/B082QBQ1GT/ref=sr_1_91?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-91",
-      "website_source": "Amazon India",
+      "image_url": "http://assets.myntassets.com/assets/images/2025/MARCH/19/l48vcZoO_50e8554887ec402bbdbb994bcb07d73b.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/MARCH/19/l48vcZoO_50e8554887ec402bbdbb994bcb07d73b.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MARCH/19/aghiToYW_c2df795fbdd2478286cc72d05db08a79.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MARCH/19/02wcLfmX_c82804e8e3fd48d18310cf33f0f48963.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MARCH/19/fXYEgrEB_eada2f724db3412dbe7abd35974d96eb.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MARCH/19/E0ufjxSX_d8ba7617253842ff86dfd51e0eda19c2.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Amante/Amante-Floral-Half-Coverage-Underwired-Lightly-Padded-Bralette-Bra/33255053/buy",
+      "website_source": "Myntra",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:34.185597",
+      "scraped_at": "2026-03-29T20:29:49.289737",
+      "premium": true
+    },
+    {
+      "product_id": "37459140",
+      "name": "Zivame Women Pack of 2 Medium Coverage Lightly Padded Bralette Bra",
+      "brand": "Zivame",
+      "category": "Padded Bra",
+      "category_all": [
+        "Padded Bra",
+        "Bralette"
+      ],
+      "price_original": 1379.0,
+      "price_discounted": 552.0,
+      "discount_percentage": 59,
+      "rating": "4.232558250427246",
+      "review_count": 43,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/OCTOBER/13/eKnHJzfR_dbb39ee2e995446fb57a71aa4293f2e1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/OCTOBER/13/eKnHJzfR_dbb39ee2e995446fb57a71aa4293f2e1.jpg",
+        "http://assets.myntassets.com/assets/images/2025/OCTOBER/13/NGSqZ9X7_c4e595852d9c4aad9c04b2e07d8e6202.jpg",
+        "http://assets.myntassets.com/assets/images/2025/OCTOBER/13/pXZO5Ege_ef74b2c68b624ceca6c89bb9011fe6b3.jpg",
+        "http://assets.myntassets.com/assets/images/2025/OCTOBER/13/2XgivSvl_379ea5acf449487488e687cf28f50796.jpg",
+        "http://assets.myntassets.com/assets/images/2025/OCTOBER/13/3kIzl6qQ_ffcbb82f68e04f709259c0786f03b166.jpg",
+        "http://assets.myntassets.com/assets/images/2025/OCTOBER/13/uXmSvCP0_bba38b5ffd394b13bc1048970a0dd0ad.jpg",
+        "http://assets.myntassets.com/assets/images/2025/OCTOBER/13/UTdfB6AW_f8bbc3e0e69d436593d1cff4cd4724dc.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Women-Pack-of-2-Medium-Coverage-Lightly-Padded-Bralette-Bra-/37459140/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:38.823083",
+      "premium": true
+    },
+    {
+      "product_id": "31558394",
+      "name": "Clovia Full Coverage Underwired Lightly Padded Bralette Bra",
+      "brand": "Clovia",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra",
+        "Underwire Bra",
+        "Padded Bra",
+        "Bralette"
+      ],
+      "price_original": 1299.0,
+      "price_discounted": 532.0,
+      "discount_percentage": 59,
+      "rating": "4.292134761810303",
+      "review_count": 89,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2024/NOVEMBER/7/0cSQSjEW_acfbf4b83bb6402ebef0563ad4552914.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2024/NOVEMBER/7/0cSQSjEW_acfbf4b83bb6402ebef0563ad4552914.jpg",
+        "http://assets.myntassets.com/assets/images/2024/NOVEMBER/7/fRicWU72_9ed3a63c61104d0c9af3104efc09a371.jpg",
+        "http://assets.myntassets.com/assets/images/2024/NOVEMBER/7/p9YWoz6I_cec3355f64564b409a97ae4e71e2d3cd.jpg",
+        "http://assets.myntassets.com/assets/images/2024/NOVEMBER/7/iHeTwjMD_fdb8d9972cb6479094a657345bf1610c.jpg",
+        "http://assets.myntassets.com/assets/images/2024/NOVEMBER/7/I78FFmZA_e0704eb9083a48f5984f03fc43c21c5f.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Clovia/Clovia-Full-Coverage-Underwired-Lightly-Padded-Bralette-Bra-/31558394/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:38.826649",
       "premium": true
     },
     {
@@ -290,14 +596,83 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61W6kmqOzOL.jpg",
-      "product_url": "https://www.amazon.in/Clovia-Womens-Colourblocked-Racerback-BRS051P09_Maroon_M/dp/B0BS3VGP7H/ref=sr_1_18?dib=eyJ2IjoiMSJ9.sWxpMXJsk_kR2EHnEB3_sE6otmUL5GFu_sfSLDb6U6fu92cjJwJo4Y5CLLN1uuXYPeZzfC07lb9Tt6Fh2_y115DAGO0sOeDbMoeI1LbltrZdznVA6qlzj2WOEZEB0s9wBeJclObbSkNVUHYCUXT3rBiRP3BcJleeUcPls-zixi1OupXeNQ9GyvwuzP181JHSxaYQO2yshG9A9drstRUcmZqG8PVaBq4fPQAfvG5MbXIlTNuMtXPlmz25R4ru4Unsb4NAOIvRS9w8eM8JzZY9k9MgGtomInucdF0SikdyaaU.adD4jU7e2TgvfuLujbToe467RC0f4NozWPy91kV2C7Q&dib_tag=se&keywords=sports+bra+women&qid=1774795342&sr=8-18",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/61W6kmqOzOL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/Clovia-Womens-Colourblocked-Racerback-BRS051P09_Maroon_M/dp/B0BS3VGP7H/ref=sr_1_28?dib=eyJ2IjoiMSJ9.yY84isK-Dywcug20R9S3WDrPNDORPoZ9CYt3rmxWnrZGWbekOJm-BrOfo5nxcBQquKkzYZsCYBW0Hlw7l2OUhqpGH2U9QDjD_Jv08qCZpdmAzwQBiLtfoZ2NVKHxWscEk3oymkkFwtFq4g7n-WqBafGm7jn33_4q3HwmgnMZPBjpuEeB1HAMa_I8bs_8dU5PIKdxCrq8InNprTVkLQic91i60_8LEd0rn85rpH94qQtNn9fFbf47dnIEo7YiE2uCH7xDcm5ZCcphX_AJffE3JO6rC5JSA48-MVYL1xUD5d4.G4MpKeRoScBRnlEU-BgA2vZM9ZLVWQAdBE4aXzYLodY&dib_tag=se&keywords=sports+bra+women&qid=1774796250&sr=8-28",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:24.091247",
+      "scraped_at": "2026-03-29T20:27:31.719128",
       "premium": true
     },
     {
-      "product_id": "B0D93QYCM8",
+      "product_id": "34333745",
+      "name": "DressBerry Women Pack Of 3 Full Coverage Non Padded T-Minimizer Bra",
+      "brand": "DressBerry",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra",
+        "Minimizer Bra",
+        "Unlined Bra",
+        "Padded Bra"
+      ],
+      "price_original": 1999.0,
+      "price_discounted": 835.0,
+      "discount_percentage": 58,
+      "rating": "4.307142734527588",
+      "review_count": 280,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/MAY/21/xPcgEghT_28c44473899b478c9c1fab88828c773f.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/MAY/21/xPcgEghT_28c44473899b478c9c1fab88828c773f.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MAY/21/vZCPId6X_d47831d096d0490aa3c4ef21227efd16.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MAY/21/VsCHszFx_cc254ac610da4331b1bec2ab132eddbd.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MAY/21/iJGp4HW1_9a91e280e7154754b723f8320ad16483.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MAY/21/uvm37Mgj_6ccc9d103e714ce3bc12a2aeb915a147.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MAY/21/7neIeXj8_d74b6d03acf546e4ad71823d599ea374.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MAY/21/CYfIBzL9_31a05d8f95b4491e81d6a2308116d05e.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MAY/21/WjNtp8Mc_82d919a6c2434d8aad85c29b95fbd07f.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/DressBerry/DressBerry-Women-Pack-Of-3-Full-Coverage-Non-Padded-T-Minimizer-Bra/34333745/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:36.537420",
+      "premium": true
+    },
+    {
+      "product_id": "39207782",
+      "name": "CULT Women's Teal Printed High Impact Training Bra",
+      "brand": "CULT",
+      "category": "Sports Bra",
+      "category_all": [
+        "Sports Bra"
+      ],
+      "price_original": 2799.0,
+      "price_discounted": 1199.0,
+      "discount_percentage": 57,
+      "rating": "4.34782600402832",
+      "review_count": 46,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2026/JANUARY/6/PVxYYtkf_a226d977d61e44f590697fb16b669834.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/6/PVxYYtkf_a226d977d61e44f590697fb16b669834.jpg",
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/6/mtAVscIJ_fd51e62117454058ae1186e224b7b654.jpg",
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/6/pZ9O9WAP_8defb89f4e3f43d08005563097955e26.jpg",
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/6/Ueu5y7GH_972a4730bf7c4a998733efaf1d772576.jpg",
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/6/wdESk4p7_a407d2b29e264a7c98abe6fef4cfbcd8.jpg",
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/6/iBA4Hehw_1080cab8c849c58ce7d59a51b8c191.jpg",
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/6/Gl9Vfn8A_329cc4dfa15744269bd998bbd6a95819.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/CULT/CULT-Womens-Teal-Printed-High-Impact-Training-Bra/39207782/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.452554",
+      "premium": true
+    },
+    {
+      "product_id": "B0D93NYTSB",
       "name": "Sports Bra for Women,Padded Gym Bra for Woman with Cross Back & Moisture-Wicking Fabric,Medium Support Workout Bra for Yoga, Running & Training,Stretchable Poly-Spandex Activewear",
       "brand": "Sports",
       "category": "Padded Bra",
@@ -313,10 +688,139 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/71fGl17RYFL.jpg",
-      "product_url": "https://www.amazon.in/Boldfit-Womens-Spandex-Modern-BFTBW2001SBlackXXL_Black/dp/B0D93QYCM8/ref=sr_1_93?dib=eyJ2IjoiMSJ9.IaOpKPJimgeck7mnFlsyT_rMjOoBOnMxL9dWmmKlJjS_GMzwoXI8pjavfbULbcDd4zeKpfuGVemvEF9VSKZYUdHDbfRrEPNnCqwm-ddz4g74YwdQh0-NUGM6piTeTZuM1b_s0Vr5mIrRvG_jqYy-EQsRaBs1MSBY8UoLNzzOuNKt1zZNRiS15T3WgffX8vFQa_X3YQ9UhpQ72ZLIBp--Rf8Juv7gkxOYf-l6V4nclaG5Y8E3EVjupgpvKzbH2yXySb9KRFT1a7JajyDBv-p8Pkq0jasb83OdozMmno3mChA.xIL_aDlINlmtv6slHEOYxoFaw-uWzspdzoncTiawA4A&dib_tag=se&keywords=bras+for+women&qid=1774795294&sr=8-93",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/71fGl17RYFL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/Boldfit-Womens-Spandex-Modern-BFTBW2001SBlackXL_Black/dp/B0D93NYTSB/ref=sr_1_68?dib=eyJ2IjoiMSJ9._a3WATzbPo-lfnA64zZBMhBUawPdMwr4HWzFksqYLCXQ2I3z-S5R8lYY677w_zq0jmRdeIv5vhQalpx9QZ9H36JrzZBOjnyhEjicvw_r9F1HBpN3GW0JwlZMItHxbiH2tRtOjPJACy7UJvUjvP4rzP18YZ5WUF_OxmD0hFuxAZ7_jAKzVXHanPMaLnJ67U5HTObPOWR1Dw_ORnV_-iF15xehjcBo5_M8GrBC4n9Ky32vOYXCSmvDZK0kZeNtmc9a0LFnS6itJLiBW7vtbXdvT599Xe92GkzasYjITxUhBs0.3MuPiqC_uRuwIuYVCCvYSyjpz0NyQ_SoMnJ3i0WRnXU&dib_tag=se&keywords=bras+for+women&qid=1774796198&sr=8-68",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:41:36.368300",
+      "scraped_at": "2026-03-29T20:26:39.780647",
+      "premium": true
+    },
+    {
+      "product_id": "37900317",
+      "name": "Zivame Medium Coverage Lightly Padded Bra",
+      "brand": "Zivame",
+      "category": "Padded Bra",
+      "category_all": [
+        "Padded Bra"
+      ],
+      "price_original": 1199.0,
+      "price_discounted": 551.0,
+      "discount_percentage": 54,
+      "rating": "4.493902206420898",
+      "review_count": 328,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/JaZaRQaa_bc5f2d3585de4fdbb9b446a6f0cf2b9b.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/JaZaRQaa_bc5f2d3585de4fdbb9b446a6f0cf2b9b.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/QLur2NZi_8c6abbc10d8b45bb9d5850b37f0da832.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/gIhEe6jl_9974c2b539aa4184b95d67ebbfa09571.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/Qm1WzDov_f0d2daf54cfb4c12bac385222fecb5a2.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/wOXOObAM_2cca43f6b10a4b718e8f4a11cbfb157f.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Medium-Coverage-Lightly-Padded-Bra/37900317/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:36.536413",
+      "premium": true
+    },
+    {
+      "product_id": "12430624",
+      "name": "Zivame Blue Solid Non-Wired Lightly Padded T-shirt Bra ZI1137CORE",
+      "brand": "Zivame",
+      "category": "T-Shirt Bra",
+      "category_all": [
+        "T-Shirt Bra",
+        "Underwire Bra",
+        "Wireless Bra",
+        "Padded Bra"
+      ],
+      "price_original": 1199.0,
+      "price_discounted": 551.0,
+      "discount_percentage": 54,
+      "rating": "4.213100433349609",
+      "review_count": 5664,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2026/MARCH/20/wY5xrxvS_6877189f4e6948f89297bf3322ad3b64.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/wY5xrxvS_6877189f4e6948f89297bf3322ad3b64.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/7M3QcfUx_00cd43b4795247aa9456c4b0b8240961.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/q2ZF88vV_a7650962197a4e0db0fae61d67872ab9.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/UkHyr1qT_df55c9862c00488da0e3553b5ea43ed8.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/x1TF0Mhc_f399bd96e29e45b8a969af907d43a3d4.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/lNpKhzoL_f07d6f7940cb41efa81ac94c2166c852.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Blue-Solid-Non-Wired-Lightly-Padded-T-shirt-Bra-ZI1137CORE/12430624/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.451554",
+      "premium": true
+    },
+    {
+      "product_id": "36411142",
+      "name": "Zivame Bralette Medium Coverage Lightly Padded Bra",
+      "brand": "Zivame",
+      "category": "Padded Bra",
+      "category_all": [
+        "Padded Bra",
+        "Bralette"
+      ],
+      "price_original": 1199.0,
+      "price_discounted": 550.0,
+      "discount_percentage": 54,
+      "rating": "4.375",
+      "review_count": 8,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/AUGUST/14/m9rGKJS2_b96d4baae6944987847436bb7b036201.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/AUGUST/14/m9rGKJS2_b96d4baae6944987847436bb7b036201.jpg",
+        "http://assets.myntassets.com/assets/images/2025/AUGUST/14/ANuaDpWZ_9af44d77b00843e18ef0475ece3f407c.jpg",
+        "http://assets.myntassets.com/assets/images/2025/AUGUST/14/hq80IRMD_5d5b5170c2564fcfab8b5bbd856c4a28.jpg",
+        "http://assets.myntassets.com/assets/images/2025/AUGUST/14/HNASmpyh_1080fdefc17fd2c4b6b926b65cae355f98a.jpg",
+        "http://assets.myntassets.com/assets/images/2025/AUGUST/14/aN5K7eo9_4ba7af385b544e689de7f9133e10458e.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Bralette-Medium-Coverage-Lightly-Padded-Bra/36411142/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:49.289737",
+      "premium": true
+    },
+    {
+      "product_id": "33768299",
+      "name": "MomToBe Pack of 2 Cotton Non-Padded Non-Wired Maternity Bra",
+      "brand": "MomToBe",
+      "category": "Unlined Bra",
+      "category_all": [
+        "Unlined Bra",
+        "Underwire Bra",
+        "Wireless Bra",
+        "Padded Bra",
+        "Maternity Bra"
+      ],
+      "price_original": 1776.0,
+      "price_discounted": 849.0,
+      "discount_percentage": 52,
+      "rating": "4.348484992980957",
+      "review_count": 330,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2026/FEBRUARY/9/jZv0UIQ8_203dc61c172646e28f28fd50ef8c424f.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/9/jZv0UIQ8_203dc61c172646e28f28fd50ef8c424f.jpg",
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/9/DzEis3f4_1ae0ca8aa51d4793bb2d2bc8717b6a37.jpg",
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/9/BLjykEEe_c579aec77dd6420681891e03f33a4b8a.jpg",
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/9/9gSOKoz5_3dd98f98337e4cd380adc3149872a3ae.jpg",
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/9/LVBvMdG2_6d400bad1fdc49f4afbf9b57915ffbe9.jpg",
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/9/wriS52wB_77310b0eea8d401f9a8d505003cd3048.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/MomToBe/MomToBe-Pack-of-2-Cotton-Non-Padded-Non-Wired-Maternity-Bra/33768299/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.452554",
       "premium": true
     },
     {
@@ -338,38 +842,508 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61srRiSMZJL.jpg",
-      "product_url": "https://www.amazon.in/WACOAL-Balconette-Padded-Everyday-Multicolour/dp/B0DP55CSRZ/ref=sr_1_52?dib=eyJ2IjoiMSJ9.hziBjbQ0kkp4ADugozzoRdLbQc2hcNkraDbKSZMyxEzXaHmDac8yY7ygsJjIQinJOzQ7VUDVmaoQrhFCfHfy-yDobg_G6t3c_c_H9As0YdNAX-wdzN1S8iF6vsStx0g63m8mSQBc-Nf-FSVI4tvd7FfdQpCG8Zn_JYa6PwqDpXII2_MvuLdGBcVdvG_lcuCeR9aiacM6RCwSOVNPgtb47faR1nV9ERr2NoOpYhJrngqUfY_nsNdxLO5o9QkbaqSO7h784oYLl0wHb4lZD03722jyMKbgv37ZUkPAkEpjXw8.VqAjPpkYTFpqAHKU9hjV918isseQc02ho_rMX-VubBs&dib_tag=se&keywords=bras+discount&qid=1774795444&sr=8-52",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/61srRiSMZJL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/WACOAL-Balconette-Padded-Everyday-Multicolour/dp/B0DP55CSRZ/ref=sr_1_73?dib=eyJ2IjoiMSJ9.Gpl9uhDWi5g08EV-pNsEauCVqZWl1k8eNOiN41fbLl7MOmxcuPnBmr8gan9bKCOOJ5vR8-8ETpy92ri6XMe_GCQMzJgkd14ix8WKKgLSElQAH_VJf1lXx6TItm6BvS-af1bWwB0pCnXGyTJiKOpKLt6Es9At3cuegDb9c3Pn86cuSeBTlAyqJ1aq3jQjfBeP5sEyQzCW8IazJSWF_lNJ_JKpUxcuzk0ZPKmwPnG6ZSaNCMeD121ettHE5GKTglSLwvbG_2GfpPf3EsdtSuNzzJ6wzG2XEU94XlWLRqA0Hvo.sMS6mz_jCODyG3K2iQcSAgRx2F4vywpxCPKvE8e_2QI&dib_tag=se&keywords=bras+discount&qid=1774796336&sr=8-73",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:44:05.488510",
+      "scraped_at": "2026-03-29T20:28:57.113298",
       "premium": true
     },
     {
-      "product_id": "B0G38SDYJH",
-      "name": "Women\u2019s Seamless Strapless Tube Top Bra Soft Breathable Bandeau with Adjustable Hook Closure, Lightweight No-Slip Double Layer Strapless Bra for Off-Shoulder Tops Dresses (Pack of 3 Free Size)",
-      "brand": "Women\u2019s",
+      "product_id": "8708065",
+      "name": "Marks & Spencer Pack of 2 White Non-Wired Lightly Padded Everyday Bras T716126",
+      "brand": "Marks & Spencer",
+      "category": "Underwire Bra",
+      "category_all": [
+        "Underwire Bra",
+        "Wireless Bra",
+        "Padded Bra"
+      ],
+      "price_original": 1299.0,
+      "price_discounted": 649.0,
+      "discount_percentage": 50,
+      "rating": "2.4000000953674316",
+      "review_count": 20,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/8708065/2019/3/15/da76b912-2955-494b-ab66-716482fa41b71552640723266-Marks--Spencer-White-Solid-Non-Wired-Non-Padded-Everyday-Bra-1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/8708065/2019/3/15/da76b912-2955-494b-ab66-716482fa41b71552640723266-Marks--Spencer-White-Solid-Non-Wired-Non-Padded-Everyday-Bra-1.jpg",
+        "http://assets.myntassets.com/assets/images/8708065/2019/3/15/c83b4212-0d6e-45fd-94c6-57fefd3a3cdd1552640723242-Marks--Spencer-White-Solid-Non-Wired-Non-Padded-Everyday-Bra-2.jpg",
+        "http://assets.myntassets.com/assets/images/8708065/2019/3/15/5c5b062e-9240-4d0c-8109-5608668ad4c71552640723224-Marks--Spencer-White-Solid-Non-Wired-Non-Padded-Everyday-Bra-3.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Marks+%26+Spencer/Marks--Spencer-Pack-of-2-White-Non-Wired-Lightly-Padded-Everyday-Bras-T716126/8708065/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:36.536413",
+      "premium": true
+    },
+    {
+      "product_id": "8705329",
+      "name": "Zivame Purple Solid Non-Wired Lightly Padded T-shirt Bra ZI1131COREPURPL",
+      "brand": "Zivame",
+      "category": "T-Shirt Bra",
+      "category_all": [
+        "T-Shirt Bra",
+        "Underwire Bra",
+        "Wireless Bra",
+        "Padded Bra"
+      ],
+      "price_original": 1199.0,
+      "price_discounted": 599.0,
+      "discount_percentage": 50,
+      "rating": "4.40566873550415",
+      "review_count": 1129,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/productimage/2019/2/2/09ec50e8-93e3-45d3-933c-2aeb64ab21af1549096758006-1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/productimage/2019/2/2/09ec50e8-93e3-45d3-933c-2aeb64ab21af1549096758006-1.jpg",
+        "http://assets.myntassets.com/assets/images/productimage/2019/2/2/350020b5-2c97-4a6b-894e-73370baec9351549096758043-2.jpg",
+        "http://assets.myntassets.com/assets/images/productimage/2019/2/2/746d4569-34a6-42e9-ac3c-79f84f0800a81549096758084-3.jpg",
+        "http://assets.myntassets.com/assets/images/productimage/2019/2/2/99646e2c-8bd6-41e9-98db-9b9f8d42bf161549096758127-4.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Purple-Solid-Non-Wired-Lightly-Padded-T-shirt-Bra-ZI1131COREPURPL/8705329/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.451554",
+      "premium": true
+    },
+    {
+      "product_id": "33811012",
+      "name": "Zivame Women Medium Coverage Lightly Padded Seamless Bralette Bra",
+      "brand": "Zivame",
       "category": "Seamless Bra",
       "category_all": [
         "Seamless Bra",
-        "Strapless Bra",
-        "Cooling Bra"
+        "Padded Bra",
+        "Bralette"
+      ],
+      "price_original": 1099.0,
+      "price_discounted": 549.0,
+      "discount_percentage": 50,
+      "rating": "4.285714149475098",
+      "review_count": 49,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/APRIL/28/oNmQM16K_91fca1b8cc0149fabab59c8cb504a99a.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/APRIL/28/oNmQM16K_91fca1b8cc0149fabab59c8cb504a99a.jpg",
+        "http://assets.myntassets.com/assets/images/2025/APRIL/28/LtY5MUVJ_b5f6872c7d2e4d949c19621ce9d952f5.jpg",
+        "http://assets.myntassets.com/assets/images/2025/APRIL/28/vIVLAbh3_8f3b0abcd864444d9ece5a049724d2e0.jpg",
+        "http://assets.myntassets.com/assets/images/2025/APRIL/28/lVnjqqqL_0fbe0c14398f4dd9aae2dafd69f6959d.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Women-Medium-Coverage-Lightly-Padded-Seamless-Bralette-Bra/33811012/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:38.823083",
+      "premium": true
+    },
+    {
+      "product_id": "32860216",
+      "name": "Enamor Floral Bralette Bra Full Coverage Lightly Padded",
+      "brand": "Enamor",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra",
+        "Padded Bra",
+        "Bralette"
+      ],
+      "price_original": 1405.0,
+      "price_discounted": 702.0,
+      "discount_percentage": 50,
+      "rating": "4.623188495635986",
+      "review_count": 69,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/FEBRUARY/20/pe7N3tHm_ed080511b8a04e6fb033f5cbdbaa61b6.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/20/pe7N3tHm_ed080511b8a04e6fb033f5cbdbaa61b6.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/20/dUHh75Fc_0571e96de03f4a69bbe03c7b47bf24dc.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/20/mbuVSyFN_611afcb7aa0b43119bc634b88ad4607c.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/20/PB3xSiFW_369201ff8e184a478ce9338f2b09867b.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/20/r6e3PX1v_1a4aecc078324842a54a304f18a4e021.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/20/hh17cUTq_100a2bcd5c4cca9618fffc5567ebea.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/20/9CWOM35n_a5cb6c05df0b4bb287382a96cbd7fc94.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Enamor/Enamor-Floral-Bralette-Bra-Full-Coverage-Lightly-Padded/32860216/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:38.824087",
+      "premium": true
+    },
+    {
+      "product_id": "30681000",
+      "name": "Zivame Bra Full Coverage Non-Wired Non Padded",
+      "brand": "Zivame",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra",
+        "Unlined Bra",
+        "Underwire Bra",
+        "Wireless Bra",
+        "Padded Bra"
+      ],
+      "price_original": 1495.0,
+      "price_discounted": 758.0,
+      "discount_percentage": 49,
+      "rating": "4.480337142944336",
+      "review_count": 356,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2026/MARCH/20/MOpCzaeR_bc2297e1fb4440f99a4df192fd46db35.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/MOpCzaeR_bc2297e1fb4440f99a4df192fd46db35.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/VdnrhNC2_1dcaa9fbc3404b0ea894e0b712c7c897.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/z9ZrdYNd_3417d488082c42bd9b4e80ce395d8072.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/iPWznpKl_399b0dc8ae4e4c5a8ca8bd977201f9cf.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Bra-Full-Coverage-Non-Wired-Non-Padded/30681000/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:36.536413",
+      "premium": true
+    },
+    {
+      "product_id": "33320171",
+      "name": "Charm n Cherish Girls Pack of 4 Full Coverage Sports Bra",
+      "brand": "Charm n Cherish",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra",
+        "Sports Bra"
       ],
       "price_original": 1499.0,
-      "price_discounted": 999.0,
-      "discount_percentage": 33,
+      "price_discounted": 792.0,
+      "discount_percentage": 47,
+      "rating": "4.191489219665527",
+      "review_count": 47,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/MARCH/24/o4CiULJF_c612ebdd222d4cf894fa1ec942a90739.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/MARCH/24/o4CiULJF_c612ebdd222d4cf894fa1ec942a90739.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MARCH/24/7ClZWLh1_2dcf14013a6e4fe0bb50b9efd9ec1642.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MARCH/24/CkRljbB3_6de13b4250ec4eaf847df336daa759a1.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MARCH/24/VijQWWKR_152ad9d2e73b4df2a829617b59fb46bb.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MARCH/24/Myu6wYST_3fa11c69deb84a24b0e52b3d6c5da64d.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MARCH/24/h6fay8Qm_44a91e7edd374039af33e90ee0d30b8c.jpg",
+        "http://assets.myntassets.com/assets/images/2025/MARCH/24/NHVJNuXB_998fe2a1279c41d49d46bf601c6f58e3.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Charm+n+Cherish/Charm-n-Cherish-Girls-Pack-of-4-Full-Coverage-Sports-Bra/33320171/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.451554",
+      "premium": true
+    },
+    {
+      "product_id": "B0FH4YH22T",
+      "name": "Present Pack of 3 Seamless Non-Wired Padded Pushup Bras",
+      "brand": "Present",
+      "category": "Seamless Bra",
+      "category_all": [
+        "Seamless Bra",
+        "Underwire Bra",
+        "Wireless Bra",
+        "Push-Up Bra",
+        "Padded Bra"
+      ],
+      "price_original": 1999.0,
+      "price_discounted": 1099.0,
+      "discount_percentage": 45,
       "rating": "N/A",
       "review_count": 0,
       "sizes_available": [],
       "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/316k4EO8qhL.jpg",
-      "product_url": "https://www.amazon.in/Kidsnx-Breathable-Adjustable-Lightweight-Off-Shoulder/dp/B0G38SDYJH/ref=sr_1_87?dib=eyJ2IjoiMSJ9.YcA85NbVu5LLJHknaYroMrCjl7Mdy8MupWQwW-ASW15ff0JRUcmLmUGhFUGeozVlcnqMNQFuRi2joeXEZNCVAf7n8d8leJDD0xKZ1KiNIn9bKnhn1d_6qvzqBF_jaLLvOxkfQOjupnzM-smS0G4A9BN8WZ-DBRzbsBRkr1hM_vOuv7VHOenTL9GTDgm7Ovdh8blqPJLVyWBAPM8a1jTOYXDIB3bDAZtxNrg9KgLbqd4EWhcPueC6YBppoXqEF0AmSbxKL8VBamR6C2_HBOytsFTt32HQ29KdjgsmtS5aUz4.VFoZz10dFxhd8iaKMlJZkDaoT-BOW15n_8f1-9L2mko&dib_tag=se&keywords=strapless+bra&qid=1774795417&sr=8-87",
+      "image_url": "https://m.media-amazon.com/images/I/71XRr22xZHL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/71XRr22xZHL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo2MDI0Mjk3NzM2OTk1MDcxOjE3NzQ3OTYyNDM6c3BfYnRmOjMwMTAwNTA0NjY5MTkzMjo6MDo6&url=%2FBarely-Yours-Seamless-Non-Wired-Assorted%2Fdp%2FB0FH4YH22T%2Fref%3Dsr_1_105_sspa%3Fdib%3DeyJ2IjoiMSJ9.dIIIzVxINjx6F3ayw5-glP9CuAzbnSHa2BZSDkGZWD6bda6j7g1sfNDphhHxJH1DThDSSnujZn5932EG9os9JInrTxGQsgschG5l_TCe7wkVT53FUSKPTV6pCtEbwx_-cHn9rzWe455FQAFF-u49YKst3v7GgEN0oeo0O2DYsI3jvPcyBS3uKA1Na6V-TwjmnLZYM491Nfrrt-Cg-yjLhTMVh6Gyzc51LL1V2BIUBxtHccBLzTrPG4IMsOI0qcF4J3gUPLwa7O6Du7v8G71HmCMv3VHRDKgfLn5oKbvbdIE.dmmR3qHQIn9NioWhxZW5HrAqZVFQ8tx_7uFQ30prAzY%26dib_tag%3Dse%26keywords%3Dpush%2Bup%2Bbra%26qid%3D1774796243%26sr%3D8-105-spons%26aref%3DylbnH37O49%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9idGY%26psc%3D1&aref=ylbnH37O49&sp_cr=ZAZ",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:43:38.927208",
+      "scraped_at": "2026-03-29T20:27:24.854951",
       "premium": true
     },
     {
-      "product_id": "B0FF24HHW6",
+      "product_id": "21523712",
+      "name": "MomToBe Pack of 3 Cotton Non-Padded Non-Wired Maternity Bra",
+      "brand": "MomToBe",
+      "category": "Unlined Bra",
+      "category_all": [
+        "Unlined Bra",
+        "Underwire Bra",
+        "Wireless Bra",
+        "Padded Bra",
+        "Maternity Bra"
+      ],
+      "price_original": 1776.0,
+      "price_discounted": 999.0,
+      "discount_percentage": 43,
+      "rating": "4.377686023712158",
+      "review_count": 11401,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2026/MARCH/5/AEaD4hdR_4576c19cd78d421cae47209c7a5bf6f8.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2026/MARCH/5/AEaD4hdR_4576c19cd78d421cae47209c7a5bf6f8.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/5/rPZiV3YA_f5462b63ff93487fa6623ed938ec3c43.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/5/WmdbKFDk_b2d16369d0d74b9ba10ff543221c73ed.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/5/CJZWzTvw_1080d0eb0ce910436080a76e7e833dab33.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/5/fwQptY3D_ca2bdd5d31794363881a63e3bf9dfe2b.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/5/rWDLEbkd_be331ab851ad4958b89e09fe89bcc7c6.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/5/VaVIIjpY_77d607f9412a4810a78662e1b8d78edb.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/MomToBe/MomToBe-Pack-of-3-Cotton-Non-Padded-Non-Wired-Maternity-Bra/21523712/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:36.537420",
+      "premium": true
+    },
+    {
+      "product_id": "B0F4CN9WRB",
+      "name": "Cross Back Sports Bra for Women | High Support, Soft Fabric, Wide Underbust Band, Minimal Seams | Activewear for Gym",
+      "brand": "Cross",
+      "category": "Sports Bra",
+      "category_all": [
+        "Sports Bra"
+      ],
+      "price_original": 1899.0,
+      "price_discounted": 1139.0,
+      "discount_percentage": 40,
+      "rating": "N/A",
+      "review_count": 8,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/71DQlv9b85L.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/71DQlv9b85L.jpg"
+      ],
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4NTM4Nzg4NzgzNDkzMjE3OjE3NzQ3OTYyNTA6c3Bfc2VhcmNoX3RoZW1hdGljOjMwMDc4MTgxMjkzNjEzMjo6MDo6&url=%2FBlack-Cross-Sports-Alpha-Ivory%2Fdp%2FB0F4CN9WRB%2Fref%3Dsxin_14_pa_sp_search_thematic_sspa%3Fcontent-id%3Damzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%253Aamzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%26cv_ct_cx%3Dsports%2Bbra%2Bwomen%26keywords%3Dsports%2Bbra%2Bwomen%26pd_rd_i%3DB0F4CN9WRB%26pd_rd_r%3D319cc94a-1f59-44c9-af98-5add55681074%26pd_rd_w%3DeEjUC%26pd_rd_wg%3DVCatc%26pf_rd_p%3Ded1dc214-655d-439d-94db-1ad9c2f35607%26pf_rd_r%3DG1N7K80G7Y3ERYW2RZV8%26qid%3D1774796250%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-1-883a54c7-f466-4d42-997c-6d482a360a1a-spons%26aref%3DvSMP8AB9y0%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM%26psc%3D1&aref=vSMP8AB9y0&sp_cr=ZAZ",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:27:31.666480",
+      "premium": true
+    },
+    {
+      "product_id": "5460278",
+      "name": "Zivame Beige Solid Underwired Lightly Padded T-shirt Bra ZI1135CORE0NUDE",
+      "brand": "Zivame",
+      "category": "T-Shirt Bra",
+      "category_all": [
+        "T-Shirt Bra",
+        "Underwire Bra",
+        "Padded Bra"
+      ],
+      "price_original": 1099.0,
+      "price_discounted": 659.0,
+      "discount_percentage": 40,
+      "rating": "4.313683986663818",
+      "review_count": 18949,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2026/MARCH/20/8XJj64aN_4d5a181094a94e2aa21e778d105d55ec.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/8XJj64aN_4d5a181094a94e2aa21e778d105d55ec.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/vqrYUAmb_e9e345eed4154e879161877394dc56b3.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/FbtWP3hZ_bc6e1af485bd408b97f642e350bc373d.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/gBehk6YE_4cbe8dc9e85b44f893feb2eec2afefc8.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/9PXn1Yg4_d0ed17ad77e44770b0058e2642fa9000.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/gFCLdro2_302cdc0e38ac41f0a82f6b36c9ba9a33.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Beige-Solid-Underwired-Lightly-Padded-T-shirt-Bra-ZI1135CORE0NUDE/5460278/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.451554",
+      "premium": true
+    },
+    {
+      "product_id": "39279585",
+      "name": "NEXT Pack of 3 Bralette Crop Tops",
+      "brand": "NEXT",
+      "category": "Bralette",
+      "category_all": [
+        "Bralette"
+      ],
+      "price_original": 1299.0,
+      "price_discounted": 779.0,
+      "discount_percentage": 40,
+      "rating": "0",
+      "review_count": 0,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2026/FEBRUARY/16/kpIDfzvX_52e869626a1d47e8b4ca198d9a492270.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/16/kpIDfzvX_52e869626a1d47e8b4ca198d9a492270.jpg",
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/16/MDWGk2mA_65d143ea5013474d89032b7fe03b3d43.jpg",
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/16/HvgfGcxw_1080e19279a6f4d60be0bacca93385336.jpg",
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/16/329cRzEm_a55ed98e708848cdba26a2c7c09fb056.jpg",
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/16/J7ihniSn_aabe473a9c624323bb8c0a16639b9213.jpg",
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/16/JWMDPb41_5f18be4eeedf437a8070fa1138b11d4e.jpg",
+        "http://assets.myntassets.com/assets/images/2026/FEBRUARY/16/wTzMCorw_a565082405ab4ca9a0a883904eaf34d3.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Tops/NEXT/NEXT-Pack-of-3-Bralette-Crop-Tops/39279585/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:38.823083",
+      "premium": true
+    },
+    {
+      "product_id": "37765306",
+      "name": "Zivame Bralette Bra Full Coverage",
+      "brand": "Zivame",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra",
+        "Bralette"
+      ],
+      "price_original": 999.0,
+      "price_discounted": 599.0,
+      "discount_percentage": 40,
+      "rating": "4.620689868927002",
+      "review_count": 29,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/NOVEMBER/4/ovLjBcSn_4af4db37325e44988159a1c705d924e6.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/4/ovLjBcSn_4af4db37325e44988159a1c705d924e6.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/4/Lyqx7Ta0_337acd3c74b748d998b82b9ce8c28b90.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/4/9rhAlwRV_5d8c5d6f5822445ba3265eabfef15332.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/4/GOQIrGsd_4eaaadac4c3547e38f7b8b063fc815b8.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/4/WQZrmo9D_4c4f7357d3a143498e0be9aa0f623170.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Bralette-Bra-Full-Coverage/37765306/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:38.825092",
+      "premium": true
+    },
+    {
+      "product_id": "29618136",
+      "name": "You Got Plan B Pack of 3 Girls Solid Full Coverage Bra",
+      "brand": "You Got Plan B",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra"
+      ],
+      "price_original": 1499.0,
+      "price_discounted": 909.0,
+      "discount_percentage": 39,
+      "rating": "4.40234375",
+      "review_count": 768,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/29618136/2024/5/18/166b3dfb-6707-48ab-834f-09e748560b991716013004190PlanBSurf3-PackDoubleLayeredSportsBra-U-Shaped1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/29618136/2024/5/18/166b3dfb-6707-48ab-834f-09e748560b991716013004190PlanBSurf3-PackDoubleLayeredSportsBra-U-Shaped1.jpg",
+        "http://assets.myntassets.com/assets/images/29618136/2024/5/18/ba39d54d-5234-40d3-98cc-d5cb965912201716013004288PlanBSurf3-PackDoubleLayeredSportsBra-U-Shaped7.jpg",
+        "http://assets.myntassets.com/assets/images/29618136/2024/5/18/56287c18-af17-4602-98d1-49da9556936f1716013004239PlanBSurf3-PackDoubleLayeredSportsBra-U-Shaped4.jpg",
+        "http://assets.myntassets.com/assets/images/29618136/2024/5/18/c1ba7164-0ae0-4924-b433-524481810af01716013004263PlanBSurf3-PackDoubleLayeredSportsBra-U-Shaped2.jpg",
+        "http://assets.myntassets.com/assets/images/29618136/2024/5/18/aef20e51-7b87-4aae-b2ae-1e4f0e1238b01716013004312PlanBSurf3-PackDoubleLayeredSportsBra-U-Shaped6.jpg",
+        "http://assets.myntassets.com/assets/images/29618136/2024/5/18/b5ef14e8-29f1-4e24-9b19-fcc413c8db871716013004168PlanBSurf3-PackDoubleLayeredSportsBra-U-Shaped5.jpg",
+        "http://assets.myntassets.com/assets/images/29618136/2024/5/18/a2ae8cc5-5553-4562-a926-92e6b8389e2a1716013004215PlanBSurf3-PackDoubleLayeredSportsBra-U-Shaped3.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/You+Got+Plan+B/You-Got-Plan-B-Pack-of-3-Girls-Solid-Full-Coverage-Bra/29618136/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:36.536413",
+      "premium": true
+    },
+    {
+      "product_id": "B0FJG6QQQ9",
+      "name": "Sports Bra for Women,Premium Nylon Blend Padded Gym Bra for Woman with Criss Cross Back & Front Zip,Boldtech Sweat-Wicking,Stretch Fit,Durable & Comfortable Activewear for Gym,Yoga & Training",
+      "brand": "Sports",
+      "category": "Padded Bra",
+      "category_all": [
+        "Padded Bra",
+        "Sports Bra"
+      ],
+      "price_original": 1299.0,
+      "price_discounted": 829.0,
+      "discount_percentage": 36,
+      "rating": "N/A",
+      "review_count": 304,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/71X4SOgs3vL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/71X4SOgs3vL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo3MjEwODAzMjYyNTcyODI6MTc3NDc5NjI1MDpzcF9hdGY6MzAwNzAzNzk3NzQ0NzMyOjowOjo&url=%2FBoldfit-Womens-Modern-Sports-BFTW2007SSportsBraBlackXXL%2Fdp%2FB0FJG6QQQ9%2Fref%3Dsr_1_1_sspa%3Fdib%3DeyJ2IjoiMSJ9.yY84isK-Dywcug20R9S3WDrPNDORPoZ9CYt3rmxWnrZGWbekOJm-BrOfo5nxcBQquKkzYZsCYBW0Hlw7l2OUhqpGH2U9QDjD_Jv08qCZpdmAzwQBiLtfoZ2NVKHxWscEk3oymkkFwtFq4g7n-WqBafGm7jn33_4q3HwmgnMZPBjpuEeB1HAMa_I8bs_8dU5PIKdxCrq8InNprTVkLQic91i60_8LEd0rn85rpH94qQtNn9fFbf47dnIEo7YiE2uCH7xDcm5ZCcphX_AJffE3JO6rC5JSA48-MVYL1xUD5d4.G4MpKeRoScBRnlEU-BgA2vZM9ZLVWQAdBE4aXzYLodY%26dib_tag%3Dse%26keywords%3Dsports%2Bbra%2Bwomen%26qid%3D1774796250%26sr%3D8-1-spons%26aref%3DPDvKeZf8fu%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=PDvKeZf8fu&sp_cr=ZAZ",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:27:31.651409",
+      "premium": true
+    },
+    {
+      "product_id": "37900338",
+      "name": "Zivame Bandeau Bra Medium Coverage Underwired Lightly Padded",
+      "brand": "Zivame",
+      "category": "Underwire Bra",
+      "category_all": [
+        "Underwire Bra",
+        "Padded Bra"
+      ],
+      "price_original": 1099.0,
+      "price_discounted": 703.0,
+      "discount_percentage": 36,
+      "rating": "4.3668341636657715",
+      "review_count": 199,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/cReepagM_c0a844de93904df4b5c754d64d38bf8d.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/cReepagM_c0a844de93904df4b5c754d64d38bf8d.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/uw1SNz5r_a694484988794368a1ad2be0fa8df192.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/1E9Fjjib_5b4c181d30b84512a2481b877ff7fb05.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/NEAsr6bt_6bf5ef66092e4de6b86d0cbadbd0a910.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/R2AwOqMw_ff0f97692ae64dfb88de337da6a9fced.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/FywtkW9t_fcbdcc7a49d84f939ab3ab037db0a4d6.jpg",
+        "http://assets.myntassets.com/assets/images/2025/NOVEMBER/11/MxDbM8fj_aeaed0aa1c0047a2a0f01a509504a33d.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Bandeau-Bra-Medium-Coverage-Underwired-Lightly-Padded/37900338/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.451554",
+      "premium": true
+    },
+    {
+      "product_id": "8822371",
+      "name": "Zivame Brown Solid Non-Wired Lightly Padded T-shirt Bra ZI1494FASHABRWN",
+      "brand": "Zivame",
+      "category": "T-Shirt Bra",
+      "category_all": [
+        "T-Shirt Bra",
+        "Underwire Bra",
+        "Wireless Bra",
+        "Padded Bra"
+      ],
+      "price_original": 1449.0,
+      "price_discounted": 956.0,
+      "discount_percentage": 34,
+      "rating": "4.424756050109863",
+      "review_count": 2359,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2026/MARCH/20/YP94Kh8F_d8054fe76d124c49a2154be91b2f411a.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/YP94Kh8F_d8054fe76d124c49a2154be91b2f411a.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/UqU1YPcl_8188f7b2375844569334037798895646.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/PzZxLMOQ_bbdc04289de64af0947c2945df74fb7c.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/Q7NVbQCw_fd318448a559458ba471c87723fb00b5.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/fyD3Bj9F_9bd69f867bcc407faf9756256719e21d.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/P96l69Hg_1844e15abacf43fe9ba3e94c605c4545.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Brown-Solid-Non-Wired-Lightly-Padded-T-shirt-Bra-ZI1494FASHABRWN/8822371/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.451554",
+      "premium": true
+    },
+    {
+      "product_id": "B0F32TM958",
       "name": "Super Stretch Brami for Women | Cross-Strap, Buttery Soft, 4-Way Stretch, Breathable, Light Support | Activewear Bra Top",
       "brand": "Super",
       "category": "Sports Bra",
@@ -384,33 +1358,235 @@
       "review_count": 16,
       "sizes_available": [],
       "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/71vZ+xmQlWL.jpg",
-      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTozMDEwMTIwMzU5OTM5ODUzOjE3NzQ3OTUzNTI6c3Bfc2VhcmNoX3RoZW1hdGljX2J0ZjozMDA3ODIwMjgxMTExMzI6OjA6Og&url=%2FCAVA-Stretch-Cross-Strap-Breathable-Activewear%2Fdp%2FB0FF24HHW6%2Fref%3Dsxbs_pa_sp_search_thematic_btf_sspa%3Fcontent-id%3Damzn1.sym.5298acb7-37ab-4bc0-a659-56dfae35672f%253Aamzn1.sym.5298acb7-37ab-4bc0-a659-56dfae35672f%26cv_ct_cx%3Dsports%2Bbra%2Bwomen%26keywords%3Dsports%2Bbra%2Bwomen%26pd_rd_i%3DB0FF24HHW6%26pd_rd_r%3Dda404e88-be62-4ca3-bf6c-f8bbfca03fb3%26pd_rd_w%3D5ZzVw%26pd_rd_wg%3DoP8yj%26pf_rd_p%3D5298acb7-37ab-4bc0-a659-56dfae35672f%26pf_rd_r%3DRYWNJTDK5PJ0XE9PQ336%26qid%3D1774795352%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-49-39d2cf51-924d-44a4-921d-0c8fa4cce3c9-spons%26aref%3DMdvfKNgS3Y%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWNfYnRm%26psc%3D1&aref=MdvfKNgS3Y&sp_cr=ZAZ",
+      "image_url": "https://m.media-amazon.com/images/I/71FmknmytWL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/71FmknmytWL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4NTM4Nzg4NzgzNDkzMjE3OjE3NzQ3OTYyNTA6c3Bfc2VhcmNoX3RoZW1hdGljOjMwMDc4MjAyODEwOTMzMjo6MTo6&url=%2FCAVA-Super-Stretch-Brami-Brunette%2Fdp%2FB0F32TM958%2Fref%3Dsxin_14_pa_sp_search_thematic_sspa%3Fcontent-id%3Damzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%253Aamzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%26cv_ct_cx%3Dsports%2Bbra%2Bwomen%26keywords%3Dsports%2Bbra%2Bwomen%26pd_rd_i%3DB0F32TM958%26pd_rd_r%3D319cc94a-1f59-44c9-af98-5add55681074%26pd_rd_w%3DeEjUC%26pd_rd_wg%3DVCatc%26pf_rd_p%3Ded1dc214-655d-439d-94db-1ad9c2f35607%26pf_rd_r%3DG1N7K80G7Y3ERYW2RZV8%26qid%3D1774796250%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-2-883a54c7-f466-4d42-997c-6d482a360a1a-spons%26aref%3Db8kD2aVYJB%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM%26psc%3D1&aref=b8kD2aVYJB&sp_cr=ZAZ",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:34.224838",
+      "scraped_at": "2026-03-29T20:27:31.668479",
       "premium": true
     },
     {
-      "product_id": "B0DZCZ3D78",
-      "name": "Cross Back Sports Bra for Women | High Support, Soft Fabric, Wide Underbust Band, Minimal Seams | Activewear for Gym",
-      "brand": "Cross",
-      "category": "Sports Bra",
+      "product_id": "21795390",
+      "name": "Sillysally Girls Pack of 3 Seamless Double Layer All Day Comfort Beginners Sports Bra",
+      "brand": "Sillysally",
+      "category": "Seamless Bra",
       "category_all": [
-        "Sports Bra"
+        "Seamless Bra",
+        "Sports Bra",
+        "Trainer Bra"
       ],
-      "price_original": 1699.0,
-      "price_discounted": 1139.0,
+      "price_original": 999.0,
+      "price_discounted": 675.0,
       "discount_percentage": 32,
-      "rating": "N/A",
-      "review_count": 8,
+      "rating": "4.494606971740723",
+      "review_count": 649,
       "sizes_available": [],
       "colors_available": [],
-      "image_url": "https://m.media-amazon.com/images/I/71zP-0oeIwL.jpg",
-      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTozMDEwMTIwMzU5OTM5ODUzOjE3NzQ3OTUzNTI6c3Bfc2VhcmNoX3RoZW1hdGljX2J0ZjozMDA3ODE4MTI5MzQ5MzI6OjE6Og&url=%2FBlack-Cross-Sports-Alpha-Moscow%2Fdp%2FB0DZCZ3D78%2Fref%3Dsxbs_pa_sp_search_thematic_btf_sspa%3Fcontent-id%3Damzn1.sym.5298acb7-37ab-4bc0-a659-56dfae35672f%253Aamzn1.sym.5298acb7-37ab-4bc0-a659-56dfae35672f%26cv_ct_cx%3Dsports%2Bbra%2Bwomen%26keywords%3Dsports%2Bbra%2Bwomen%26pd_rd_i%3DB0DZCZ3D78%26pd_rd_r%3Dda404e88-be62-4ca3-bf6c-f8bbfca03fb3%26pd_rd_w%3D5ZzVw%26pd_rd_wg%3DoP8yj%26pf_rd_p%3D5298acb7-37ab-4bc0-a659-56dfae35672f%26pf_rd_r%3DRYWNJTDK5PJ0XE9PQ336%26qid%3D1774795352%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-50-39d2cf51-924d-44a4-921d-0c8fa4cce3c9-spons%26aref%3DhbyLnbJNBd%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWNfYnRm%26psc%3D1&aref=hbyLnbJNBd&sp_cr=ZAZ",
+      "image_url": "http://assets.myntassets.com/assets/images/21795390/2023/2/1/f23cace1-ed0d-4927-a90a-d65084d563721675247692784SillysallyWhiteGreyMelangeBra1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/21795390/2023/2/1/f23cace1-ed0d-4927-a90a-d65084d563721675247692784SillysallyWhiteGreyMelangeBra1.jpg",
+        "http://assets.myntassets.com/assets/images/21795390/2023/2/1/8b8dacd7-8c30-4f5b-a2a8-a310fe5154cd1675247692769SillysallyWhiteGreyMelangeBra2.jpg",
+        "http://assets.myntassets.com/assets/images/21795390/2023/2/1/bd15c46d-50c9-4579-a8c7-16c75aaf517c1675247692824SillysallyWhiteGreyMelangeBra7.jpg",
+        "http://assets.myntassets.com/assets/images/21795390/2023/2/1/2c3589cd-82d8-4309-a663-307ef3511b6f1675247692811SillysallyWhiteGreyMelangeBra5.jpg",
+        "http://assets.myntassets.com/assets/images/21795390/2023/2/1/3747f78a-caa1-4a4b-8387-02c975c0c3fa1675247692752SillysallyWhiteGreyMelangeBra6.jpg",
+        "http://assets.myntassets.com/assets/images/21795390/2023/2/1/98fa2318-8f42-461e-ac5a-04e3d2ed2cbf1675247692734SillysallyWhiteGreyMelangeBra3.jpg",
+        "http://assets.myntassets.com/assets/images/21795390/2023/2/1/ebe6a70b-ed37-4fa2-8aed-c1e395ddbe011675247692799SillysallyWhiteGreyMelangeBra4.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Sillysally/Sillysally-Girls-Pack-of-3-Seamless-Double-Layer-All-Day-Comfort-Beginners-Sports-Bra/21795390/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:36.537420",
+      "premium": true
+    },
+    {
+      "product_id": "21795378",
+      "name": "Sillysally Pack Of 4 Non Padded Sports Bra",
+      "brand": "Sillysally",
+      "category": "Unlined Bra",
+      "category_all": [
+        "Unlined Bra",
+        "Padded Bra",
+        "Sports Bra"
+      ],
+      "price_original": 1295.0,
+      "price_discounted": 885.0,
+      "discount_percentage": 31,
+      "rating": "4.5227274894714355",
+      "review_count": 44,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/21795378/2023/2/1/560cd060-892c-426c-b6f5-41ebab361f131675247638616SillysallyBlackGreyBra1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/21795378/2023/2/1/560cd060-892c-426c-b6f5-41ebab361f131675247638616SillysallyBlackGreyBra1.jpg",
+        "http://assets.myntassets.com/assets/images/21795378/2023/2/1/0cd3e7c1-984e-4611-9cd5-caeb7b2757d51675247638639SillysallyBlackGreyBra7.jpg",
+        "http://assets.myntassets.com/assets/images/21795378/2023/2/1/d77c568b-0f5d-4aa3-bded-c0e2d9f815001675247638601SillysallyBlackGreyBra6.jpg",
+        "http://assets.myntassets.com/assets/images/21795378/2023/2/1/87c4501a-ec28-40fc-828a-6206218bfcbe1675247638663SillysallyBlackGreyBra4.jpg",
+        "http://assets.myntassets.com/assets/images/21795378/2023/2/1/fce54fcd-f0ae-4f87-bb80-00b9b9f180961675247638588SillysallyBlackGreyBra2.jpg",
+        "http://assets.myntassets.com/assets/images/21795378/2023/2/1/e3b2fde1-f9ae-4959-a5f3-0cfba5b752c11675247638650SillysallyBlackGreyBra5.jpg",
+        "http://assets.myntassets.com/assets/images/21795378/2023/2/1/9a563724-8d08-4a0b-a08d-75f106dca2c61675247638624SillysallyBlackGreyBra3.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Sillysally/Sillysally-Pack-Of-4-Non-Padded-Sports-Bra/21795378/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.451554",
+      "premium": true
+    },
+    {
+      "product_id": "1787904",
+      "name": "Zivame Taupe T-shirt Bra ZI00ZOPP05J",
+      "brand": "Zivame",
+      "category": "T-Shirt Bra",
+      "category_all": [
+        "T-Shirt Bra"
+      ],
+      "price_original": 999.0,
+      "price_discounted": 699.0,
+      "discount_percentage": 30,
+      "rating": "4.147572994232178",
+      "review_count": 3605,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2026/MARCH/20/h7mkqmGW_2801f93ff2b04f4fb412ad37c7eaf58a.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/h7mkqmGW_2801f93ff2b04f4fb412ad37c7eaf58a.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/gCDYMZqY_56f5404899b240168b636f082e45e4b8.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/Qp43SPbR_a29e914b59be471dbba061655b82acf9.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/1cZm088W_384c53b91ac5433c894239e3ddafc64d.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/MUJFCZQO_9204461437d9429088df079d5938d111.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Zivame/Zivame-Taupe-T-shirt-Bra-ZI00ZOPP05J/1787904/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.451554",
+      "premium": true
+    },
+    {
+      "product_id": "30309097",
+      "name": "You Got Plan B Cotton Elastane Pack of 3 Girl Basic Sports Full Coverage Bra",
+      "brand": "You Got Plan B",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra",
+        "Sports Bra"
+      ],
+      "price_original": 1299.0,
+      "price_discounted": 909.0,
+      "discount_percentage": 30,
+      "rating": "4.405759334564209",
+      "review_count": 764,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2024/JULY/23/qiQmHPtm_5937aaa8d5304f54b2477a5bdef59bef.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2024/JULY/23/qiQmHPtm_5937aaa8d5304f54b2477a5bdef59bef.jpg",
+        "http://assets.myntassets.com/assets/images/2024/JULY/23/m6ZuOv8R_3b8929d46bc74edf8a4cca6ccd5a2f4d.jpg",
+        "http://assets.myntassets.com/assets/images/2024/JULY/23/uQzgIn5J_7dcd57c96eff41758b9fae017eb69e41.jpg",
+        "http://assets.myntassets.com/assets/images/2024/JULY/23/oY4xWFGV_12bb9466b06f4e6d830b8c008a63378d.jpg",
+        "http://assets.myntassets.com/assets/images/2024/JULY/23/IgIN7i8a_8fa9d326fecf4792bc16d30196d660f7.jpg",
+        "http://assets.myntassets.com/assets/images/2024/JULY/23/YVowkczv_e85076a605c141c783e5f2db6bcfb529.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/You+Got+Plan+B/You-Got-Plan-B-Cotton-Elastane-Pack-of-3-Girl-Basic-Sports-Full-Coverage-Bra/30309097/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.451554",
+      "premium": true
+    },
+    {
+      "product_id": "B00J9G2Z3Q",
+      "name": "Triumph Doreen Bra For Women | Non Wired Non Padded Wireless Bra | Full Coverage Raschel Lace Lingerie | Classic High Center Bridge Support | Wide Straps Big Cup Bra for Larger Busts | Pack Of 1",
+      "brand": "Triumph",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra",
+        "Unlined Bra",
+        "Underwire Bra",
+        "Wireless Bra",
+        "Padded Bra",
+        "Lace Bra"
+      ],
+      "price_original": 1599.0,
+      "price_discounted": 1124.0,
+      "discount_percentage": 29,
+      "rating": "N/A",
+      "review_count": 2,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/61x6-G2JJtL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/61x6-G2JJtL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/Triumph-International-Doreen-Support-20I319_Black_36/dp/B00J9G2Z3Q/ref=sr_1_17?dib=eyJ2IjoiMSJ9._GpPTMCmU6Tlg70G4bhcac_wFuOZTPl1DvT0Gl-sTFsgx6uEr8fVo2a1g3Zn0dFQ7eXgZo4j9zpMQudeNNdABP4MDh9dzvdPsE_hrq36Bey728ZC2rEdseWBjKoFvw-MgGhjvGnGkQzGmqUOu6bbmwZZsOlbMP-TLxJHIYe0R0FR2fVEWC_Q2BiXciPdzmDgUdFlAdDoTG_cav5oNOLHQ07xbOV3ipDs3c7JjF4JD_CIvGT8-sWO6JbhtHNrPfycwB5DkCoFFSsuA2Dy3ekWY414CQ45a43lFQxNOeNDqnw.w48mEfZo1uWSjQPtNrP--vFiW3_MOmjCfoUU8-9vA0w&dib_tag=se&keywords=bras+for+women&qid=1774796190&sr=8-17",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:34.229375",
+      "scraped_at": "2026-03-29T20:26:32.630088",
+      "premium": true
+    },
+    {
+      "product_id": "28173672",
+      "name": "Sillysally Girls Pack Of 2 Bralette Bra Full Coverage Removable Padding Non-Wired",
+      "brand": "Sillysally",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra",
+        "Underwire Bra",
+        "Wireless Bra",
+        "Padded Bra",
+        "Bralette"
+      ],
+      "price_original": 950.0,
+      "price_discounted": 675.0,
+      "discount_percentage": 28,
+      "rating": "4.48421049118042",
+      "review_count": 95,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/28173672/2024/3/11/7f2fb302-916a-4b3a-b133-895079c188811710133197339Bra1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/28173672/2024/3/11/7f2fb302-916a-4b3a-b133-895079c188811710133197339Bra1.jpg",
+        "http://assets.myntassets.com/assets/images/28173672/2024/3/11/02427e35-3741-4b5a-890e-aa3ba7ab03751710133197315Bra5.jpg",
+        "http://assets.myntassets.com/assets/images/28173672/2024/3/11/d1bdca4e-0d0d-4020-925d-c289f9c93fd91710133197245Bra6.jpg",
+        "http://assets.myntassets.com/assets/images/28173672/2024/3/11/68f50892-c9fa-435d-9bfe-97d9765e52231710133197389Bra3.jpg",
+        "http://assets.myntassets.com/assets/images/28173672/2024/3/11/460cbe48-a781-4e47-83c6-545b56505fa01710133197266Bra4.jpg",
+        "http://assets.myntassets.com/assets/images/28173672/2024/3/11/136d7ae5-9ef7-408a-a440-67e61426c6de1710133197291Bra7.jpg",
+        "http://assets.myntassets.com/assets/images/28173672/2024/3/11/ef7605cf-7770-4e0d-bbfb-b943f90dfd101710133197364Bra2.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Sillysally/Sillysally-Girls-Pack-Of-2-Bralette-Bra-Full-Coverage-Removable-Padding-Non-Wired/28173672/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:49.289737",
+      "premium": true
+    },
+    {
+      "product_id": "28173690",
+      "name": "Sillysally Girls Pack of 2 Full Coverage Bra",
+      "brand": "Sillysally",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra"
+      ],
+      "price_original": 950.0,
+      "price_discounted": 675.0,
+      "discount_percentage": 28,
+      "rating": "4.473118305206299",
+      "review_count": 93,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/28173690/2024/3/11/0cbfe630-2640-4d28-899d-c18c4457794d1710132234730Bra1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/28173690/2024/3/11/0cbfe630-2640-4d28-899d-c18c4457794d1710132234730Bra1.jpg",
+        "http://assets.myntassets.com/assets/images/28173690/2024/3/11/a5aa1109-e957-4944-8112-f61752fd789b1710132234781Bra3.jpg",
+        "http://assets.myntassets.com/assets/images/28173690/2024/3/11/e2fe5bb5-41a4-426e-ad6b-ed7b32e4f8051710132234705Bra5.jpg",
+        "http://assets.myntassets.com/assets/images/28173690/2024/3/11/011e669c-34a2-41ac-8d6d-b09d7c7a5ffe1710132234680Bra4.jpg",
+        "http://assets.myntassets.com/assets/images/28173690/2024/3/11/6b568994-4683-46a3-8ec1-211ad3d40ff61710132234755Bra2.jpg",
+        "http://assets.myntassets.com/assets/images/28173690/2024/3/11/a872dd7c-a213-463f-a6fe-f4881dad16591710132234659Bra6.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Sillysally/Sillysally-Girls-Pack-of-2-Full-Coverage-Bra/28173690/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:49.289737",
       "premium": true
     },
     {
@@ -432,14 +1608,74 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61IHqzHkFYL.jpg",
-      "product_url": "https://www.amazon.in/Van-Heusen-Womens-ILIBR1AWSBU44003_Ocean-Blue_34DD/dp/B09FC4R4M8/ref=sr_1_72?dib=eyJ2IjoiMSJ9.nFRfbs64ln_CjrdDgK8sBVtSRxrlVDCMSnJi2PahrvwT8J4vOvF3MqRDFI8X9UQdteqGlfwuJerE5mdvKUbm60hynjfhW1bfJQRkbvOmbVBoDlfU47Ux_TEetqRgZewhjaEyuoz-VvKxTkSgZ6zZlJW188t8lgyB9GD0k5bOibuZdXIn7t1s5yaUmWCiygAZINjN0yZ-yukMldtBcSqNTmsoB44cArCeHUiwz0LyeZX3GQVaHar7k5xdaJkEZJVOD6CMrNvOU3eo59meKUn_v_3KhzFWvSM2iuEQwqFFOfI.FDCkJt1LjH3PmGz2fwZFfOKHb_bkT3fKh6Zp-SMYBUE&dib_tag=se&keywords=sports+bra+women&qid=1774795352&sr=8-72",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/61IHqzHkFYL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/Van-Heusen-Womens-ILIBR1AWSBU44003_Ocean-Blue_34DD/dp/B09FC4R4M8/ref=sr_1_97?dib=eyJ2IjoiMSJ9.pmh6RJ02fax1R4vD-y-OEA0ODSuueOKV37oJCkBc0wtJceQdOBeRZtAjN0FqgcLL-MON6HjEP9dALdfCQTtRLm1TIz3yZEgSVr4rN9HOMRAfSIlHifHcMurxpKLUJEYTRtODCxG93LjQyaruZWpTk4gIDuoGn4CatUcURzINUT8Q5XBNjIuZKHrUwwgwPFoMWUgSaP3Quvh_5zdVDBDQVCKbyw1ns63myWL4IkAbfUMKqMLHgrj4fCm4DzqAx3H0bz-oH4wsw3EYhwcOOMFImQNr0CrKYxZ8-nTSf-IB8So.BZhQy0sX_4diA5tBt03VQ1tnqqGX4hfYPG6BcQtulVU&dib_tag=se&keywords=sports+bra+women&qid=1774796258&sr=8-97",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:42:34.079807",
+      "scraped_at": "2026-03-29T20:27:39.611876",
       "premium": true
     },
     {
-      "product_id": "B0FMY1VDJW",
+      "product_id": "B0GQHSSFVM",
+      "name": "Adhesive Silicone Easy Lift Bra for Women | Reusable, Strapless, Backless & Invisible | Sweatproof & Waterproof",
+      "brand": "Adhesive",
+      "category": "Strapless Bra",
+      "category_all": [
+        "Strapless Bra",
+        "Backless Bra",
+        "Stick-On Bra",
+        "Silicone Bra"
+      ],
+      "price_original": 2999.0,
+      "price_discounted": 2199.0,
+      "discount_percentage": 26,
+      "rating": "N/A",
+      "review_count": 0,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/51vyxdvmqxL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/51vyxdvmqxL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo3Mzc4NDc2NDY1NzI1ODQzOjE3NzQ3OTYzMDc6c3BfYnRmOjMwMDk5Mzc3MDU3ODQzMjo6MDo6&url=%2Fbare-wear-Strapless-Sweatproof-Waterproof%2Fdp%2FB0GQHSSFVM%2Fref%3Dsr_1_57_sspa%3Fdib%3DeyJ2IjoiMSJ9.8VQgKg3kaH-M5C-AdYyK241H8lr2IUKl0WF8uCoY_gYX5it_TiU63wU3cULnXuMDIEHbmxos_v9cJ16IXN4Tg22BnNg2FublZHtOjIbSdkY_1uJMDS7y7sHJKM598LjG62V--A3BACeiVGTEnaOPkKwXrziaHI_1AlNyFV0LVvBJBC3z23ZQl8051wL_OedWyZbAdTdNSCKqdfT77N2eMs4686Mu8Iz0iH0IokcELzAaTBEB0Pv0ACd2B2ikk1uf3b6L2hZNBg2xjUUCOHhEicK_ot4uhU6XspQbGqoa2TA._X5eGOpg9I4yD4Iqik3MQB7s_5Q60TBLvh3nAQdXOWU%26dib_tag%3Dse%26keywords%3Dstrapless%2Bbra%26qid%3D1774796307%26sr%3D8-57-spons%26aref%3Dts6G9itw4c%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9idGY%26psc%3D1&aref=ts6G9itw4c&sp_cr=ZAZ",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:28:29.986284",
+      "premium": true
+    },
+    {
+      "product_id": "30489251",
+      "name": "Enamor Ultra Smoothening T-Shirt Bra A027",
+      "brand": "Enamor",
+      "category": "T-Shirt Bra",
+      "category_all": [
+        "T-Shirt Bra"
+      ],
+      "price_original": 799.0,
+      "price_discounted": 591.0,
+      "discount_percentage": 26,
+      "rating": "4.399468421936035",
+      "review_count": 1129,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2026/JANUARY/30/BFl0M3SG_49bd7e354cb1480fb047c314588ca527.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/30/BFl0M3SG_49bd7e354cb1480fb047c314588ca527.jpg",
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/30/RAuKFzVU_8a75c72fb7be4c2bb255f9efbb376915.jpg",
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/30/D8RytzTs_3f4f5417b60a4adcbd99787fc4175dac.jpg",
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/30/xbnwYBH0_3bd1a003bd94450eb0e4f1204e701550.jpg",
+        "http://assets.myntassets.com/assets/images/2026/JANUARY/30/AFyTP9TI_f2ff9b547f56483d8620ecc1fbaddf1b.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Enamor/Enamor-Ultra-Smoothening-T-Shirt-Bra-A027/30489251/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:36.536413",
+      "premium": true
+    },
+    {
+      "product_id": "B0FMY2W8N6",
       "name": "Womens Supportable Adhesive Bra | Ideal for Backless & Strapless Outfits | Seamless and Invisible | Stick-On Bra with Lift & Shaping | Strong and Skin-Friendly Adhesive",
       "brand": "Womens",
       "category": "Seamless Bra",
@@ -457,14 +1693,172 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/61hiW+X3VtL.jpg",
-      "product_url": "https://www.amazon.in/UNDERNEAT-Supportable-Adhesive-Strapless-Invisible/dp/B0FMY1VDJW/ref=sr_1_94?dib=eyJ2IjoiMSJ9.YcA85NbVu5LLJHknaYroMrCjl7Mdy8MupWQwW-ASW15ff0JRUcmLmUGhFUGeozVlcnqMNQFuRi2joeXEZNCVAf7n8d8leJDD0xKZ1KiNIn9bKnhn1d_6qvzqBF_jaLLvOxkfQOjupnzM-smS0G4A9BN8WZ-DBRzbsBRkr1hM_vOuv7VHOenTL9GTDgm7Ovdh8blqPJLVyWBAPM8a1jTOYXDIB3bDAZtxNrg9KgLbqd4EWhcPueC6YBppoXqEF0AmSbxKL8VBamR6C2_HBOytsFTt32HQ29KdjgsmtS5aUz4.VFoZz10dFxhd8iaKMlJZkDaoT-BOW15n_8f1-9L2mko&dib_tag=se&keywords=strapless+bra&qid=1774795417&sr=8-94",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/61hiW+X3VtL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo3Mzc4NDc2NDY1NzI1ODQzOjE3NzQ3OTYzMDc6c3BfYXRmOjMwMDg2NzM3NTc5NjgzMjo6MDo6&url=%2FUNDERNEAT-Supportable-Adhesive-Strapless-Invisible%2Fdp%2FB0FMY2W8N6%2Fref%3Dsr_1_4_sspa%3Fdib%3DeyJ2IjoiMSJ9.8VQgKg3kaH-M5C-AdYyK241H8lr2IUKl0WF8uCoY_gYX5it_TiU63wU3cULnXuMDIEHbmxos_v9cJ16IXN4Tg22BnNg2FublZHtOjIbSdkY_1uJMDS7y7sHJKM598LjG62V--A3BACeiVGTEnaOPkKwXrziaHI_1AlNyFV0LVvBJBC3z23ZQl8051wL_OedWyZbAdTdNSCKqdfT77N2eMs4686Mu8Iz0iH0IokcELzAaTBEB0Pv0ACd2B2ikk1uf3b6L2hZNBg2xjUUCOHhEicK_ot4uhU6XspQbGqoa2TA._X5eGOpg9I4yD4Iqik3MQB7s_5Q60TBLvh3nAQdXOWU%26dib_tag%3Dse%26keywords%3Dstrapless%2Bbra%26qid%3D1774796307%26sr%3D8-4-spons%26aref%3DbjshTS7Nnc%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=bjshTS7Nnc&sp_cr=ZAZ",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:43:38.957428",
+      "scraped_at": "2026-03-29T20:28:29.866527",
       "premium": true
     },
     {
-      "product_id": "B0CFFGKQBT",
+      "product_id": "25743296",
+      "name": "You Got Plan B Girls Pack Of 2 Beginners Bra",
+      "brand": "You Got Plan B",
+      "category": "Trainer Bra",
+      "category_all": [
+        "Trainer Bra"
+      ],
+      "price_original": 899.0,
+      "price_discounted": 667.0,
+      "discount_percentage": 25,
+      "rating": "4.5420098304748535",
+      "review_count": 1214,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/25743296/2023/11/3/4f05ab46-ed28-40de-8afb-3f2e2cfab8cb1699002530044YouGotPlanBWhiteBeigeGraphicBraFullCoverage1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/25743296/2023/11/3/4f05ab46-ed28-40de-8afb-3f2e2cfab8cb1699002530044YouGotPlanBWhiteBeigeGraphicBraFullCoverage1.jpg",
+        "http://assets.myntassets.com/assets/images/25743296/2023/11/3/90357d88-7ab6-46f2-8ad7-5ae16fbc94661699002530073YouGotPlanBWhiteBeigeGraphicBraFullCoverage3.jpg",
+        "http://assets.myntassets.com/assets/images/25743296/2023/11/3/7c898019-a4dc-4b6f-9f74-a1005721d1321699002530049YouGotPlanBWhiteBeigeGraphicBraFullCoverage4.jpg",
+        "http://assets.myntassets.com/assets/images/25743296/2023/11/3/23006271-4593-40ea-8cfb-7b040793f5011699002530038YouGotPlanBWhiteBeigeGraphicBraFullCoverage7.jpg",
+        "http://assets.myntassets.com/assets/images/25743296/2023/11/3/180d33cb-edcb-47ca-96e0-eed25c21e6191699002530062YouGotPlanBWhiteBeigeGraphicBraFullCoverage6.jpg",
+        "http://assets.myntassets.com/assets/images/25743296/2023/11/3/906ca513-24d6-40f1-a85c-d42dc6daf3201699002530056YouGotPlanBWhiteBeigeGraphicBraFullCoverage5.jpg",
+        "http://assets.myntassets.com/assets/images/25743296/2023/11/3/e7fb8242-850a-4d2f-bfb8-b194cdeca2bb1699002530068YouGotPlanBWhiteBeigeGraphicBraFullCoverage2.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/You+Got+Plan+B/You-Got-Plan-B-Girls-Pack-Of-2-Beginners-Bra/25743296/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:36.536413",
+      "premium": true
+    },
+    {
+      "product_id": "14971260",
+      "name": "Girls Pack Of 4 Double Layer Premium Cotton Non-Wired Non Padded Beginners Bra DCBRJl6944/xxxs",
+      "brand": "DChica",
+      "category": "Unlined Bra",
+      "category_all": [
+        "Unlined Bra",
+        "Underwire Bra",
+        "Wireless Bra",
+        "Padded Bra",
+        "Trainer Bra"
+      ],
+      "price_original": 1299.0,
+      "price_discounted": 974.0,
+      "discount_percentage": 25,
+      "rating": "4.432432651519775",
+      "review_count": 111,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/14971260/2023/5/18/9b03ccf4-5671-4a2a-bf12-1784ec6ab21f1684402878839-Girls-Pack-Of-4-Double-Layer-Premium-Cotton-Non-Wired-Non-Pa-1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/14971260/2023/5/18/9b03ccf4-5671-4a2a-bf12-1784ec6ab21f1684402878839-Girls-Pack-Of-4-Double-Layer-Premium-Cotton-Non-Wired-Non-Pa-1.jpg",
+        "http://assets.myntassets.com/assets/images/14971260/2023/5/18/ed7fd272-5aaa-4698-8199-7e52f90a30471684402878815-Girls-Pack-Of-4-Double-Layer-Premium-Cotton-Non-Wired-Non-Pa-3.jpg",
+        "http://assets.myntassets.com/assets/images/14971260/2023/5/18/ca0a865c-6a08-49ca-ac00-dc13f018540f1684402878783-Girls-Pack-Of-4-Double-Layer-Premium-Cotton-Non-Wired-Non-Pa-5.jpg",
+        "http://assets.myntassets.com/assets/images/14971260/2023/5/18/7e665c96-decb-4590-a6a0-40b512d15c481684402878800-Girls-Pack-Of-4-Double-Layer-Premium-Cotton-Non-Wired-Non-Pa-4.jpg",
+        "http://assets.myntassets.com/assets/images/14971260/2023/5/18/c3ca4d39-829c-4304-97cf-4c0b01b3d84f1684402878826-Girls-Pack-Of-4-Double-Layer-Premium-Cotton-Non-Wired-Non-Pa-2.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/DChica/Girls-Pack-Of-4-Double-Layer-Premium-Cotton-Non-Wired-Non-Padded-Beginners-Bra-DCBRJl6944xxxs/14971260/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:36.536413",
+      "premium": true
+    },
+    {
+      "product_id": "33001537",
+      "name": "JC Mode Halter Neck Bralette Crop Top",
+      "brand": "JC Mode",
+      "category": "Halter Bra",
+      "category_all": [
+        "Halter Bra",
+        "Bralette"
+      ],
+      "price_original": 1299.0,
+      "price_discounted": 974.0,
+      "discount_percentage": 25,
+      "rating": "0",
+      "review_count": 0,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/FEBRUARY/28/R4Zg3t5u_99cba318caca4091a0be4d7b0a8a8521.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/28/R4Zg3t5u_99cba318caca4091a0be4d7b0a8a8521.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/28/DXBiftz1_aeee3f7098f44e0fba45031094b0653d.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/28/nyDahFQO_4d0498e34725455b99c6b4b78d28c59f.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/28/4pag0UF8_978b6f3df7c1415f85c1bed8f030573a.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/28/3SJQWGmv_f1775ac8624a46bfb94d966e49f9e863.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/28/x1hr8C8s_29a47cd5344a46c98d8b0f1dfe16fe4f.jpg",
+        "http://assets.myntassets.com/assets/images/2025/FEBRUARY/28/QydMVw63_cfd46913c6584081bd2a8b1911d60d55.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Tops/JC+Mode/JC-Mode-Halter-Neck-Bralette-Crop-Top/33001537/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:49.289737",
+      "premium": true
+    },
+    {
+      "product_id": "22744258",
+      "name": "You Got Plan B Girls Pack Of 3 Beginners Bra",
+      "brand": "You Got Plan B",
+      "category": "Trainer Bra",
+      "category_all": [
+        "Trainer Bra"
+      ],
+      "price_original": 1199.0,
+      "price_discounted": 909.0,
+      "discount_percentage": 24,
+      "rating": "4.5366668701171875",
+      "review_count": 1200,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/22744258/2023/4/12/cd9a9dfd-9eb0-4adf-b5da-6ab49d78cf321681317281078YouGotPlanB95Cotton5ElastaneComfortableWearDreamBig3-PackTra1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/22744258/2023/4/12/cd9a9dfd-9eb0-4adf-b5da-6ab49d78cf321681317281078YouGotPlanB95Cotton5ElastaneComfortableWearDreamBig3-PackTra1.jpg",
+        "http://assets.myntassets.com/assets/images/22744258/2023/4/12/02bb076c-d7c2-4a10-aa62-5028272679821681317281028YouGotPlanB95Cotton5ElastaneComfortableWearDreamBig3-PackTra3.jpg",
+        "http://assets.myntassets.com/assets/images/22744258/2023/4/12/b8bc5022-41e7-43fb-88b0-7691f5c3c3931681317281055YouGotPlanB95Cotton5ElastaneComfortableWearDreamBig3-PackTra7.jpg",
+        "http://assets.myntassets.com/assets/images/22744258/2023/4/12/82632642-56b1-476d-a505-42944082863e1681317281038YouGotPlanB95Cotton5ElastaneComfortableWearDreamBig3-PackTra5.jpg",
+        "http://assets.myntassets.com/assets/images/22744258/2023/4/12/d1a01cf4-0db3-41e6-bc58-312b6742e4221681317281070YouGotPlanB95Cotton5ElastaneComfortableWearDreamBig3-PackTra4.jpg",
+        "http://assets.myntassets.com/assets/images/22744258/2023/4/12/0bfe2467-1fca-4be4-90fc-14b5e14d2c8d1681317281047YouGotPlanB95Cotton5ElastaneComfortableWearDreamBig3-PackTra6.jpg",
+        "http://assets.myntassets.com/assets/images/22744258/2023/4/12/b5410f93-7a7d-48e9-acc6-60875deba1ee1681317281063YouGotPlanB95Cotton5ElastaneComfortableWearDreamBig3-PackTra2.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/You+Got+Plan+B/You-Got-Plan-B-Girls-Pack-Of-3-Beginners-Bra/22744258/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:36.536413",
+      "premium": true
+    },
+    {
+      "product_id": "25743300",
+      "name": "You Got Plan B Girls Pack Of 3 Anti Microbial Bra Full Coverage",
+      "brand": "You Got Plan B",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra"
+      ],
+      "price_original": 1199.0,
+      "price_discounted": 909.0,
+      "discount_percentage": 24,
+      "rating": "4.533947944641113",
+      "review_count": 1193,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/AUGUST/30/WA9RASz8_c8c514b234a34388959491e80cb107dc.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/AUGUST/30/WA9RASz8_c8c514b234a34388959491e80cb107dc.jpg",
+        "http://assets.myntassets.com/assets/images/2025/AUGUST/30/6IiPixEE_b9bc8dc9802f4ccfbebc2054085eaab7.jpg",
+        "http://assets.myntassets.com/assets/images/2025/AUGUST/30/0Bmu6N79_4b7c72100de346ab88af635becb05449.jpg",
+        "http://assets.myntassets.com/assets/images/2025/AUGUST/30/LzAh2zpt_1a46de019a454f998224fc5b576509be.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/You+Got+Plan+B/You-Got-Plan-B-Girls-Pack-Of-3-Anti-Microbial-Bra-Full-Coverage/25743300/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.451554",
+      "premium": true
+    },
+    {
+      "product_id": "B0CFFHZWT2",
       "name": "Women Wired Padded Push-Up Bra - Anti Bacterial, Plush Back No Slip Strap",
       "brand": "Women",
       "category": "Underwire Bra",
@@ -481,10 +1875,191 @@
       "sizes_available": [],
       "colors_available": [],
       "image_url": "https://m.media-amazon.com/images/I/51SGkaAe86L.jpg",
-      "product_url": "https://www.amazon.in/Van-Heusen-Women-Padded-Push-Up/dp/B0CFFGKQBT/ref=sr_1_47?dib=eyJ2IjoiMSJ9.LhD1Z-GCbqL4Jw2kJnSJou8k2pljyI0qglhjMZlJ4yqovisKZgTwlSFQzRWVUc8QTuYiAnZP4Ki2957NwKbaTVDeavqDmm-ZE1MFVpKkhi9RbLPyIz3kZsTu73907EPBdycL7WTSOqycGjXWqTo6NhcSV1HA82XnERGoz97gd61H8k66PL_pNTYmS9phtXWEIhFuHInXgNi306Su0rfdiy1vzgAEw2sJN-nche4D-BevRZ6kJMDvG-bw6JT2K1F-qtvz3aG1Ec0qaqPOKWCLiAhFtbRMsT67t9--XCBFGnM.geYLIDTG-6bT7cZyQTsvEa8KjTJspSd9_798sk4Lu14&dib_tag=se&keywords=bras+for+women&qid=1774795286&sr=8-47",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/51SGkaAe86L.jpg"
+      ],
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4MDU0NjcwNDI5MDk4ODkwOjE3NzQ3OTYyMzQ6c3BfYXRmOjMwMDg3ODI4ODMzNzMzMjo6MDo6&url=%2FVan-Heusen-Women-Padded-Push-Up%2Fdp%2FB0CFFHZWT2%2Fref%3Dsr_1_4_sspa%3Fdib%3DeyJ2IjoiMSJ9.okw2BeUJo84r5Kfd3Qnm8P-xFs5K-wi71JgW36ZhgQTFJeTUAjEEL-rygiOnS7gbxarjQ1irJqJYjdMMfmK36Mn7eC4uHmgyBWcASldH-eHi6rkpwu4o6U_lu0otIp4reyxfNIoMybYV1Kj0Vt_RlnGSROnZzOOPxi2dTtefp5ES1JrgvGfpUXbL-qElTtGOXIg_WOnFRGkaAsGdKX-D4zFBGHno2-ujg4abriL9c46LXkuSGHKQvYHvx2D17lG5X4mYwFIpLtwJAkkijBa0E1TDNLT-6ersFLAPYY11ors.DXSg3k4gQx3j36WlUGsfVlX1Wbu8QH5V2TiDHqsKxws%26dib_tag%3Dse%26keywords%3Dpush%2Bup%2Bbra%26qid%3D1774796234%26sr%3D8-4-spons%26aref%3DajYO12nCRC%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=ajYO12nCRC&sp_cr=ZAZ",
       "website_source": "Amazon India",
       "stock_status": "In Stock",
-      "scraped_at": "2026-03-29T14:41:28.351791",
+      "scraped_at": "2026-03-29T20:27:15.880340",
+      "premium": true
+    },
+    {
+      "product_id": "28346952",
+      "name": "Sillysally Pack Of 2 Cotton Bralette Bra Full Coverage All Day Comfort Non-Wired",
+      "brand": "Sillysally",
+      "category": "Full Coverage Bra",
+      "category_all": [
+        "Full Coverage Bra",
+        "Underwire Bra",
+        "Wireless Bra",
+        "Bralette"
+      ],
+      "price_original": 950.0,
+      "price_discounted": 730.0,
+      "discount_percentage": 23,
+      "rating": "4.42553186416626",
+      "review_count": 141,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/28346952/2024/3/19/c75d3143-0580-4fc0-a92e-66d2a03ba5151710823686807Bra1.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/28346952/2024/3/19/c75d3143-0580-4fc0-a92e-66d2a03ba5151710823686807Bra1.jpg",
+        "http://assets.myntassets.com/assets/images/28346952/2024/3/19/f9bed413-544a-4a89-9f93-c3af2fb4e9a11710823686758Bra7.jpg",
+        "http://assets.myntassets.com/assets/images/28346952/2024/3/19/87859c4b-bc21-44cc-bd15-3fa3894be3eb1710823686778Bra6.jpg",
+        "http://assets.myntassets.com/assets/images/28346952/2024/3/19/225cdfcd-4bbe-438e-993c-9ec4c3292a031710823686798Bra3.jpg",
+        "http://assets.myntassets.com/assets/images/28346952/2024/3/19/8d7ffa20-32ff-412f-b2ca-bdc8c524bd871710823686788Bra2.jpg",
+        "http://assets.myntassets.com/assets/images/28346952/2024/3/19/0a0c478f-9670-4b6b-8f51-acaec898ef521710823686768Bra4.jpg",
+        "http://assets.myntassets.com/assets/images/28346952/2024/3/19/e66f5663-2659-4336-bcd8-f3f54eac4db31710823686749Bra5.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Sillysally/Sillysally-Pack-Of-2-Cotton-Bralette-Bra-Full-Coverage-All-Day-Comfort-Non-Wired/28346952/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:38.826649",
+      "premium": true
+    },
+    {
+      "product_id": "B0G545HPDG",
+      "name": "Mango Push Up Strapless Bra for Women | Backless Stick On Adhesive | Invisible Push Up for All Outfits | Pack of 2 (L, Black)",
+      "brand": "Mango",
+      "category": "Push-Up Bra",
+      "category_all": [
+        "Push-Up Bra",
+        "Strapless Bra",
+        "Backless Bra",
+        "Stick-On Bra"
+      ],
+      "price_original": 999.0,
+      "price_discounted": 799.0,
+      "discount_percentage": 20,
+      "rating": "N/A",
+      "review_count": 0,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/51NVzZWsJ0L.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/51NVzZWsJ0L.jpg"
+      ],
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo0NjE1MTgwNDk2MzU3ODE6MTc3NDc5NjIwNzpzcF9idGY6MzAwODUzNDIzMzAwNjMyOjowOjo&url=%2FSERONE-Strapless-Backless-Adhesive-Invisible%2Fdp%2FB0G545HPDG%2Fref%3Dsr_1_59_sspa%3Fdib%3DeyJ2IjoiMSJ9.jmJe5Ami9ct90XpbvVPXuDc8VsnfhUm6hyfN-5zDTC9hJek2xy5ayGY_V3f_YJcFoZ6i_vwhA_9DtmasA3_u85yrypmMXyliPbLTVjgKmI3WpGVvWNb2jyhPmO4K_I5QHRF8ZgpFw3pXo0mV_9FH78_KeFHLCaRmMjFRXZdA7f_eE0RoI1nHPDQqqcJg0bPEMuLgWkRtGYo_NLuPNBVsrOJQ7JpFKO5OLTXDRIBGvuZXQ4z_Hpcmceywzerh0YAWN4a7GCO21dEZsRp0G4RFj5FNmV4sj3qYJrMWN30cPXY.UQ-xQS7nk_DlKRtdorhlXcIAMk3H90-EuXOYG_8Z2yQ%26dib_tag%3Dse%26keywords%3Dt-shirt%2Bbra%26qid%3D1774796207%26sr%3D8-59-spons%26aref%3DV6aUFplqCQ%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9idGY%26psc%3D1&aref=V6aUFplqCQ&sp_cr=ZAZ",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:48.764651",
+      "premium": true
+    },
+    {
+      "product_id": "B0C535RH8F",
+      "name": "Women's Nylon Blend Seamless Bra Power Up Sports Bra | 3X More Bounce Control | Polymer Glue | Moulded Cups | | Sports Bra",
+      "brand": "Women's",
+      "category": "Seamless Bra",
+      "category_all": [
+        "Seamless Bra",
+        "Sports Bra"
+      ],
+      "price_original": 2399.0,
+      "price_discounted": 1899.0,
+      "discount_percentage": 20,
+      "rating": "N/A",
+      "review_count": 118,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/4144CUQikAL.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/4144CUQikAL.jpg"
+      ],
+      "product_url": "https://www.amazon.in/BlissClub-Control-Polymer-Moulded-Seamless/dp/B0C535RH8F/ref=sr_1_77?dib=eyJ2IjoiMSJ9.pmh6RJ02fax1R4vD-y-OEA0ODSuueOKV37oJCkBc0wtJceQdOBeRZtAjN0FqgcLL-MON6HjEP9dALdfCQTtRLm1TIz3yZEgSVr4rN9HOMRAfSIlHifHcMurxpKLUJEYTRtODCxG93LjQyaruZWpTk4gIDuoGn4CatUcURzINUT8Q5XBNjIuZKHrUwwgwPFoMWUgSaP3Quvh_5zdVDBDQVCKbyw1ns63myWL4IkAbfUMKqMLHgrj4fCm4DzqAx3H0bz-oH4wsw3EYhwcOOMFImQNr0CrKYxZ8-nTSf-IB8So.BZhQy0sX_4diA5tBt03VQ1tnqqGX4hfYPG6BcQtulVU&dib_tag=se&keywords=sports+bra+women&qid=1774796258&sr=8-77",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:27:39.564078",
+      "premium": true
+    },
+    {
+      "product_id": "B0CJ5DS76N",
+      "name": "(NYB252) Cotton Padded & Wired T-Shirt Bra for Women | Comfortable Bra with Ultra Soft Detachable Straps | Ideal for Low Necklines",
+      "brand": "(NYB252)",
+      "category": "T-Shirt Bra",
+      "category_all": [
+        "T-Shirt Bra",
+        "Underwire Bra",
+        "Padded Bra"
+      ],
+      "price_original": 899.0,
+      "price_discounted": 719.0,
+      "discount_percentage": 20,
+      "rating": "N/A",
+      "review_count": 59,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "https://m.media-amazon.com/images/I/618yfFYS02L.jpg",
+      "image_urls": [
+        "https://m.media-amazon.com/images/I/618yfFYS02L.jpg"
+      ],
+      "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTozMzQ0NjU5Nzc4NzgzNDI4OjE3NzQ3OTYyODY6c3BfbXRmOjMwMDU5NjU4MzQ5MTczMjo6MDo6&url=%2FNYKD-Iconic-Coverage-Lightweight-Adjustable%2Fdp%2FB0CJ5DS76N%2Fref%3Dsr_1_24_sspa%3Fdib%3DeyJ2IjoiMSJ9.6wlLckhHFUvWmK_pl6FBdO09MKAGAc7QdxzPANzNtF2jhbMGH9XchLqPJ3ThzOtAXvKQ08eCvngNjx_2-mIxNHnhwoPymb9-eAJpHIghczFfAbqjLWhCrGjWOQRzCB_G3tEGY6L3POHf3dU0-972ZIdDwloabTf-iwnAgzYR5DJGfiwLx5kUcIvlTze63GYJMlucxir1eem8U5guB7Zvca52lYfYPjucQ5iqh-V5xolKaei5uIfPEVAGdzkZdcz9nmKww7ETy7XWJ8S9oWQvgvSyrdcyUWS7pAeV1CH-U3w.0PkBuU3ASEFalHHsDJohUJAe7WnG3s8RdyogHyWwAF0%26dib_tag%3Dse%26keywords%3Dpadded%2Bbra%26qid%3D1774796286%26sr%3D8-24-spons%26aref%3DzfdmMhAMSh%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9tdGY%26psc%3D1&aref=zfdmMhAMSh&sp_cr=ZAZ",
+      "website_source": "Amazon India",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:28:08.158364",
+      "premium": true
+    },
+    {
+      "product_id": "3451641",
+      "name": "Rosaline by Zivame Beige T-shirt Bra - Full Coverage",
+      "brand": "Rosaline by Zivame",
+      "category": "T-Shirt Bra",
+      "category_all": [
+        "T-Shirt Bra",
+        "Full Coverage Bra"
+      ],
+      "price_original": 745.0,
+      "price_discounted": 596.0,
+      "discount_percentage": 20,
+      "rating": "4.241087913513184",
+      "review_count": 3787,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2026/MARCH/20/qVmKpuAw_f2384500501946fb939446df50000364.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/qVmKpuAw_f2384500501946fb939446df50000364.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/zkgsanja_6a1d944764cc49a69dfd2426bf838470.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/YWPU9moV_3bfafb89d5414f63b4c00f6d78b1a651.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/focC6Id0_96d8034bfcb64ed6839108c77a2cb1d4.jpg",
+        "http://assets.myntassets.com/assets/images/2026/MARCH/20/DUGPPR6z_7b93b6990fea4a4bbe6998ed57ef8fd8.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Rosaline+by+Zivame/Rosaline-by-Zivame-Beige-T-shirt-Bra---Full-Coverage/3451641/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:26:44.452554",
+      "premium": true
+    },
+    {
+      "product_id": "37177447",
+      "name": "Marks & Spencer Jasmine Lace Non Wired Bralette",
+      "brand": "Marks & Spencer",
+      "category": "Underwire Bra",
+      "category_all": [
+        "Underwire Bra",
+        "Lace Bra",
+        "Bralette"
+      ],
+      "price_original": 999.0,
+      "price_discounted": 799.0,
+      "discount_percentage": 20,
+      "rating": "4.575342655181885",
+      "review_count": 73,
+      "sizes_available": [],
+      "colors_available": [],
+      "image_url": "http://assets.myntassets.com/assets/images/2025/SEPTEMBER/24/lYtlhDev_0bda52597f80462aab12812079748d5c.jpg",
+      "image_urls": [
+        "http://assets.myntassets.com/assets/images/2025/SEPTEMBER/24/lYtlhDev_0bda52597f80462aab12812079748d5c.jpg",
+        "http://assets.myntassets.com/assets/images/2025/SEPTEMBER/24/8b1DUJ3F_382e4315c9054ec9a7baf175c190fc33.jpg",
+        "http://assets.myntassets.com/assets/images/2025/SEPTEMBER/24/WHuVgReD_c508873b2ff4422d83d0025d3b0606b7.jpg",
+        "http://assets.myntassets.com/assets/images/2025/SEPTEMBER/24/TPSPKiin_cb4f9e0ca0384cb6ac9e48f23f13f9b6.jpg",
+        "http://assets.myntassets.com/assets/images/2025/SEPTEMBER/24/fipVERJL_afb8831184d445b7b2e7f9ee51285ed1.jpg",
+        "http://assets.myntassets.com/assets/images/2025/SEPTEMBER/24/ij2obc4L_8561c66f07a541b792b71f3f6dd6cc55.jpg",
+        "http://assets.myntassets.com/assets/images/2025/SEPTEMBER/24/6k0It6w2_13e0ef782f6f43fb8f440528f253af78.jpg"
+      ],
+      "product_url": "https://www.myntra.com/Bra/Marks+%26+Spencer/Marks--Spencer-Jasmine-Lace-Non-Wired-Bralette/37177447/buy",
+      "website_source": "Myntra",
+      "stock_status": "In Stock",
+      "scraped_at": "2026-03-29T20:29:38.824087",
       "premium": true
     }
   ]
