@@ -2,8 +2,8 @@ name: Bra Discount Scraper Bot
 
 on:
   schedule:
-    # Runs at the start of every hour
-    - cron: '0 * * * *'
+    # Runs every 5 minutes
+    - cron: '*/5 * * * *'
   workflow_dispatch:
     # Allows manual triggering from the Actions tab
 
