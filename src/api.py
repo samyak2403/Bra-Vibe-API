@@ -26,6 +26,7 @@ app.add_middleware(
 )
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "bras_deals.json")
+PREMIUM_DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "premium_bras.json")
 
 class Deal(BaseModel):
     product_id: str
@@ -45,10 +46,11 @@ class APIResponse(BaseModel):
     metadata: Dict[str, Any]
     deals: List[Deal]
 
-def load_data():
-    if not os.path.exists(DATA_FILE):
+def load_data(is_premium: bool = False):
+    target_file = PREMIUM_DATA_FILE if is_premium else DATA_FILE
+    if not os.path.exists(target_file):
         return {"metadata": {}, "deals": []}
-    with open(DATA_FILE, 'r', encoding='utf-8') as f:
+    with open(target_file, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 @app.get("/", tags=["General"])
@@ -73,7 +75,37 @@ async def get_deals(
     if RAPIDAPI_PROXY_SECRET and rapidapi_proxy_secret != RAPIDAPI_PROXY_SECRET:
         raise HTTPException(status_code=403, detail="Invalid RapidAPI Proxy Secret")
 
-    data = load_data()
+    data = load_data(is_premium=False)
+    deals = data.get("deals", [])
+    
+    # Filtering logic
+    if brand:
+        deals = [d for d in deals if brand.lower() in d['brand'].lower()]
+    if source:
+        deals = [d for d in deals if source.lower() in d['website_source'].lower()]
+    if min_discount:
+        deals = [d for d in deals if d['discount_percentage'] >= min_discount]
+        
+    return {
+        "metadata": data.get("metadata", {}),
+        "deals": deals
+    }
+
+@app.get("/premium-deals", response_model=APIResponse, tags=["Deals"])
+async def get_premium_deals(
+    brand: Optional[str] = Query(None, description="Filter by brand name (case-insensitive)"),
+    source: Optional[str] = Query(None, description="Filter by website source (e.g. Amazon India)"),
+    min_discount: Optional[int] = Query(20, description="Minimum discount percentage"),
+    rapidapi_proxy_secret: Optional[str] = Header(None, alias="X-RapidAPI-Proxy-Secret")
+):
+    """
+    Retrieve all premium-brand lingerie deals with optional filtering. 
+    Securely validated via RapidAPI Proxy Secret if configured.
+    """
+    if RAPIDAPI_PROXY_SECRET and rapidapi_proxy_secret != RAPIDAPI_PROXY_SECRET:
+        raise HTTPException(status_code=403, detail="Invalid RapidAPI Proxy Secret")
+
+    data = load_data(is_premium=True)
     deals = data.get("deals", [])
     
     # Filtering logic

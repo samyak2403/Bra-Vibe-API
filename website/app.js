@@ -15,7 +15,7 @@ async function fetchDeals() {
         const deals = data.deals || [];
 
         dealsContainer.innerHTML = ''; // Clear loading text
-        
+
         if (deals.length === 0) {
             dealsContainer.innerHTML = '<div style="text-align: center; color: var(--text-muted); width: 100%; grid-column: 1/-1;">No deals available at the moment. Check back soon!</div>';
             return;
@@ -40,15 +40,18 @@ function createProductCard(deal) {
     const p_disc = deal.price_discounted || 0;
     const disc_perc = deal.discount_percentage || 0;
 
+    const discountTagHTML = disc_perc > 0 ? `<div class="discount-tag">${disc_perc}% OFF</div>` : '';
+    const priceOldHTML = disc_perc > 0 ? `<span class="price-old">₹${p_orig}</span>` : '';
+
     card.innerHTML = `
-        <div class="discount-tag">${disc_perc}% OFF</div>
+        ${discountTagHTML}
         <img src="${deal.image_url}" alt="${deal.name}" class="card-img" onerror="this.src='https://via.placeholder.com/300x400?text=Premium+Lingerie'">
         <div class="card-content">
             <span class="brand-badge">${deal.brand || deal.website_source}</span>
             <div class="product-name" title="${deal.name}">${deal.name}</div>
             <div class="price-row">
                 <span class="price-now">₹${p_disc}</span>
-                <span class="price-old">₹${p_orig}</span>
+                ${priceOldHTML}
             </div>
             <a href="${deal.product_url}" target="_blank" class="btn btn-primary" style="padding: 0.6rem 1rem; width: 100%; justify-content: center; margin-top: 1.5rem; border-radius: 12px; font-size: 0.85rem;">View Deal</a>
         </div>
@@ -63,7 +66,7 @@ function initializeTabs() {
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const lang = tab.getAttribute('data-lang');
-            
+
             // Update tabs
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
@@ -91,7 +94,7 @@ function copyToClipboard(text, btn) {
 function showSnippet(lang) {
     const snippets = document.querySelectorAll('#snippet-container pre');
     const tabs = document.querySelectorAll('#snippet-tabs .tab');
-    
+
     tabs.forEach(t => t.classList.remove('active'));
     document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
 
