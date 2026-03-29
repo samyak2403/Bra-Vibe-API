@@ -311,14 +311,14 @@ class StoreScrapers(ScraperBase):
 
     # ── PDP (Product Detail Page) Multi-Image Enrichment ────────────────
 
-    def _fetch_amazon_pdp_images(self, asin: str) -> List[str]:
-        """Visit Amazon PDP to extract all gallery images."""
+    def _fetch_amazon_pdp_data(self, asin: str) -> tuple[List[str], List[str], List[str]]:
+        """Visit Amazon PDP to extract gallery images, sizes, and colors."""
         if not asin:
-            return []
+            return [], [], []
         url = f"https://www.amazon.in/dp/{asin}"
         html = self.safe_request(url, "amazon")
         if not html:
-            return []
+            return [], [], []
 
         images = []
 
@@ -396,15 +396,40 @@ class StoreScrapers(ScraperBase):
                 seen_ids.add(img_id)
 
         logger.debug(f"  [AMAZON PDP] ASIN={asin} -> {len(images)} images")
-        return images[:10]
+        
+        # Extract sizes and colors
+        sizes = []
+        colors = []
+        try:
+            soup = BeautifulSoup(html, 'html.parser')
+            # Sizes
+            for opt in soup.select('select[name="dropdown_selected_size_name"] option, select#native_dropdown_selected_size_name option'):
+                val = opt.get('value', '')
+                if val and val != '-1':
+                    sizes.append(opt.text.strip())
+            # Colors
+            for img in soup.select('li[id^="color_name_"] img.imgSwatch, li[id^="color_name_"] .twisterTextDiv'):
+                colors.append(img.get('alt', img.text.strip()))
+            
+            # Regex fallback
+            if not sizes:
+                size_m = re.search(r'"size_name"\s*:\s*\[(.*?)\]', html)
+                if size_m: sizes = [s.strip('" ') for s in size_m.group(1).split(',')]
+            if not colors:
+                color_m = re.search(r'"color_name"\s*:\s*\[(.*?)\]', html)
+                if color_m: colors = [c.strip('" ') for c in color_m.group(1).split(',')]
+        except Exception as e:
+            logger.debug(f"Amazon PDP size/color extraction error: {e}")
 
-    def _fetch_flipkart_pdp_images(self, product_url: str) -> List[str]:
-        """Visit a Flipkart PDP to extract all gallery images."""
+        return images[:10], list(dict.fromkeys(sizes)), list(dict.fromkeys(colors))
+    
+    def _fetch_flipkart_pdp_data(self, product_url: str) -> tuple[List[str], List[str], List[str]]:
+        """Visit a Flipkart PDP to extract gallery images, sizes, and colors."""
         if not product_url:
-            return []
+            return [], [], []
         html = self.safe_request(product_url, "flipkart")
         if not html:
-            return []
+            return [], [], []
 
         images = []
 
@@ -459,34 +484,63 @@ class StoreScrapers(ScraperBase):
                 unique.append(u)
 
         logger.debug(f"  [FLIPKART PDP] -> {len(unique)} images")
-        return unique[:10]
+        
+        sizes = []
+        colors = []
+        try:
+            # Flipkart stores attributes in JSON blocks or INITIAL_STATE
+            size_match = re.search(r'"Size(?:_.*?)?"\s*,\s*"values"\s*:\s*\[(.*?)\]', html, re.IGNORECASE)
+            if size_match:
+                sizes = re.findall(r'"([^"]+)"', size_match.group(1))
+            
+            color_match = re.search(r'"Color(?:_.*?)?"\s*,\s*"values"\s*:\s*\[(.*?)\]', html, re.IGNORECASE)
+            if color_match:
+                colors = re.findall(r'"([^"]+)"', color_match.group(1))
+                
+            # Generic attribute fallback
+            if not sizes or not colors:
+                attrs_match = re.finditer(r'"attributes"\s*:\s*(\{.*?\})', html)
+                for am in attrs_match:
+                    try:
+                        attrs = json.loads(am.group(1))
+                        if not sizes and 'Size' in attrs: sizes = attrs['Size']
+                        if not colors and 'Color' in attrs: colors = attrs['Color']
+                    except: pass
+        except Exception as e:
+            logger.debug(f"Flipkart PDP size/color extraction error: {e}")
 
-    def _enrich_with_pdp_images(self, results: List[Dict], store: str) -> List[Dict]:
-        """Batch-enrich products with multi-image data from their PDPs."""
+        return unique[:10], list(dict.fromkeys(sizes)), list(dict.fromkeys(colors))
+
+    def _enrich_with_pdp_data(self, results: List[Dict], store: str) -> List[Dict]:
+        """Batch-enrich products with multi-image data, sizes, and colors from their PDPs."""
         if not results:
             return results
 
-        to_enrich = [(i, p) for i, p in enumerate(results) if len(p.get('image_urls', [])) <= 1]
+        to_enrich = [(i, p) for i, p in enumerate(results) if len(p.get('image_urls', [])) <= 1 or not p.get('sizes_available') or not p.get('colors_available')]
         if not to_enrich:
-            logger.info(f"  [{store.upper()}] All products already have multiple images")
+            logger.info(f"  [{store.upper()}] All products already enriched with images/sizes/colors.")
             return results
 
-        logger.info(f"  [{store.upper()}] Enriching {len(to_enrich)}/{len(results)} products with PDP images...")
+        logger.info(f"  [{store.upper()}] Enriching {len(to_enrich)}/{len(results)} products via PDP...")
 
         def _fetch_one(item):
             idx, product = item
             try:
                 if store == 'amazon':
-                    pdp_imgs = self._fetch_amazon_pdp_images(product.get('product_id', ''))
+                    pdp_imgs, p_sizes, p_colors = self._fetch_amazon_pdp_data(product.get('product_id', ''))
                 elif store == 'flipkart':
-                    pdp_imgs = self._fetch_flipkart_pdp_images(product.get('product_url', ''))
+                    pdp_imgs, p_sizes, p_colors = self._fetch_flipkart_pdp_data(product.get('product_url', ''))
                 else:
                     return
+                    
                 if pdp_imgs:
                     enhanced = [self.enhance_image_quality(u) for u in pdp_imgs]
                     enhanced = list(dict.fromkeys(u for u in enhanced if u))
                     product['image_urls'] = enhanced
                     product['image_url'] = enhanced[0]
+                
+                if p_sizes: product['sizes_available'] = p_sizes
+                if p_colors: product['colors_available'] = p_colors
             except Exception as e:
                 logger.debug(f"  [{store.upper()}] PDP enrich error: {e}")
 
@@ -499,9 +553,10 @@ class StoreScrapers(ScraperBase):
                     logger.debug(f"  [{store.upper()}] PDP thread error: {e}")
 
         counts = [len(p.get('image_urls', [])) for p in results]
+        size_counts = sum(1 for p in results if p.get('sizes_available'))
         avg = sum(counts) / len(counts) if counts else 0
         multi = sum(1 for c in counts if c > 1)
-        logger.info(f"  [{store.upper()}] PDP enrichment done: avg {avg:.1f} imgs/product, {multi}/{len(results)} multi-image")
+        logger.info(f"  [{store.upper()}] PDP enrichment done: avg {avg:.1f} imgs/product, {size_counts} have sizes")
         return results
 
     def scrape_amazon(self) -> List[Dict[str, Any]]:
@@ -627,7 +682,7 @@ class StoreScrapers(ScraperBase):
                 time.sleep(random.uniform(2, 4))  # Inter-page delay
         
         results = self._dedup_results(all_results)
-        results = self._enrich_with_pdp_images(results, 'amazon')
+        results = self._enrich_with_pdp_data(results, 'amazon')
         logger.info(f"[AMAZON] Total unique items: {len(results)}")
         return results
 
@@ -767,7 +822,7 @@ class StoreScrapers(ScraperBase):
                 time.sleep(random.uniform(2, 4))
         
         results = self._dedup_results(all_results)
-        results = self._enrich_with_pdp_images(results, 'flipkart')
+        results = self._enrich_with_pdp_data(results, 'flipkart')
         logger.info(f"[FLIPKART] Total unique items: {len(results)}")
         return results
 
@@ -837,6 +892,8 @@ class StoreScrapers(ScraperBase):
                                     "image_url": p.get('searchImage', ''),
                                     "image_urls": [img.get('src') if isinstance(img, dict) else str(img) for img in p.get('images', [])] if p.get('images') else [p.get('searchImage', '')],
                                     "product_url": "https://www.myntra.com/" + str(p.get('landingPageUrl', '')),
+                                    "sizes_available": [inv.get('label', '') for inv in p.get('inventoryInfo', []) if inv.get('label')],
+                                    "colors_available": [p.get('primaryColour')] if p.get('primaryColour') else [],
                                 }
                                 page_results.append(self.normalize(raw, conf['name']))
                             except Exception as e:
@@ -875,6 +932,8 @@ class StoreScrapers(ScraperBase):
                                         "image_url": p.get('searchImage', ''),
                                         "image_urls": [img.get('src') if isinstance(img, dict) else str(img) for img in p.get('images', [])] if p.get('images') else [p.get('searchImage', '')],
                                         "product_url": "https://www.myntra.com/" + str(p.get('landingPageUrl', '')),
+                                        "sizes_available": [inv.get('label', '') for inv in p.get('inventoryInfo', []) if inv.get('label')],
+                                        "colors_available": [p.get('primaryColour')] if p.get('primaryColour') else [],
                                     }
                                     page_results.append(self.normalize(raw, conf['name']))
                                 except Exception as e:
@@ -939,6 +998,8 @@ class StoreScrapers(ScraperBase):
                     "image_url": img_url,
                     "image_urls": image_urls,
                     "product_url": "https://www.ajio.com" + str(p.get('url', '')),
+                    "sizes_available": [v.get('value', str(v)) if isinstance(v, dict) else str(v) for v in p.get('variantOptions', [])] if p.get('variantOptions') else [],
+                    "colors_available": [p.get('colorName')] if p.get('colorName') else [p.get('fnlColorVariantData', {}).get('colorName')] if isinstance(p.get('fnlColorVariantData'), dict) and p.get('fnlColorVariantData', {}).get('colorName') else [],
                 }
                 results.append(self.normalize(raw, conf['name']))
             except Exception as e:
@@ -1001,7 +1062,9 @@ class StoreScrapers(ScraperBase):
                                     "price_original": float(p.get('wasPriceData', {}).get('value', 0)) or float(p.get('price', {}).get('value', 0)) * 1.5,
                                     "image_url": p.get('images', [{}])[0].get('url', '') if p.get('images') else '',
                                     "image_urls": [img.get('url') for img in p.get('images', []) if isinstance(img, dict) and img.get('url')],
-                                    "product_url": "https://www.ajio.com" + p.get('url', '')
+                                    "product_url": "https://www.ajio.com" + p.get('url', ''),
+                                    "sizes_available": [v.get('value', str(v)) if isinstance(v, dict) else str(v) for v in p.get('variantOptions', [])] if p.get('variantOptions') else [],
+                                    "colors_available": [p.get('colorName')] if p.get('colorName') else [],
                                 }, "Ajio"))
                             except: pass
                 except: pass
@@ -1101,6 +1164,8 @@ class StoreScrapers(ScraperBase):
                                                 "image_urls": item.get('gallery', [item.get('image_url', '')]),
                                                 "product_url": "https://www.zivame.com" + item.get('product_url', ''),
                                                 "brand": item.get('brand_name', 'Zivame'),
+                                                "sizes_available": [s.get('value', str(s)) if isinstance(s, dict) else str(s) for s in (item.get('sizes') or item.get('availableSizes') or [])],
+                                                "colors_available": [item.get('colorName', item.get('color'))] if item.get('colorName') or item.get('color') else [],
                                             }, "Zivame"))
                                             found_page_items += 1
                                         except: pass
@@ -1181,6 +1246,8 @@ class StoreScrapers(ScraperBase):
                             "image_url": p.get('image_url', p.get('imageUrl', p.get('image', ''))),
                             "image_urls": p.get('gallery', [p.get('image_url', p.get('imageUrl', p.get('image', '')))]),
                             "product_url": "https://www.clovia.com" + str(p.get('product_url', p.get('url', ''))),
+                            "sizes_available": [s.get('name', str(s)) if isinstance(s, dict) else str(s) for s in (p.get('size_options') or p.get('sizes') or [])],
+                            "colors_available": [p.get('color')] if p.get('color') else [],
                         }
                         all_results.append(self.normalize(raw, conf['name']))
                         page_count += 1
@@ -1259,6 +1326,8 @@ class StoreScrapers(ScraperBase):
                                         "image_urls": [img.get('url', '') for img in p.get('media', [])] if p.get('media') else [p.get('imageUrl', '')],
                                         "product_url": "https://www.nykaafashion.com" + p.get('url', ''),
                                         "brand": p.get('brandName', ''),
+                                        "sizes_available": [opt.get('value', str(opt)) if isinstance(opt, dict) else str(opt) for opt in (p.get('options') or p.get('sizes') or [])],
+                                        "colors_available": [p.get('color')] if p.get('color') else [p.get('variantValue')] if p.get('variantType') == "Color" else [],
                                     }, "Nykaa"))
                                 except: pass
                         else:
