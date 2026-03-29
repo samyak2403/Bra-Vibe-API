@@ -15,10 +15,12 @@ async function initDashboard() {
 
         let allDeals = [];
         let premiumDeals = [];
-
+        let lastUpdated = null;
+        
         if (allRes && allRes.ok) {
             const data = await allRes.json();
             allDeals = data.deals || [];
+            lastUpdated = data.metadata ? data.metadata.timestamp : null;
         }
 
         if (premiumRes && premiumRes.ok) {
@@ -28,7 +30,7 @@ async function initDashboard() {
 
         const combinedDeals = [...allDeals];
         
-        updateMetrics(combinedDeals, premiumDeals);
+        updateMetrics(combinedDeals, premiumDeals, lastUpdated);
         renderCharts(combinedDeals);
 
     } catch (err) {
@@ -36,10 +38,11 @@ async function initDashboard() {
     }
 }
 
-function updateMetrics(allDeals, premiumDeals) {
+function updateMetrics(allDeals, premiumDeals, lastUpdated) {
     const totalCount = document.getElementById('total-count');
     const sourceCount = document.getElementById('source-count');
     const premiumPerc = document.getElementById('premium-perc');
+    const lastUpdate = document.getElementById('last-update');
 
     const total = allDeals.length;
     const sources = [...new Set(allDeals.map(d => d.website_source))].length;
@@ -48,6 +51,15 @@ function updateMetrics(allDeals, premiumDeals) {
     animateValue(totalCount, 0, total, 1000);
     animateValue(sourceCount, 0, sources, 1000);
     animateValue(premiumPerc, 0, premiumRatio, 1000, '%');
+
+    if (lastUpdated) {
+        const date = new Date(lastUpdated);
+        lastUpdate.innerText = "Every 5m";
+        lastUpdate.style.fontSize = "1.5rem";
+        lastUpdate.title = "Last Sync: " + date.toLocaleString();
+    } else {
+        lastUpdate.innerText = "5m Scan";
+    }
 }
 
 function animateValue(obj, start, end, duration, suffix = '') {
