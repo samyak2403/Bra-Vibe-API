@@ -8,6 +8,27 @@ ALL_OUTPUT_FILE = "data/all_bras.json"
 MAX_WORKERS = 3  # Reduced for better bypass (less aggressive)
 REQUEST_TIMEOUT = 30
 RETRY_ATTEMPTS = 4
+MAX_PAGES = 3  # Number of pages to scrape per store/query
+
+# --- SEARCH QUERIES ---
+# Multiple search queries per store for broader results
+SEARCH_QUERIES = {
+    "amazon": [
+        "bras+for+women",
+        "bras+discount",
+        "lingerie+bras+women",
+    ],
+    "flipkart": [
+        "bras+for+women",
+        "bras+discount",
+        "lingerie+bras",
+    ],
+    "myntra": [
+        "bras",
+        "lingerie bras",
+        "women bras",
+    ],
+}
 
 # --- PREMIUM BRAS CONFIG ---
 PREMIUM_MIN_PRICE = 500  # Minimum discounted price for premium classification
@@ -37,17 +58,17 @@ PREMIUM_BRANDS = [
 # --- TARGET STORES ---
 STORES = {
     "amazon": {
-        "url": "https://www.amazon.in/s?k=bras+for+women",
+        "url": "https://www.amazon.in/s",
         "name": "Amazon India",
         "selector": 'div[data-component-type="s-search-result"]'
     },
     "flipkart": {
         "url": "https://flipkart.com/api/4/page/fetch",
-        "search_url": "https://www.flipkart.com/search?q=bras+for+women&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&page=1",
+        "search_url": "https://www.flipkart.com/search",
         "name": "Flipkart",
     },
     "myntra": {
-        "url": "https://www.myntra.com/gateway/v2/search/bras",
+        "url": "https://www.myntra.com/gateway/v2/search/",
         "browse_url": "https://www.myntra.com/bras",
         "name": "Myntra"
     },
@@ -58,7 +79,7 @@ STORES = {
         "params": {
             "fields": "CUSTOM_CLASSIFICATION",
             "currentPage": "0",
-            "pageSize": "45",
+            "pageSize": "50",
             "platform": "site",
             "showAdsOnNextPage": "true",
             "is_498": "false",
@@ -73,7 +94,7 @@ STORES = {
         "params": {
             "searchTerm": "bras",
             "page": "0",
-            "pageSize": "40",
+            "pageSize": "50",
             "sort": "popularity"
         }
     },
@@ -94,7 +115,7 @@ STORES = {
         "categoryId": "595",
         "params": {
             "categoryId": "595",
-            "PageSize": "30",
+            "PageSize": "50",
             "currentPage": "1",
             "sort": "popularity",
             "filter_format": "v2"

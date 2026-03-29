@@ -178,12 +178,9 @@ class ScraperBase:
         try:
             # Amazon
             if 'amazon' in url or 'media-amazon' in url:
-                # e.g. https://m.media-amazon.com/images/I/61N+QWw6VTL._AC_UL320_.jpg -> https://m.media-amazon.com/images/I/61N+QWw6VTL.jpg
-                # handles ._AC_UL320_., ._SY300_., etc.
                 return re.sub(r'\._[a-zA-Z0-9_+%-]+_\.', '.', url)
             # Flipkart
             elif 'flixcart' in url:
-                # e.g. https://rukminim2.flixcart.com/image/128/128/... -> https://rukminim2.flixcart.com/image/1080/1080/...
                 return re.sub(r'/image/\d+/\d+/', '/image/1080/1080/', url)
             # Myntra
             elif 'myntassets' in url or 'myntra' in url:
@@ -208,7 +205,7 @@ class ScraperBase:
                 return re.sub(r'/\d+x\d*/', '/1080x1080/', url)
             # Zivame
             elif 'zivame' in url:
-                return re.sub(r'/\d+x(?:\d*/)?', '/1080x1080/', url)
+                return re.sub(r'/\d+x(?:\d*/?)', '/1080x1080/', url)
         except Exception as e:
             logger.debug(f"Image enhancement error: {e}")
         return url
@@ -249,405 +246,485 @@ class ScraperBase:
 # --- STORE SCRAPERS ---
 
 class StoreScrapers(ScraperBase):
+    
+    def _dedup_results(self, results: List[Dict]) -> List[Dict]:
+        """Remove duplicates within a single store's results."""
+        seen = set()
+        unique = []
+        for p in results:
+            key = p.get('product_id', '') + '_' + p.get('name', '')[:50].lower()
+            if key not in seen:
+                seen.add(key)
+                unique.append(p)
+        return unique
+
     def scrape_amazon(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Amazon India...")
+        logger.info("Scraping Amazon India (multi-page, multi-query)...")
         conf = config.STORES['amazon']
         self.pre_flight("amazon", "https://www.amazon.in/")
         
-        search_url = f"{conf['url']}&ref=nb_sb_noss"
-        html = self.safe_request(search_url, "amazon")
-        if not html: return []
+        all_results = []
+        queries = config.SEARCH_QUERIES.get('amazon', ['bras+for+women'])
         
-        soup = BeautifulSoup(html, 'html.parser')
-        products = soup.select('div[data-component-type="s-search-result"], .s-result-item[data-asin]')
-        results = []
+        for query in queries:
+            for page in range(1, config.MAX_PAGES + 1):
+                search_url = f"{conf['url']}?k={query}&page={page}&ref=sr_pg_{page}"
+                logger.info(f"  [AMAZON] Query='{query}' Page={page}")
+                html = self.safe_request(search_url, "amazon")
+                if not html:
+                    continue
+                
+                soup = BeautifulSoup(html, 'html.parser')
+                products = soup.select('div[data-component-type="s-search-result"], .s-result-item[data-asin]')
+                
+                page_count = 0
+                for item in products:
+                    try:
+                        asin = item.get('data-asin')
+                        if not asin: continue
 
-        for item in products:
-            try:
-                asin = item.get('data-asin')
-                if not asin: continue
-
-                name_tag = item.select_one('h2 a span, .a-size-base-plus.a-color-base.a-text-normal')
-                if not name_tag: continue
+                        name_tag = item.select_one('h2 a span, .a-size-base-plus.a-color-base.a-text-normal')
+                        if not name_tag: continue
+                        
+                        low_name = name_tag.text.lower()
+                        if "bra" not in low_name: continue 
+                        
+                        p_disc_tag = item.select_one('.a-price .a-offscreen')
+                        p_disc = self.clean_price(p_disc_tag.text if p_disc_tag else 0)
+                        
+                        p_orig_tag = item.select_one('.a-price.a-text-price span.a-offscreen')
+                        p_orig = self.clean_price(p_orig_tag.text if p_orig_tag else p_disc)
+                        
+                        image_tag = item.select_one('img.s-image')
+                        link_tag = item.select_one('h2 a, a.a-link-normal.s-no-outline')
+                        
+                        # Rating extraction
+                        rating_tag = item.select_one('.a-icon-star-small .a-icon-alt, .a-icon-star .a-icon-alt')
+                        rating = 'N/A'
+                        if rating_tag:
+                            rating_match = re.search(r'([\d.]+)', rating_tag.text)
+                            if rating_match:
+                                rating = rating_match.group(1)
+                        
+                        review_tag = item.select_one('.a-size-base.s-underline-text, a[href*="customerReviews"] span')
+                        review_count = 0
+                        if review_tag:
+                            review_count = self.clean_price(review_tag.text)
+                        
+                        raw = {
+                            "product_id": asin,
+                            "name": name_tag.text.strip(),
+                            "brand": name_tag.text.split(' ')[0],
+                            "price_original": p_orig,
+                            "price_discounted": p_disc,
+                            "image_url": image_tag.get('src') if image_tag else "",
+                            "product_url": "https://www.amazon.in" + link_tag.get('href') if link_tag else "",
+                            "rating": rating,
+                            "review_count": review_count,
+                        }
+                        all_results.append(self.normalize(raw, conf['name']))
+                        page_count += 1
+                    except Exception as e:
+                        logger.debug(f"Amazon item error: {e}")
                 
-                low_name = name_tag.text.lower()
-                if "bra" not in low_name: continue 
-                
-                p_disc_tag = item.select_one('.a-price .a-offscreen')
-                p_disc = self.clean_price(p_disc_tag.text if p_disc_tag else 0)
-                
-                p_orig_tag = item.select_one('.a-price.a-text-price span.a-offscreen')
-                p_orig = self.clean_price(p_orig_tag.text if p_orig_tag else p_disc)
-                
-                image_tag = item.select_one('img.s-image')
-                link_tag = item.select_one('h2 a, a.a-link-normal.s-no-outline')
-                
-                raw = {
-                    "product_id": asin,
-                    "name": name_tag.text.strip(),
-                    "brand": name_tag.text.split(' ')[0],
-                    "price_original": p_orig,
-                    "price_discounted": p_disc,
-                    "image_url": image_tag.get('src') if image_tag else "",
-                    "product_url": "https://www.amazon.in" + link_tag.get('href') if link_tag else "",
-                }
-                results.append(self.normalize(raw, conf['name']))
-            except Exception as e:
-                logger.debug(f"Amazon item error: {e}")
+                logger.info(f"  [AMAZON] Page {page} query '{query}': {page_count} items")
+                time.sleep(random.uniform(2, 4))  # Inter-page delay
+        
+        results = self._dedup_results(all_results)
+        logger.info(f"[AMAZON] Total unique items: {len(results)}")
         return results
 
     def scrape_flipkart(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Flipkart...")
+        logger.info("Scraping Flipkart (multi-page, multi-query)...")
         conf = config.STORES['flipkart']
-        
-        # Strategy 1: Try Flipkart's internal page fetch API
         self.pre_flight("flipkart", "https://www.flipkart.com/")
         
-        # Try the search page and parse JSON embedded in HTML
-        search_url = conf.get('search_url', 'https://www.flipkart.com/search?q=bras+for+women&page=1')
-        html = self.safe_request(search_url, "flipkart")
-        if not html:
-            logger.warning("[FLIPKART] HTML fetch failed, trying fallback...")
-            return []
+        all_results = []
+        queries = config.SEARCH_QUERIES.get('flipkart', ['bras+for+women'])
         
-        results = []
-        
-        # Strategy: Parse the SSR JSON data embedded in Flipkart pages
-        # Flipkart embeds product data in script tags as JSON
-        try:
-            # Look for pageDataV4 or similar embedded JSON
-            json_matches = re.findall(r'<script\s+id="jsonLD"\s+type="application/ld\+json">(.*?)</script>', html, re.DOTALL)
-            for match in json_matches:
-                try:
-                    ld_data = json.loads(match)
-                    if isinstance(ld_data, dict) and ld_data.get('@type') == 'ItemList':
-                        for item in ld_data.get('itemListElement', []):
-                            p = item.get('item', {})
-                            if not p.get('name'): continue
-                            offers = p.get('offers', {})
-                            raw = {
-                                "product_id": str(random.getrandbits(32)),
-                                "name": p.get('name', ''),
-                                "brand": p.get('brand', {}).get('name', 'N/A') if isinstance(p.get('brand'), dict) else str(p.get('brand', 'N/A')),
-                                "price_original": offers.get('highPrice', offers.get('price', 0)),
-                                "price_discounted": offers.get('lowPrice', offers.get('price', 0)),
-                                "image_url": p.get('image', [''])[0] if isinstance(p.get('image'), list) else str(p.get('image', '')),
-                                "product_url": p.get('url', ''),
-                            }
-                            results.append(self.normalize(raw, conf['name']))
-                except json.JSONDecodeError:
+        for query in queries:
+            for page in range(1, config.MAX_PAGES + 1):
+                search_url = f"{conf.get('search_url', 'https://www.flipkart.com/search')}?q={query}&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&page={page}"
+                logger.info(f"  [FLIPKART] Query='{query}' Page={page}")
+                html = self.safe_request(search_url, "flipkart")
+                if not html:
                     continue
-        except Exception as e:
-            logger.debug(f"Flipkart JSON-LD parse error: {e}")
-        
-        # Strategy 2: Traditional HTML parsing as fallback
-        if not results:
-            try:
-                soup = BeautifulSoup(html, 'html.parser')
                 
-                # Find all product cards - Flipkart uses various class patterns
-                # Try multiple selector strategies
-                product_links = soup.select('a[href*="/p/"]')
-                seen_urls = set()
+                page_results = []
                 
-                for link in product_links:
+                # Strategy 1: Parse JSON-LD embedded data
+                try:
+                    json_matches = re.findall(r'<script\s+id="jsonLD"\s+type="application/ld\+json">(.*?)</script>', html, re.DOTALL)
+                    for match in json_matches:
+                        try:
+                            ld_data = json.loads(match)
+                            if isinstance(ld_data, dict) and ld_data.get('@type') == 'ItemList':
+                                for item in ld_data.get('itemListElement', []):
+                                    p = item.get('item', {})
+                                    if not p.get('name'): continue
+                                    offers = p.get('offers', {})
+                                    raw = {
+                                        "product_id": str(random.getrandbits(32)),
+                                        "name": p.get('name', ''),
+                                        "brand": p.get('brand', {}).get('name', 'N/A') if isinstance(p.get('brand'), dict) else str(p.get('brand', 'N/A')),
+                                        "price_original": offers.get('highPrice', offers.get('price', 0)),
+                                        "price_discounted": offers.get('lowPrice', offers.get('price', 0)),
+                                        "image_url": p.get('image', [''])[0] if isinstance(p.get('image'), list) else str(p.get('image', '')),
+                                        "product_url": p.get('url', ''),
+                                    }
+                                    page_results.append(self.normalize(raw, conf['name']))
+                        except json.JSONDecodeError:
+                            continue
+                except Exception as e:
+                    logger.debug(f"Flipkart JSON-LD parse error: {e}")
+                
+                # Strategy 2: Traditional HTML parsing
+                if not page_results:
                     try:
-                        href = link.get('href', '')
-                        if href in seen_urls or '/p/' not in href:
-                            continue
-                        seen_urls.add(href)
+                        soup = BeautifulSoup(html, 'html.parser')
+                        product_links = soup.select('a[href*="/p/"]')
+                        seen_urls = set()
                         
-                        # Get the parent card container
-                        card = link
-                        for _ in range(5):
-                            parent = card.parent
-                            if parent and parent.name == 'div':
-                                card = parent
-                            else:
-                                break
-                        
-                        # Find product name - it's typically in a div with specific styles
-                        name_el = link.select_one('div[class*="col"] a[title]') or link.select_one('a[title]')
-                        name = name_el.get('title', '') if name_el else ''
-                        if not name:
-                            name_el = card.select_one('a[title]')
-                            name = name_el.get('title', '') if name_el else ''
-                        if not name:
-                            # Try text content of first significant div
-                            divs = card.select('div')
-                            for d in divs:
-                                t = d.get_text(strip=True)
-                                if len(t) > 10 and len(t) < 200:
-                                    name = t
-                                    break
-                        
-                        if not name or 'bra' not in name.lower():
-                            continue
-                        
-                        # Find prices - look for ₹ symbol
-                        price_texts = [el.get_text(strip=True) for el in card.select('div') if '₹' in el.get_text()]
-                        prices = []
-                        for pt in price_texts:
-                            cleaned = self.clean_price(pt)
-                            if cleaned > 0:
-                                prices.append(cleaned)
-                        prices = sorted(set(prices))
-                        
-                        p_disc = prices[0] if prices else 0
-                        p_orig = prices[-1] if len(prices) > 1 else p_disc
-                        
-                        # Find image
-                        img = card.select_one('img[src*="rukminim"], img[src*="flixcart"]')
-                        img_url = img.get('src', '') if img else ''
-                        
-                        if name and (p_disc > 0 or p_orig > 0):
-                            raw = {
-                                "product_id": str(random.getrandbits(32)),
-                                "name": name,
-                                "brand": name.split(' ')[0] if name else "N/A",
-                                "price_original": p_orig,
-                                "price_discounted": p_disc,
-                                "image_url": img_url,
-                                "product_url": "https://www.flipkart.com" + href if not href.startswith('http') else href,
-                            }
-                            results.append(self.normalize(raw, conf['name']))
+                        for link in product_links:
+                            try:
+                                href = link.get('href', '')
+                                if href in seen_urls or '/p/' not in href:
+                                    continue
+                                seen_urls.add(href)
+                                
+                                card = link
+                                for _ in range(5):
+                                    parent = card.parent
+                                    if parent and parent.name == 'div':
+                                        card = parent
+                                    else:
+                                        break
+                                
+                                name_el = link.select_one('div[class*="col"] a[title]') or link.select_one('a[title]')
+                                name = name_el.get('title', '') if name_el else ''
+                                if not name:
+                                    name_el = card.select_one('a[title]')
+                                    name = name_el.get('title', '') if name_el else ''
+                                if not name:
+                                    divs = card.select('div')
+                                    for d in divs:
+                                        t = d.get_text(strip=True)
+                                        if len(t) > 10 and len(t) < 200:
+                                            name = t
+                                            break
+                                
+                                if not name or 'bra' not in name.lower():
+                                    continue
+                                
+                                price_texts = [el.get_text(strip=True) for el in card.select('div') if '₹' in el.get_text()]
+                                prices = []
+                                for pt in price_texts:
+                                    cleaned = self.clean_price(pt)
+                                    if cleaned > 0:
+                                        prices.append(cleaned)
+                                prices = sorted(set(prices))
+                                
+                                p_disc = prices[0] if prices else 0
+                                p_orig = prices[-1] if len(prices) > 1 else p_disc
+                                
+                                img = card.select_one('img[src*="rukminim"], img[src*="flixcart"]')
+                                img_url = img.get('src', '') if img else ''
+                                
+                                if name and (p_disc > 0 or p_orig > 0):
+                                    raw = {
+                                        "product_id": str(random.getrandbits(32)),
+                                        "name": name,
+                                        "brand": name.split(' ')[0] if name else "N/A",
+                                        "price_original": p_orig,
+                                        "price_discounted": p_disc,
+                                        "image_url": img_url,
+                                        "product_url": "https://www.flipkart.com" + href if not href.startswith('http') else href,
+                                    }
+                                    page_results.append(self.normalize(raw, conf['name']))
+                            except Exception as e:
+                                logger.debug(f"Flipkart item parse error: {e}")
+                                continue
                     except Exception as e:
-                        logger.debug(f"Flipkart item parse error: {e}")
-                        continue
-            except Exception as e:
-                logger.debug(f"Flipkart HTML parse error: {e}")
+                        logger.debug(f"Flipkart HTML parse error: {e}")
+                
+                all_results.extend(page_results)
+                logger.info(f"  [FLIPKART] Page {page} query '{query}': {len(page_results)} items")
+                time.sleep(random.uniform(2, 4))
         
+        results = self._dedup_results(all_results)
+        logger.info(f"[FLIPKART] Total unique items: {len(results)}")
         return results
 
     def scrape_myntra(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Myntra...")
+        logger.info("Scraping Myntra (multi-page, multi-query)...")
         conf = config.STORES['myntra']
-        
-        # Strategy: Warm up session then use the gateway API
         self.pre_flight("myntra", "https://www.myntra.com/")
         
-        # Try the browse page first to get embedded data
-        browse_url = conf.get('browse_url', 'https://www.myntra.com/bras')
-        html = self.safe_request(browse_url, "myntra")
-        if not html:
-            logger.warning("[MYNTRA] Failed to fetch browse page")
-            return []
+        all_results = []
+        queries = config.SEARCH_QUERIES.get('myntra', ['bras'])
         
-        results = []
-        
-        # Strategy 1: Extract from window.__myx embedded data
-        try:
-            # Multiple patterns to find embedded product data
-            patterns = [
-                r'window\.__myx\s*=\s*({.*?});\s*</script>',
-                r'window\["__myx"\]\s*=\s*({.*?});\s*</script>',
-                r'"searchData"\s*:\s*(\{.*?"products"\s*:\s*\[.*?\]\s*\})',
-            ]
-            
-            data = None
-            for pattern in patterns:
-                match = re.search(pattern, html, re.DOTALL)
-                if match:
-                    try:
-                        data = json.loads(match.group(1))
-                        break
-                    except json.JSONDecodeError:
-                        continue
-            
-            if data:
-                # Navigate nested data structures
-                products = []
-                if 'searchData' in data:
-                    search_data = data['searchData']
-                    if 'results' in search_data:
-                        products = search_data['results'].get('products', [])
-                    elif 'products' in search_data:
-                        products = search_data['products']
-                elif 'products' in data:
-                    products = data['products']
+        for query in queries:
+            for page in range(1, config.MAX_PAGES + 1):
+                # Strategy 1: Try the browse page with built-in pagination
+                if query == "bras":
+                    browse_url = f"https://www.myntra.com/bras?p={page}&rows=50"
+                else:
+                    browse_url = f"https://www.myntra.com/{query.replace(' ', '-')}?p={page}&rows=50"
                 
-                for p in products:
-                    try:
-                        raw = {
-                            "product_id": str(p.get('productId', '')),
-                            "name": p.get('productName', ''),
-                            "brand": p.get('brand', 'N/A'),
-                            "price_original": p.get('mrp', 0),
-                            "price_discounted": p.get('price', 0),
-                            "discount_percentage": p.get('discountDisplayLabel', '').replace('% OFF', '').strip() if p.get('discountDisplayLabel') else None,
-                            "rating": p.get('rating', 'N/A'),
-                            "review_count": p.get('ratingCount', 0),
-                            "image_url": p.get('searchImage', ''),
-                            "product_url": "https://www.myntra.com/" + str(p.get('landingPageUrl', '')),
-                        }
-                        results.append(self.normalize(raw, conf['name']))
-                    except Exception as e:
-                        logger.debug(f"Myntra item error: {e}")
-        except Exception as e:
-            logger.error(f"Myntra parse error: {e}")
-        
-        # Strategy 2: Try the gateway API directly
-        if not results:
-            try:
-                api_url = conf['url']
-                params = {
-                    "p": "1",
-                    "rows": "50",
-                    "o": "0",
-                    "plaession": "false",
-                    "platform": "desktop",
-                    "f": "",
-                }
-                data = self.safe_request_json(api_url, "myntra", params=params)
-                if data:
-                    products = data.get('results', {}).get('products', [])
-                    if not products:
-                        products = data.get('products', [])
+                logger.info(f"  [MYNTRA] Query='{query}' Page={page}")
+                html = self.safe_request(browse_url, "myntra")
+                if not html:
+                    continue
+                
+                page_results = []
+                
+                # Extract from window.__myx embedded data
+                try:
+                    patterns = [
+                        r'window\.__myx\s*=\s*({.*?});\s*</script>',
+                        r'window\["__myx"\]\s*=\s*({.*?});\s*</script>',
+                        r'"searchData"\s*:\s*(\{.*?"products"\s*:\s*\[.*?\]\s*\})',
+                    ]
                     
-                    for p in products:
-                        try:
-                            raw = {
-                                "product_id": str(p.get('productId', '')),
-                                "name": p.get('productName', ''),
-                                "brand": p.get('brand', 'N/A'),
-                                "price_original": p.get('mrp', 0),
-                                "price_discounted": p.get('price', 0),
-                                "rating": p.get('rating', 'N/A'),
-                                "review_count": p.get('ratingCount', 0),
-                                "image_url": p.get('searchImage', ''),
-                                "product_url": "https://www.myntra.com/" + str(p.get('landingPageUrl', '')),
-                            }
-                            results.append(self.normalize(raw, conf['name']))
-                        except Exception as e:
-                            logger.debug(f"Myntra API item error: {e}")
-            except Exception as e:
-                logger.error(f"Myntra API error: {e}")
+                    data = None
+                    for pattern in patterns:
+                        match = re.search(pattern, html, re.DOTALL)
+                        if match:
+                            try:
+                                data = json.loads(match.group(1))
+                                break
+                            except json.JSONDecodeError:
+                                continue
+                    
+                    if data:
+                        products = []
+                        if 'searchData' in data:
+                            search_data = data['searchData']
+                            if 'results' in search_data:
+                                products = search_data['results'].get('products', [])
+                            elif 'products' in search_data:
+                                products = search_data['products']
+                        elif 'products' in data:
+                            products = data['products']
+                        
+                        for p in products:
+                            try:
+                                raw = {
+                                    "product_id": str(p.get('productId', '')),
+                                    "name": p.get('productName', ''),
+                                    "brand": p.get('brand', 'N/A'),
+                                    "price_original": p.get('mrp', 0),
+                                    "price_discounted": p.get('price', 0),
+                                    "discount_percentage": p.get('discountDisplayLabel', '').replace('% OFF', '').strip() if p.get('discountDisplayLabel') else None,
+                                    "rating": p.get('rating', 'N/A'),
+                                    "review_count": p.get('ratingCount', 0),
+                                    "image_url": p.get('searchImage', ''),
+                                    "product_url": "https://www.myntra.com/" + str(p.get('landingPageUrl', '')),
+                                }
+                                page_results.append(self.normalize(raw, conf['name']))
+                            except Exception as e:
+                                logger.debug(f"Myntra item error: {e}")
+                except Exception as e:
+                    logger.error(f"Myntra parse error: {e}")
+                
+                # Strategy 2: Try the gateway API directly
+                if not page_results:
+                    try:
+                        api_url = conf['url'] + query.replace(' ', '%20')
+                        params = {
+                            "p": str(page),
+                            "rows": "50",
+                            "o": str((page - 1) * 50),
+                            "plaession": "false",
+                            "platform": "desktop",
+                            "f": "",
+                        }
+                        data = self.safe_request_json(api_url, "myntra", params=params)
+                        if data:
+                            products = data.get('results', {}).get('products', [])
+                            if not products:
+                                products = data.get('products', [])
+                            
+                            for p in products:
+                                try:
+                                    raw = {
+                                        "product_id": str(p.get('productId', '')),
+                                        "name": p.get('productName', ''),
+                                        "brand": p.get('brand', 'N/A'),
+                                        "price_original": p.get('mrp', 0),
+                                        "price_discounted": p.get('price', 0),
+                                        "rating": p.get('rating', 'N/A'),
+                                        "review_count": p.get('ratingCount', 0),
+                                        "image_url": p.get('searchImage', ''),
+                                        "product_url": "https://www.myntra.com/" + str(p.get('landingPageUrl', '')),
+                                    }
+                                    page_results.append(self.normalize(raw, conf['name']))
+                                except Exception as e:
+                                    logger.debug(f"Myntra API item error: {e}")
+                    except Exception as e:
+                        logger.error(f"Myntra API error: {e}")
+                
+                all_results.extend(page_results)
+                logger.info(f"  [MYNTRA] Page {page} query '{query}': {len(page_results)} items")
+                time.sleep(random.uniform(2, 4))
         
+        results = self._dedup_results(all_results)
+        logger.info(f"[MYNTRA] Total unique items: {len(results)}")
         return results
 
     def scrape_ajio(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Ajio...")
+        logger.info("Scraping Ajio (multi-page)...")
         conf = config.STORES['ajio']
-        
-        # Warm up session on the browse page
         self.pre_flight("ajio", conf.get('browse_url', "https://www.ajio.com/s/bras-4621-72911"))
         
+        all_results = []
         url = conf['url']
-        params = conf.get('params', {})
+        base_params = conf.get('params', {})
         
-        data = self.safe_request_json(url, "ajio", params=params)
-        if not data:
-            # Fallback: try alternate URL format
-            alt_url = "https://www.ajio.com/api/category/830311004?fields=CUSTOM_CLASSIFICATION&currentPage=0&pageSize=45&platform=site"
-            data = self.safe_request_json(alt_url, "ajio")
-        
-        if not data:
-            return []
-        
-        try:
-            products = data.get('products', [])
-            if not products and 'data' in data:
-                products = data['data'].get('products', [])
-            if not products and 'results' in data:
-                products = data.get('results', [])
+        for page in range(config.MAX_PAGES):
+            params = dict(base_params)
+            params['currentPage'] = str(page)
             
-            results = []
-            for p in products:
-                try:
-                    # Handle different image structures
-                    img_url = ''
-                    images = p.get('images', [])
-                    if images:
-                        if isinstance(images[0], dict):
-                            img_url = images[0].get('url', '')
-                        else:
-                            img_url = str(images[0])
-                    if not img_url:
-                        img_url = p.get('imageUrl', '') or p.get('image', '')
-                    
-                    # Handle different price structures
-                    was_price = p.get('wasPriceData', {})
-                    if isinstance(was_price, dict):
-                        orig_price = was_price.get('value', 0)
-                    else:
-                        orig_price = was_price or 0
-                    
-                    curr_price = p.get('price', {})
-                    if isinstance(curr_price, dict):
-                        disc_price = curr_price.get('value', 0)
-                    else:
-                        disc_price = curr_price or 0
-                    
-                    raw = {
-                        "product_id": str(p.get('code', '')),
-                        "name": p.get('name', ''),
-                        "brand": p.get('brandName', p.get('brand', 'N/A')),
-                        "price_original": orig_price or p.get('mrp', 0),
-                        "price_discounted": disc_price,
-                        "discount_percentage": p.get('discount', None),
-                        "image_url": img_url,
-                        "product_url": "https://www.ajio.com" + str(p.get('url', '')),
-                    }
-                    results.append(self.normalize(raw, conf['name']))
-                except Exception as e:
-                    logger.debug(f"Ajio item error: {e}")
-            return results
-        except Exception as e:
-            logger.error(f"Ajio parse error: {e}")
-        return []
-
-    def scrape_zivame(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Zivame...")
-        conf = config.STORES['zivame']
-        
-        self.pre_flight("zivame", conf.get('browse_url', "https://www.zivame.com/"))
-        
-        results = []
-        
-        # Strategy 1: Try Zivame's API endpoint
-        api_url = conf['url']
-        params = conf.get('params', {})
-        data = self.safe_request_json(api_url, "zivame", params=params)
-        
-        if data:
+            logger.info(f"  [AJIO] Page={page + 1}")
+            data = self.safe_request_json(url, "ajio", params=params)
+            
+            if not data:
+                # Fallback: try alternate URL format
+                alt_url = f"https://www.ajio.com/api/category/830311004?fields=CUSTOM_CLASSIFICATION&currentPage={page}&pageSize=50&platform=site"
+                data = self.safe_request_json(alt_url, "ajio")
+            
+            if not data:
+                continue
+            
             try:
                 products = data.get('products', [])
                 if not products and 'data' in data:
-                    products = data['data'].get('products', data['data'].get('items', []))
+                    products = data['data'].get('products', [])
                 if not products and 'results' in data:
                     products = data.get('results', [])
-                if not products and 'items' in data:
-                    products = data.get('items', [])
                 
+                page_count = 0
                 for p in products:
                     try:
+                        # Handle different image structures
+                        img_url = ''
+                        images = p.get('images', [])
+                        if images:
+                            if isinstance(images[0], dict):
+                                img_url = images[0].get('url', '')
+                            else:
+                                img_url = str(images[0])
+                        if not img_url:
+                            img_url = p.get('imageUrl', '') or p.get('image', '')
+                        
+                        # Handle different price structures
+                        was_price = p.get('wasPriceData', {})
+                        if isinstance(was_price, dict):
+                            orig_price = was_price.get('value', 0)
+                        else:
+                            orig_price = was_price or 0
+                        
+                        curr_price = p.get('price', {})
+                        if isinstance(curr_price, dict):
+                            disc_price = curr_price.get('value', 0)
+                        else:
+                            disc_price = curr_price or 0
+                        
                         raw = {
-                            "product_id": str(p.get('id', p.get('sku', random.getrandbits(32)))),
-                            "name": p.get('name', p.get('title', '')),
-                            "brand": p.get('brand', p.get('brandName', 'Zivame')),
-                            "price_original": p.get('mrp', p.get('originalPrice', p.get('price', 0))),
-                            "price_discounted": p.get('offerPrice', p.get('finalPrice', p.get('price', 0))),
+                            "product_id": str(p.get('code', '')),
+                            "name": p.get('name', ''),
+                            "brand": p.get('brandName', p.get('brand', 'N/A')),
+                            "price_original": orig_price or p.get('mrp', 0),
+                            "price_discounted": disc_price,
                             "discount_percentage": p.get('discount', None),
-                            "image_url": p.get('imageUrl', p.get('image', '')),
-                            "product_url": p.get('url', p.get('productUrl', '')),
+                            "image_url": img_url,
+                            "product_url": "https://www.ajio.com" + str(p.get('url', '')),
                         }
-                        if raw['product_url'] and not raw['product_url'].startswith('http'):
-                            raw['product_url'] = "https://www.zivame.com" + raw['product_url']
-                        results.append(self.normalize(raw, conf['name']))
+                        all_results.append(self.normalize(raw, conf['name']))
+                        page_count += 1
                     except Exception as e:
-                        logger.debug(f"Zivame API item error: {e}")
+                        logger.debug(f"Ajio item error: {e}")
+                
+                logger.info(f"  [AJIO] Page {page + 1}: {page_count} items")
+                
+                # Stop if no products on this page
+                if not products:
+                    break
+                    
             except Exception as e:
-                logger.error(f"Zivame API parse error: {e}")
+                logger.error(f"Ajio parse error: {e}")
+            
+            time.sleep(random.uniform(2, 4))
         
-        # Strategy 2: Fall back to HTML scraping
-        if not results:
+        results = self._dedup_results(all_results)
+        logger.info(f"[AJIO] Total unique items: {len(results)}")
+        return results
+
+    def scrape_zivame(self) -> List[Dict[str, Any]]:
+        logger.info("Scraping Zivame (multi-page)...")
+        conf = config.STORES['zivame']
+        self.pre_flight("zivame", conf.get('browse_url', "https://www.zivame.com/"))
+        
+        all_results = []
+        
+        # Strategy 1: Try Zivame's API endpoint with pagination
+        api_url = conf['url']
+        base_params = conf.get('params', {})
+        
+        for page in range(config.MAX_PAGES):
+            params = dict(base_params)
+            params['page'] = str(page)
+            
+            logger.info(f"  [ZIVAME] API Page={page + 1}")
+            data = self.safe_request_json(api_url, "zivame", params=params)
+            
+            if data:
+                try:
+                    products = data.get('products', [])
+                    if not products and 'data' in data:
+                        products = data['data'].get('products', data['data'].get('items', []))
+                    if not products and 'results' in data:
+                        products = data.get('results', [])
+                    if not products and 'items' in data:
+                        products = data.get('items', [])
+                    
+                    page_count = 0
+                    for p in products:
+                        try:
+                            raw = {
+                                "product_id": str(p.get('id', p.get('sku', random.getrandbits(32)))),
+                                "name": p.get('name', p.get('title', '')),
+                                "brand": p.get('brand', p.get('brandName', 'Zivame')),
+                                "price_original": p.get('mrp', p.get('originalPrice', p.get('price', 0))),
+                                "price_discounted": p.get('offerPrice', p.get('finalPrice', p.get('price', 0))),
+                                "discount_percentage": p.get('discount', None),
+                                "image_url": p.get('imageUrl', p.get('image', '')),
+                                "product_url": p.get('url', p.get('productUrl', '')),
+                            }
+                            if raw['product_url'] and not raw['product_url'].startswith('http'):
+                                raw['product_url'] = "https://www.zivame.com" + raw['product_url']
+                            all_results.append(self.normalize(raw, conf['name']))
+                            page_count += 1
+                        except Exception as e:
+                            logger.debug(f"Zivame API item error: {e}")
+                    
+                    logger.info(f"  [ZIVAME] API Page {page + 1}: {page_count} items")
+                    if not products:
+                        break
+                except Exception as e:
+                    logger.error(f"Zivame API parse error: {e}")
+            
+            time.sleep(random.uniform(2, 4))
+        
+        # Strategy 2: Fall back to HTML scraping if API returned nothing
+        if not all_results:
             browse_url = conf.get('browse_url', 'https://www.zivame.com/lingerie/bras.html')
             html = self.safe_request(browse_url, "zivame")
             if html:
                 try:
                     soup = BeautifulSoup(html, 'html.parser')
                     
-                    # Try to extract from embedded JSON/script data
+                    # Try JSON-LD   
                     scripts = soup.select('script[type="application/ld+json"]')
                     for script in scripts:
                         try:
@@ -665,12 +742,12 @@ class StoreScrapers(ScraperBase):
                                         "image_url": p.get('image', ''),
                                         "product_url": p.get('url', ''),
                                     }
-                                    results.append(self.normalize(raw, conf['name']))
+                                    all_results.append(self.normalize(raw, conf['name']))
                         except json.JSONDecodeError:
                             continue
                     
                     # HTML fallback
-                    if not results:
+                    if not all_results:
                         items = soup.select('.product-item, [data-product-id], .product-card')
                         for item in items:
                             try:
@@ -689,139 +766,176 @@ class StoreScrapers(ScraperBase):
                                     "image_url": item.select_one('img').get('src', '') if item.select_one('img') else "",
                                     "product_url": name_tag.get('href', ''),
                                 }
-                                results.append(self.normalize(raw, conf['name']))
+                                all_results.append(self.normalize(raw, conf['name']))
                             except Exception as e:
                                 logger.debug(f"Zivame HTML item error: {e}")
                 except Exception as e:
                     logger.debug(f"Zivame HTML parse error: {e}")
         
+        results = self._dedup_results(all_results)
+        logger.info(f"[ZIVAME] Total unique items: {len(results)}")
         return results
 
     def scrape_clovia(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Clovia...")
+        logger.info("Scraping Clovia (multi-page)...")
         conf = config.STORES['clovia']
-        
         self.pre_flight("clovia", conf.get('browse_url', "https://www.clovia.com/bras/s/"))
         
         api_url = conf['url']
-        params = conf.get('params', {})
+        base_params = conf.get('params', {})
+        all_results = []
         
-        data = self.safe_request_json(api_url, "clovia", params=params)
-        if not data:
-            # Fallback with full URL
-            fallback_url = f"{api_url}?path=/bras/s/&page=1&active_target=-tab2"
-            text = self.safe_request(fallback_url, "clovia")
-            if text:
-                try:
-                    data = json.loads(text)
-                except:
-                    data = {}
-        
-        if not data:
-            return []
-        
-        try:
-            products = data.get('data', {}).get('products', [])
-            if not products and 'products' in data:
-                products = data['products']
-            if not products and 'items' in data:
-                products = data.get('items', [])
+        for page in range(1, config.MAX_PAGES + 1):
+            params = dict(base_params)
+            params['page'] = str(page)
             
-            results = []
-            for p in products:
-                try:
-                    if not p.get('name'):
-                        continue
-                    raw = {
-                        "product_id": str(p.get('id', p.get('sku', ''))),
-                        "name": p.get('name', ''),
-                        "brand": p.get('brand', 'Clovia'),
-                        "price_original": p.get('mrp', p.get('original_price', 0)),
-                        "price_discounted": p.get('offer_price', p.get('price_actual', p.get('price', 0))),
-                        "discount_percentage": p.get('discount', None),
-                        "image_url": p.get('image_url', p.get('imageUrl', p.get('image', ''))),
-                        "product_url": "https://www.clovia.com" + str(p.get('product_url', p.get('url', ''))),
-                    }
-                    results.append(self.normalize(raw, conf['name']))
-                except Exception as e:
-                    logger.debug(f"Clovia item error: {e}")
-            return results
-        except Exception as e:
-            logger.error(f"Clovia API parse error: {e}")
-            return []
+            logger.info(f"  [CLOVIA] Page={page}")
+            data = self.safe_request_json(api_url, "clovia", params=params)
+            
+            if not data:
+                # Fallback with full URL
+                fallback_url = f"{api_url}?path=/bras/s/&page={page}&active_target=-tab2"
+                text = self.safe_request(fallback_url, "clovia")
+                if text:
+                    try:
+                        data = json.loads(text)
+                    except:
+                        data = {}
+            
+            if not data:
+                continue
+            
+            try:
+                products = data.get('data', {}).get('products', [])
+                if not products and 'products' in data:
+                    products = data['products']
+                if not products and 'items' in data:
+                    products = data.get('items', [])
+                
+                page_count = 0
+                for p in products:
+                    try:
+                        if not p.get('name'):
+                            continue
+                        raw = {
+                            "product_id": str(p.get('id', p.get('sku', ''))),
+                            "name": p.get('name', ''),
+                            "brand": p.get('brand', 'Clovia'),
+                            "price_original": p.get('mrp', p.get('original_price', 0)),
+                            "price_discounted": p.get('offer_price', p.get('price_actual', p.get('price', 0))),
+                            "discount_percentage": p.get('discount', None),
+                            "image_url": p.get('image_url', p.get('imageUrl', p.get('image', ''))),
+                            "product_url": "https://www.clovia.com" + str(p.get('product_url', p.get('url', ''))),
+                        }
+                        all_results.append(self.normalize(raw, conf['name']))
+                        page_count += 1
+                    except Exception as e:
+                        logger.debug(f"Clovia item error: {e}")
+                
+                logger.info(f"  [CLOVIA] Page {page}: {page_count} items")
+                
+                if not products:
+                    break
+            except Exception as e:
+                logger.error(f"Clovia API parse error: {e}")
+            
+            time.sleep(random.uniform(2, 4))
+        
+        results = self._dedup_results(all_results)
+        logger.info(f"[CLOVIA] Total unique items: {len(results)}")
+        return results
 
     def scrape_nykaa(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Nykaa Fashion...")
+        logger.info("Scraping Nykaa Fashion (multi-page)...")
         conf = config.STORES['nykaa']
-        
         self.pre_flight("nykaa", conf.get('browse_url', "https://www.nykaafashion.com/bras/c/595"))
         
         url = conf['url']
-        params = conf.get('params', {})
+        base_params = conf.get('params', {})
+        all_results = []
         
-        data = self.safe_request_json(url, "nykaa", params=params)
-        
-        if not data:
-            # Fallback: try with different params
-            alt_params = {
-                "categoryId": conf.get('categoryId', '595'),
-                "PageSize": "30",
-                "currentPage": "1",
-                "sort": "popularity",
-            }
-            data = self.safe_request_json(url, "nykaa", params=alt_params)
-        
-        if not data:
-            # Fallback 2: Try HTML scraping from browse page
-            browse_url = conf.get('browse_url', 'https://www.nykaafashion.com/bras/c/595')
-            html = self.safe_request(browse_url, "nykaa")
-            if html:
-                try:
-                    # Look for embedded product data
-                    match = re.search(r'window\.__PRELOADED_STATE__\s*=\s*({.*?});\s*</script>', html, re.DOTALL)
-                    if match:
-                        data = json.loads(match.group(1))
-                except:
-                    pass
-        
-        if not data:
-            return []
-        
-        try:
-            products = data.get('data', {}).get('products', [])
-            if not products and 'products' in data:
-                products = data['products']
-            if not products and 'response' in data:
-                products = data['response'].get('products', [])
+        for page in range(1, config.MAX_PAGES + 1):
+            params = dict(base_params)
+            params['currentPage'] = str(page)
             
-            results = []
-            for p in products:
-                try:
-                    if not p.get('name') and not p.get('title'):
-                        continue
-                    raw = {
-                        "product_id": str(p.get('id', p.get('productId', ''))),
-                        "name": p.get('name', p.get('title', '')),
-                        "brand": p.get('brandName', p.get('brand_name', p.get('brand', 'N/A'))),
-                        "price_original": p.get('mrp', p.get('originalPrice', 0)),
-                        "price_discounted": p.get('price', p.get('offerPrice', 0)),
-                        "discount_percentage": p.get('discount', None),
-                        "image_url": p.get('imageUrl', p.get('image_url', p.get('image', ''))),
-                        "product_url": "https://www.nykaafashion.com" + str(p.get('productUrl', p.get('url', ''))),
-                    }
-                    results.append(self.normalize(raw, conf['name']))
-                except Exception as e:
-                    logger.debug(f"Nykaa item error: {e}")
-            return results
-        except Exception as e:
-            logger.error(f"Nykaa parse error: {e}")
-        return []
+            logger.info(f"  [NYKAA] Page={page}")
+            data = self.safe_request_json(url, "nykaa", params=params)
+            
+            if not data:
+                # Fallback: try with different params
+                alt_params = {
+                    "categoryId": conf.get('categoryId', '595'),
+                    "PageSize": "50",
+                    "currentPage": str(page),
+                    "sort": "popularity",
+                }
+                data = self.safe_request_json(url, "nykaa", params=alt_params)
+            
+            if not data:
+                # Fallback 2: Try HTML scraping from browse page
+                if page == 1:
+                    browse_url = conf.get('browse_url', 'https://www.nykaafashion.com/bras/c/595')
+                    html = self.safe_request(browse_url, "nykaa")
+                    if html:
+                        try:
+                            match = re.search(r'window\.__PRELOADED_STATE__\s*=\s*({.*?});\s*</script>', html, re.DOTALL)
+                            if match:
+                                data = json.loads(match.group(1))
+                        except:
+                            pass
+                if not data:
+                    continue
+            
+            try:
+                products = data.get('data', {}).get('products', [])
+                if not products and 'products' in data:
+                    products = data['products']
+                if not products and 'response' in data:
+                    products = data['response'].get('products', [])
+                
+                page_count = 0
+                for p in products:
+                    try:
+                        if not p.get('name') and not p.get('title'):
+                            continue
+                        raw = {
+                            "product_id": str(p.get('id', p.get('productId', ''))),
+                            "name": p.get('name', p.get('title', '')),
+                            "brand": p.get('brandName', p.get('brand_name', p.get('brand', 'N/A'))),
+                            "price_original": p.get('mrp', p.get('originalPrice', 0)),
+                            "price_discounted": p.get('price', p.get('offerPrice', 0)),
+                            "discount_percentage": p.get('discount', None),
+                            "image_url": p.get('imageUrl', p.get('image_url', p.get('image', ''))),
+                            "product_url": "https://www.nykaafashion.com" + str(p.get('productUrl', p.get('url', ''))),
+                        }
+                        all_results.append(self.normalize(raw, conf['name']))
+                        page_count += 1
+                    except Exception as e:
+                        logger.debug(f"Nykaa item error: {e}")
+                
+                logger.info(f"  [NYKAA] Page {page}: {page_count} items")
+                
+                if not products:
+                    break
+            except Exception as e:
+                logger.error(f"Nykaa parse error: {e}")
+            
+            time.sleep(random.uniform(2, 4))
+        
+        results = self._dedup_results(all_results)
+        logger.info(f"[NYKAA] Total unique items: {len(results)}")
+        return results
 
 # --- PRODUCTION RUNNER ---
 
 def main():
     start_time = time.time()
-    logger.info("Initializing Production Scraper Engine...")
+    logger.info("=" * 60)
+    logger.info("Initializing Production Scraper Engine v2.0...")
+    logger.info(f"  MAX_PAGES per store: {config.MAX_PAGES}")
+    logger.info(f"  MIN_DISCOUNT: {config.MIN_DISCOUNT}%")
+    logger.info(f"  MAX_WORKERS: {config.MAX_WORKERS}")
+    logger.info("=" * 60)
     
     scrapers = StoreScrapers()
     all_data = []
@@ -844,11 +958,14 @@ def main():
             try:
                 data = future.result()
                 all_data.extend(data)
-                logger.info(f"Finished {store_name}: Found {len(data)} items")
+                logger.info(f"✅ Finished {store_name}: Found {len(data)} items")
             except Exception as e:
-                logger.error(f"Thread error in {store_name}: {e}")
+                logger.error(f"❌ Thread error in {store_name}: {e}")
 
     # --- POST-PROCESSING ---
+    logger.info("=" * 60)
+    logger.info("Post-processing results...")
+    
     # 1. Deduplicate ALL items
     seen_all = set()
     deduped_all = []
@@ -874,7 +991,17 @@ def main():
             premium_deals.append(deal_copy)
     
     premium_deals = sorted(premium_deals, key=lambda x: x['discount_percentage'], reverse=True)
-    logger.info(f"Premium deals identified: {len(premium_deals)}")
+
+    # --- STATS ---
+    logger.info("=" * 60)
+    logger.info("SCRAPE RESULTS SUMMARY")
+    logger.info(f"  Total raw items extracted: {len(all_data)}")
+    logger.info(f"  After deduplication:       {len(deduped_all)}")
+    logger.info(f"  With {config.MIN_DISCOUNT}%+ discount:      {len(filtered)}")
+    logger.info(f"  Final deals:               {len(final_deals)}")
+    logger.info(f"  Premium deals:             {len(premium_deals)}")
+    logger.info(f"  Duration:                  {round(time.time() - start_time, 2)}s")
+    logger.info("=" * 60)
 
     # --- EXPORT ---
     output = {
@@ -920,15 +1047,15 @@ def main():
     try:
         with open(config.OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(output, f, indent=2)
-        logger.info(f"Report generated: {config.OUTPUT_FILE} ({len(final_deals)} deals)")
+        logger.info(f"📄 Report generated: {config.OUTPUT_FILE} ({len(final_deals)} deals)")
         
         with open(config.PREMIUM_OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(premium_output, f, indent=2)
-        logger.info(f"Premium report generated: {config.PREMIUM_OUTPUT_FILE} ({len(premium_deals)} premium deals)")
+        logger.info(f"📄 Premium report generated: {config.PREMIUM_OUTPUT_FILE} ({len(premium_deals)} premium deals)")
         
         with open(config.ALL_OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(all_output, f, indent=2)
-        logger.info(f"All products report generated: {config.ALL_OUTPUT_FILE} ({len(deduped_all)} items)")
+        logger.info(f"📄 All products report generated: {config.ALL_OUTPUT_FILE} ({len(deduped_all)} items)")
     except Exception as e:
         logger.error(f"Failed to save output: {e}")
 
@@ -951,7 +1078,6 @@ def is_premium_product(product: Dict[str, Any]) -> bool:
         return True
     
     # Also include high-price items (₹1000+) even if brand not in list
-    # as they likely come from premium segments
     if price >= 1000 and product.get('discount_percentage', 0) >= 20:
         return True
     
@@ -959,4 +1085,3 @@ def is_premium_product(product: Dict[str, Any]) -> bool:
 
 if __name__ == "__main__":
     main()
-
