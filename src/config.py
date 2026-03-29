@@ -8,7 +8,7 @@ ALL_OUTPUT_FILE = "data/all_bras.json"
 MAX_WORKERS = 3  # Reduced for better bypass (less aggressive)
 REQUEST_TIMEOUT = 30
 RETRY_ATTEMPTS = 4
-MAX_PAGES = 3  # Number of pages to scrape per store/query
+MAX_PAGES = 2  # Number of pages to scrape per store/query
 
 # --- SEARCH QUERIES ---
 # Multiple search queries per store for broader results

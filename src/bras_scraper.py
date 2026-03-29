@@ -10,10 +10,16 @@ from typing import List, Dict, Any
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
+import threading
+from urllib.parse import quote
 
 from curl_cffi import requests as curl_requests
 from playwright.sync_api import sync_playwright
 from playwright_stealth import Stealth
+import undetected_chromedriver as uc
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import config
 
 # --- LOGGING SETUP ---
@@ -26,6 +32,9 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger("BraScraper")
+
+# Global lock for undetected-chromedriver initialization to avoid patching conflicts
+uc_lock = threading.Lock()
 
 class ScraperBase:
     """Base class providing shared utilities for all scrapers."""
@@ -463,15 +472,15 @@ class StoreScrapers(ScraperBase):
         self.pre_flight("myntra", "https://www.myntra.com/")
         
         all_results = []
-        queries = config.SEARCH_QUERIES.get('myntra', ['bras'])
-        
-        for query in queries:
+        for query in config.SEARCH_QUERIES.get('myntra', ['bras']):
+            encoded_query = quote(query)
             for page in range(1, config.MAX_PAGES + 1):
                 # Strategy 1: Try the browse page with built-in pagination
                 if query == "bras":
                     browse_url = f"https://www.myntra.com/bras?p={page}&rows=50"
                 else:
-                    browse_url = f"https://www.myntra.com/{query.replace(' ', '-')}?p={page}&rows=50"
+                    search_term = quote(query.replace(' ', '-'))
+                    browse_url = f"https://www.myntra.com/{search_term}?p={page}&rows=50"
                 
                 logger.info(f"  [MYNTRA] Query='{query}' Page={page}")
                 html = self.safe_request(browse_url, "myntra")
@@ -623,258 +632,187 @@ class StoreScrapers(ScraperBase):
         return results
 
     def scrape_ajio(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Ajio (Playwright browser)...")
+        logger.info("Scraping Ajio (Undetected-Chromedriver)...")
         conf = config.STORES['ajio']
         all_results = []
-        captured_data = []
+        
+        options = uc.ChromeOptions()
+        # options.add_argument('--headless')
+        options.add_argument('--window-size=1920,1080')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
         
         try:
-            with Stealth().use_sync(sync_playwright()) as pw:
-                browser = pw.chromium.launch(headless=True)
-                context = browser.new_context(
-                    viewport={"width": 1920, "height": 1080},
-                    user_agent=config.get_random_ua(),
-                    locale="en-IN",
-                )
-                page = context.new_page()
-                
-                # Intercept API responses
-                def handle_response(response):
-                    try:
-                        if '/api/category/' in response.url and response.status == 200:
-                            try:
-                                data = response.json()
-                                if data and ('products' in data or 'results' in data):
-                                    captured_data.append(data)
-                                    logger.info(f"  [AJIO] Intercepted API response with product data")
-                            except:
-                                pass
-                    except:
-                        pass
-                
-                page.on("response", handle_response)
-                
-                browse_url = conf.get('browse_url', 'https://www.ajio.com/s/bras-4621-72911')
-                logger.info(f"  [AJIO] Navigating to {browse_url}")
-                page.goto(browse_url, wait_until="domcontentloaded", timeout=30000)
-                time.sleep(3)
-                
-                # Scroll down to trigger lazy loading of products
-                for scroll in range(8):
-                    page.evaluate("window.scrollBy(0, 1000)")
-                    time.sleep(random.uniform(1, 2))
-                    logger.debug(f"  [AJIO] Scroll {scroll + 1}/8")
-                
-                # Parse captured API data
-                for data in captured_data:
-                    products = self._parse_ajio_products(data, conf)
-                    all_results.extend(products)
-                
-                # Fallback: parse page HTML if no API data was intercepted
-                if not all_results:
-                    logger.info("  [AJIO] No API data intercepted, parsing HTML...")
-                    html = page.content()
-                    soup = BeautifulSoup(html, 'html.parser')
+            with uc_lock:
+                driver = uc.Chrome(options=options, version_main=146)
+            driver.get("https://www.ajio.com/s/bras-4621-72911")
+            
+            # Simple wait and scroll for Ajio
+            time.sleep(5)
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight/2);")
+            time.sleep(2)
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(3)
+            
+            html = driver.page_source
+            soup = BeautifulSoup(html, 'html.parser')
+            
+            # Method 1: Extraction from window.__PRELOADED_STATE__
+            preloaded_match = re.search(r'window\.__PRELOADED_STATE__\s*=\s*({.*?});', html, re.DOTALL)
+            if preloaded_match:
+                try:
+                    data = json.loads(preloaded_match.group(1))
                     
-                    items = soup.select('[class*="product"], [class*="item"], .rilrtl-products-list__item')
-                    for item in items:
-                        try:
-                            name_el = item.select_one('[class*="nameCls"], [class*="name"], [class*="title"]')
-                            if not name_el: continue
-                            name = name_el.get_text(strip=True)
-                            if not name: continue
-                            
-                            brand_el = item.select_one('[class*="brand"]')
-                            brand = brand_el.get_text(strip=True) if brand_el else name.split(' ')[0]
-                            
-                            price_els = item.select('[class*="price"]')
-                            prices = []
-                            for pe in price_els:
-                                p_val = self.clean_price(pe.get_text())
-                                if p_val > 0:
-                                    prices.append(p_val)
-                            prices = sorted(set(prices))
-                            
-                            img = item.select_one('img[src*="ajio"], img[data-src], img')
-                            img_url = ''
-                            if img:
-                                img_url = img.get('src', '') or img.get('data-src', '')
-                            
-                            link = item.select_one('a[href]')
-                            product_url = ''
-                            if link:
-                                href = link.get('href', '')
-                                product_url = href if href.startswith('http') else 'https://www.ajio.com' + href
-                            
-                            if name and prices:
-                                raw = {
-                                    "product_id": str(random.getrandbits(32)),
-                                    "name": name,
-                                    "brand": brand,
-                                    "price_original": prices[-1] if len(prices) > 1 else prices[0],
-                                    "price_discounted": prices[0],
-                                    "image_url": img_url,
-                                    "product_url": product_url,
-                                }
-                                all_results.append(self.normalize(raw, conf['name']))
-                        except Exception as e:
-                            logger.debug(f"Ajio HTML item error: {e}")
-                
-                browser.close()
+                    def find_products(d):
+                        if isinstance(d, dict):
+                            if 'items' in d and isinstance(d['items'], list) and len(d['items']) > 0 and 'productId' in str(d['items'][0]):
+                                return d['items']
+                            for v in d.values():
+                                res = find_products(v)
+                                if res: return res
+                        elif isinstance(d, list):
+                            for i in d:
+                                res = find_products(i)
+                                if res: return res
+                        return None
+                    
+                    products = find_products(data)
+                    if products:
+                        for p in products:
+                            try:
+                                all_results.append(self.normalize({
+                                    "name": p.get('name', ''),
+                                    "brand": p.get('brandName', 'AJIO'),
+                                    "price_discounted": float(p.get('price', {}).get('value', 0)),
+                                    "price_original": float(p.get('wasPriceData', {}).get('value', 0)) or float(p.get('price', {}).get('value', 0)) * 1.5,
+                                    "image_url": p.get('images', [{}])[0].get('url', ''),
+                                    "product_url": "https://www.ajio.com" + p.get('url', '')
+                                }, "Ajio"))
+                            except: pass
+                except: pass
+
+            if not all_results:
+                # Method 2: DOM Parsing fallback with broader selectors
+                items = soup.select('div[class*="item"], .rilrtl-products-list__item, .product-item')
+                logger.info(f"  [AJIO] Found {len(items)} DOM elements")
+                for item in items:
+                    try:
+                        name_tag = item.select_one('.name, [class*="name"]')
+                        brand_tag = item.select_one('.brand, [class*="brand"]')
+                        price_tag = item.select_one('.price, [class*="price"]')
+                        link_tag = item.find('a')
+                        img_tag = item.find('img')
+                        
+                        if name_tag and price_tag:
+                            price = float(re.sub(r'[^0-9.]', '', price_tag.get_text()))
+                            all_results.append(self.normalize({
+                                "name": name_tag.get_text(strip=True),
+                                "brand": brand_tag.get_text(strip=True) if brand_tag else "AJIO",
+                                "price_discounted": price,
+                                "price_original": price * 1.5,
+                                "image_url": img_tag.get('src') or img_tag.get('data-src') if img_tag else "",
+                                "product_url": "https://www.ajio.com" + link_tag.get('href') if link_tag else ""
+                            }, "Ajio"))
+                    except: pass
+            
+            driver.quit()
         except Exception as e:
-            logger.error(f"[AJIO] Playwright error: {e}")
-        
+            logger.error(f"[AJIO] UC Error: {e}")
+            
         results = self._dedup_results(all_results)
-        logger.info(f"[AJIO] Total unique items: {len(results)}")
+        logger.info(f"[AJIO] Total unique items items: {len(results)}")
         return results
 
     def scrape_zivame(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Zivame (Playwright browser)...")
-        conf = config.STORES['zivame']
-        all_results = []
-        captured_data = []
+        logger.info("Scraping Zivame (Undetected-Chromedriver)...")
+        results = []
+        
+        options = uc.ChromeOptions()
+        # options.add_argument('--headless')
+        options.add_argument('--window-size=1920,1080')
         
         try:
-            with Stealth().use_sync(sync_playwright()) as pw:
-                browser = pw.chromium.launch(headless=True)
-                context = browser.new_context(
-                    viewport={"width": 1920, "height": 1080},
-                    user_agent=config.get_random_ua(),
-                    locale="en-IN",
-                )
-                page = context.new_page()
+            with uc_lock:
+                driver = uc.Chrome(options=options, version_main=146)
+            
+            for page in range(1, config.MAX_PAGES + 1):
+                # User's suggested search link
+                # https://www.zivame.com/search/result?trksrc=search&trkid=formsubmit&q=bras
+                url = f"https://www.zivame.com/search/result?trksrc=search&trkid=formsubmit&q=bras&page={page}"
+                logger.info(f"  [ZIVAME] Fetching Page {page}...")
+                driver.get(url)
+                time.sleep(7)
                 
-                # Intercept API responses
-                def handle_response(response):
-                    try:
-                        url = response.url
-                        if response.status == 200 and ('zmapi' in url or 'search' in url or 'product' in url):
-                            content_type = response.headers.get('content-type', '')
-                            if 'json' in content_type or 'application' in content_type:
-                                try:
-                                    data = response.json()
-                                    if data and isinstance(data, dict):
-                                        if any(k in data for k in ['products', 'items', 'data', 'results']):
-                                            captured_data.append(data)
-                                            logger.info(f"  [ZIVAME] Intercepted API response")
-                                except:
-                                    pass
-                    except:
-                        pass
+                # Scroll to trigger any lazy loadings
+                driver.execute_script("window.scrollTo(0, 1000);")
+                time.sleep(3)
                 
-                page.on("response", handle_response)
+                html = driver.page_source
+                soup = BeautifulSoup(html, 'html.parser')
                 
-                browse_url = conf.get('browse_url', 'https://www.zivame.com/lingerie/bras.html')
-                logger.info(f"  [ZIVAME] Navigating to {browse_url}")
-                page.goto(browse_url, wait_until="domcontentloaded", timeout=30000)
-                time.sleep(4)
-                
-                # Scroll to load more products
-                for scroll in range(10):
-                    page.evaluate("window.scrollBy(0, 800)")
-                    time.sleep(random.uniform(1, 1.5))
-                
-                # Parse intercepted API data
-                for data in captured_data:
-                    products = data.get('products', data.get('items', []))
-                    if not products and 'data' in data:
-                        products = data['data'].get('products', data['data'].get('items', []))
-                    if not products and 'results' in data:
-                        products = data.get('results', [])
-                    
-                    for p in products:
+                # Extraction logic: Recursive search for productList
+                def find_zivame_prods(d):
+                    if isinstance(d, dict):
+                        if 'productList' in d and isinstance(d['productList'], list) and len(d['productList']) > 0:
+                            return d['productList']
+                        for v in d.values():
+                            res = find_zivame_prods(v)
+                            if res: return res
+                    elif isinstance(d, list):
+                        for i in d:
+                            res = find_zivame_prods(i)
+                            if res: return res
+                    return None
+
+                # Try to find JSON in scripts
+                found_page_items = 0
+                scripts = soup.find_all('script')
+                for script in scripts:
+                    if script.string and 'productList' in script.string:
                         try:
-                            raw = {
-                                "product_id": str(p.get('id', p.get('sku', random.getrandbits(32)))),
-                                "name": p.get('name', p.get('title', '')),
-                                "brand": p.get('brand', p.get('brandName', 'Zivame')),
-                                "price_original": p.get('mrp', p.get('originalPrice', p.get('price', 0))),
-                                "price_discounted": p.get('offerPrice', p.get('finalPrice', p.get('price', 0))),
-                                "discount_percentage": p.get('discount', None),
-                                "image_url": p.get('imageUrl', p.get('image', '')),
-                                "product_url": p.get('url', p.get('productUrl', '')),
-                            }
-                            if raw['product_url'] and not raw['product_url'].startswith('http'):
-                                raw['product_url'] = 'https://www.zivame.com' + raw['product_url']
-                            all_results.append(self.normalize(raw, conf['name']))
-                        except Exception as e:
-                            logger.debug(f"Zivame API item error: {e}")
+                            # Find the first JSON-like structure that contains productList
+                            match = re.search(r'(\{.*?"productList".*?\})', script.string, re.DOTALL)
+                            if match:
+                                data = json.loads(match.group(1))
+                                prods = find_zivame_prods(data)
+                                if prods:
+                                    for item in prods:
+                                        try:
+                                            results.append(self.normalize({
+                                                "name": item.get('product_name', 'Zivame Bra'),
+                                                "price_discounted": float(item.get('price', 0)),
+                                                "price_original": float(item.get('mrp', 0)),
+                                                "image_url": item.get('image_url', ''),
+                                                "product_url": "https://www.zivame.com" + item.get('product_url', ''),
+                                                "brand": item.get('brand_name', 'Zivame'),
+                                            }, "Zivame"))
+                                            found_page_items += 1
+                                        except: pass
+                        except: pass
                 
-                # Fallback: parse rendered HTML
-                if not all_results:
-                    logger.info("  [ZIVAME] No API data, parsing rendered HTML...")
-                    html = page.content()
-                    soup = BeautifulSoup(html, 'html.parser')
-                    
-                    # Try JSON-LD
-                    scripts = soup.select('script[type="application/ld+json"]')
-                    for script in scripts:
-                        try:
-                            ld_data = json.loads(script.string or '')
-                            if isinstance(ld_data, dict) and ld_data.get('@type') == 'ItemList':
-                                for item in ld_data.get('itemListElement', []):
-                                    p = item.get('item', item)
-                                    offers = p.get('offers', {})
-                                    raw = {
-                                        "product_id": str(random.getrandbits(32)),
-                                        "name": p.get('name', ''),
-                                        "brand": 'Zivame',
-                                        "price_original": offers.get('highPrice', offers.get('price', 0)),
-                                        "price_discounted": offers.get('lowPrice', offers.get('price', 0)),
-                                        "image_url": p.get('image', ''),
-                                        "product_url": p.get('url', ''),
-                                    }
-                                    all_results.append(self.normalize(raw, conf['name']))
-                        except json.JSONDecodeError:
-                            continue
-                    
-                    # Direct HTML product cards
-                    if not all_results:
-                        items = soup.select('[class*="product"], [class*="card"], [class*="item"]')
-                        for item in items:
-                            try:
-                                name_el = item.select_one('[class*="name"], [class*="title"], a[title]')
-                                if not name_el: continue
-                                name = name_el.get_text(strip=True)
-                                if not name or len(name) < 5: continue
-                                
-                                price_els = item.select('[class*="price"]')
-                                prices = []
-                                for pe in price_els:
-                                    pv = self.clean_price(pe.get_text())
-                                    if pv > 0: prices.append(pv)
-                                prices = sorted(set(prices))
-                                
-                                img = item.select_one('img')
-                                img_url = img.get('src', '') or img.get('data-src', '') if img else ''
-                                
-                                link = item.select_one('a[href]')
-                                product_url = ''
-                                if link:
-                                    href = link.get('href', '')
-                                    product_url = href if href.startswith('http') else 'https://www.zivame.com' + href
-                                
-                                if name and prices:
-                                    raw = {
-                                        "product_id": str(random.getrandbits(32)),
-                                        "name": name,
-                                        "brand": 'Zivame',
-                                        "price_original": prices[-1] if len(prices) > 1 else prices[0],
-                                        "price_discounted": prices[0],
-                                        "image_url": img_url,
-                                        "product_url": product_url,
-                                    }
-                                    all_results.append(self.normalize(raw, conf['name']))
-                            except Exception as e:
-                                logger.debug(f"Zivame HTML item error: {e}")
+                logger.info(f"  [ZIVAME] Page {page}: Found {found_page_items} items in JSON")
                 
-                browser.close()
+                if found_page_items == 0:
+                    # Generic DOM fallback
+                    items = soup.select('.product-item, [class*="product"]')
+                    if items:
+                         logger.info(f"  [ZIVAME] Page {page}: Falling back to DOM for {len(items)} items")
+                         for item in items:
+                             try:
+                                 name = item.select_one('[class*="name"]')
+                                 price = item.select_one('[class*="price"]')
+                                 if name and price:
+                                     results.append(self.normalize({
+                                         "name": name.get_text(strip=True),
+                                         "price_discounted": float(re.sub(r'[^0-9.]', '', price.get_text()))
+                                     }, "Zivame"))
+                             except: pass
+
+            driver.quit()
         except Exception as e:
-            logger.error(f"[ZIVAME] Playwright error: {e}")
-        
-        results = self._dedup_results(all_results)
-        logger.info(f"[ZIVAME] Total unique items: {len(results)}")
-        return results
+            logger.error(f"[ZIVAME] UC Error: {e}")
+            
+        return self._dedup_results(results)
 
     def scrape_clovia(self) -> List[Dict[str, Any]]:
         logger.info("Scraping Clovia (multi-page)...")
@@ -946,153 +884,88 @@ class StoreScrapers(ScraperBase):
         return results
 
     def scrape_nykaa(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Nykaa Fashion (Playwright browser)...")
-        conf = config.STORES['nykaa']
-        all_results = []
-        captured_data = []
+        logger.info("Scraping Nykaa (Undetected-Chromedriver)...")
+        results = []
+        
+        options = uc.ChromeOptions()
+        # options.add_argument('--headless')
+        options.add_argument('--window-size=1920,1080')
         
         try:
-            with Stealth().use_sync(sync_playwright()) as pw:
-                browser = pw.chromium.launch(headless=True)
-                context = browser.new_context(
-                    viewport={"width": 1920, "height": 1080},
-                    user_agent=config.get_random_ua(),
-                    locale="en-IN",
-                )
-                page = context.new_page()
+            with uc_lock:
+                driver = uc.Chrome(options=options, version_main=146)
+            
+            for page in range(1, config.MAX_PAGES + 1):
+                # User's suggested type of URL for better results
+                # https://www.nykaafashion.com/women/lingerie/bra/c/3947?q=bra&searchType=ManualSearch&internalSearchTerm=bra&typedSearchTerm=bra&p=2
+                url = f"https://www.nykaafashion.com/women/lingerie/bra/c/3947?q=bra&searchType=ManualSearch&internalSearchTerm=bra&typedSearchTerm=bra&p={page}"
+                logger.info(f"  [NYKAA] Fetching Page {page}...")
+                driver.get(url)
+                time.sleep(7)
                 
-                # Intercept API responses for product data
-                def handle_response(response):
+                # Simple scroll to trigger loading
+                driver.execute_script("window.scrollTo(0, 1500);")
+                time.sleep(3)
+                
+                html = driver.page_source
+                soup = BeautifulSoup(html, 'html.parser')
+                
+                # Strategy 1: Extract from __NEXT_DATA__ JSON
+                next_data = soup.find('script', id='__NEXT_DATA__')
+                if next_data:
                     try:
-                        url = response.url
-                        if response.status == 200 and ('categories/products' in url or 'product' in url or 'catalog' in url):
-                            content_type = response.headers.get('content-type', '')
-                            if 'json' in content_type:
+                        data = json.loads(next_data.string)
+                        
+                        def find_nykaa_prods(d):
+                            if isinstance(d, dict):
+                                if 'products' in d and isinstance(d['products'], list) and len(d['products']) > 0 and 'name' in d['products'][0]:
+                                    return d['products']
+                                for v in d.values():
+                                    res = find_nykaa_prods(v)
+                                    if res: return res
+                            elif isinstance(d, list):
+                                for i in d:
+                                    res = find_nykaa_prods(i)
+                                    if res: return res
+                            return None
+                            
+                        prods = find_nykaa_prods(data)
+                        if prods:
+                            logger.info(f"  [NYKAA] Found {len(prods)} products in JSON")
+                            for p in prods:
                                 try:
-                                    data = response.json()
-                                    if data and isinstance(data, dict):
-                                        if any(k in str(data.keys()) for k in ['products', 'data', 'response']):
-                                            captured_data.append(data)
-                                            logger.info(f"  [NYKAA] Intercepted API response")
-                                except:
-                                    pass
-                    except:
-                        pass
-                
-                page.on("response", handle_response)
-                
-                browse_url = conf.get('browse_url', 'https://www.nykaafashion.com/bras/c/595')
-                logger.info(f"  [NYKAA] Navigating to {browse_url}")
-                page.goto(browse_url, wait_until="domcontentloaded", timeout=30000)
-                time.sleep(4)
-                
-                # Scroll to load more products
-                for scroll in range(10):
-                    page.evaluate("window.scrollBy(0, 800)")
-                    time.sleep(random.uniform(1, 1.5))
-                
-                # Parse intercepted API data
-                for data in captured_data:
-                    products = data.get('data', {}).get('products', [])
-                    if not products and 'products' in data:
-                        products = data['products']
-                    if not products and 'response' in data:
-                        products = data['response'].get('products', [])
-                    
-                    for p in products:
-                        try:
-                            if not p.get('name') and not p.get('title'):
-                                continue
-                            raw = {
-                                "product_id": str(p.get('id', p.get('productId', ''))),
-                                "name": p.get('name', p.get('title', '')),
-                                "brand": p.get('brandName', p.get('brand_name', p.get('brand', 'N/A'))),
-                                "price_original": p.get('mrp', p.get('originalPrice', 0)),
-                                "price_discounted": p.get('price', p.get('offerPrice', 0)),
-                                "discount_percentage": p.get('discount', None),
-                                "image_url": p.get('imageUrl', p.get('image_url', p.get('image', ''))),
-                                "product_url": 'https://www.nykaafashion.com' + str(p.get('productUrl', p.get('url', ''))),
-                            }
-                            all_results.append(self.normalize(raw, conf['name']))
-                        except Exception as e:
-                            logger.debug(f"Nykaa item error: {e}")
-                
-                # Fallback: Parse rendered HTML
-                if not all_results:
-                    logger.info("  [NYKAA] No API data, parsing HTML...")
-                    html = page.content()
-                    soup = BeautifulSoup(html, 'html.parser')
-                    
-                    # Try embedded state
-                    try:
-                        match = re.search(r'window\.__PRELOADED_STATE__\s*=\s*({.*?});\s*</script>', html, re.DOTALL)
-                        if match:
-                            state_data = json.loads(match.group(1))
-                            products = state_data.get('data', {}).get('products', state_data.get('products', []))
-                            for p in products:
-                                try:
-                                    raw = {
-                                        "product_id": str(p.get('id', '')),
-                                        "name": p.get('name', p.get('title', '')),
-                                        "brand": p.get('brandName', 'N/A'),
-                                        "price_original": p.get('mrp', 0),
-                                        "price_discounted": p.get('price', 0),
+                                    results.append(self.normalize({
+                                        "name": p.get('name', ''),
+                                        "price_discounted": float(p.get('price', {}).get('discounted', 0)),
+                                        "price_original": float(p.get('price', {}).get('regular', 0)),
                                         "image_url": p.get('imageUrl', ''),
-                                        "product_url": 'https://www.nykaafashion.com' + str(p.get('productUrl', '')),
-                                    }
-                                    all_results.append(self.normalize(raw, conf['name']))
-                                except:
-                                    pass
-                    except:
-                        pass
-                    
-                    # Direct HTML cards
-                    if not all_results:
-                        items = soup.select('[class*="product"], [class*="card"]')
-                        for item in items:
-                            try:
-                                name_el = item.select_one('[class*="title"], [class*="name"]')
-                                if not name_el: continue
-                                name = name_el.get_text(strip=True)
-                                if not name or len(name) < 5: continue
-                                
-                                price_els = item.select('[class*="price"]')
-                                prices = []
-                                for pe in price_els:
-                                    pv = self.clean_price(pe.get_text())
-                                    if pv > 0: prices.append(pv)
-                                prices = sorted(set(prices))
-                                
-                                img = item.select_one('img')
-                                img_url = img.get('src', '') if img else ''
-                                
-                                link = item.select_one('a[href]')
-                                product_url = ''
-                                if link:
-                                    href = link.get('href', '')
-                                    product_url = href if href.startswith('http') else 'https://www.nykaafashion.com' + href
-                                
-                                if name and prices:
-                                    raw = {
-                                        "product_id": str(random.getrandbits(32)),
-                                        "name": name,
-                                        "brand": name.split(' ')[0],
-                                        "price_original": prices[-1] if len(prices) > 1 else prices[0],
-                                        "price_discounted": prices[0],
-                                        "image_url": img_url,
-                                        "product_url": product_url,
-                                    }
-                                    all_results.append(self.normalize(raw, conf['name']))
-                            except Exception as e:
-                                logger.debug(f"Nykaa HTML item error: {e}")
-                
-                browser.close()
+                                        "product_url": "https://www.nykaafashion.com" + p.get('url', ''),
+                                        "brand": p.get('brandName', ''),
+                                    }, "Nykaa"))
+                                except: pass
+                        else:
+                            # Fallback to DOM parsing if JSON didn't work
+                            items = soup.select('[class*="product-card"], .product-item')
+                            if items:
+                                logger.info(f"  [NYKAA] Found {len(items)} items via DOM")
+                                for item in items:
+                                    try:
+                                        # Generic extraction for Nykaa cards
+                                        name = item.select_one('[class*="name"]')
+                                        price = item.select_one('[class*="price"]')
+                                        if name and price:
+                                            results.append(self.normalize({
+                                                "name": name.get_text(strip=True),
+                                                "price_discounted": float(re.sub(r'[^0-9.]', '', price.get_text()))
+                                            }, "Nykaa"))
+                                    except: pass
+                    except: pass
+            
+            driver.quit()
         except Exception as e:
-            logger.error(f"[NYKAA] Playwright error: {e}")
-        
-        results = self._dedup_results(all_results)
-        logger.info(f"[NYKAA] Total unique items: {len(results)}")
-        return results
+            logger.error(f"[NYKAA] UC Error: {e}")
+            
+        return self._dedup_results(results)
 
 # --- PRODUCTION RUNNER ---
 
