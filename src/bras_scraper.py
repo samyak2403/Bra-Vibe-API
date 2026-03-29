@@ -12,6 +12,8 @@ from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
 
 from curl_cffi import requests as curl_requests
+from playwright.sync_api import sync_playwright
+from playwright_stealth import Stealth
 import config
 
 # --- LOGGING SETUP ---
@@ -572,123 +574,214 @@ class StoreScrapers(ScraperBase):
         logger.info(f"[MYNTRA] Total unique items: {len(results)}")
         return results
 
-    def scrape_ajio(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Ajio (multi-page)...")
-        conf = config.STORES['ajio']
-        self.pre_flight("ajio", conf.get('browse_url', "https://www.ajio.com/s/bras-4621-72911"))
+    def _parse_ajio_products(self, data: dict, conf: dict) -> List[Dict]:
+        """Parse Ajio product data from API response."""
+        results = []
+        products = data.get('products', [])
+        if not products and 'data' in data:
+            products = data['data'].get('products', [])
+        if not products and 'results' in data:
+            products = data.get('results', [])
         
-        all_results = []
-        url = conf['url']
-        base_params = conf.get('params', {})
-        
-        for page in range(config.MAX_PAGES):
-            params = dict(base_params)
-            params['currentPage'] = str(page)
-            
-            logger.info(f"  [AJIO] Page={page + 1}")
-            data = self.safe_request_json(url, "ajio", params=params)
-            
-            if not data:
-                # Fallback: try alternate URL format
-                alt_url = f"https://www.ajio.com/api/category/830311004?fields=CUSTOM_CLASSIFICATION&currentPage={page}&pageSize=50&platform=site"
-                data = self.safe_request_json(alt_url, "ajio")
-            
-            if not data:
-                continue
-            
+        for p in products:
             try:
-                products = data.get('products', [])
-                if not products and 'data' in data:
-                    products = data['data'].get('products', [])
-                if not products and 'results' in data:
-                    products = data.get('results', [])
+                img_url = ''
+                images = p.get('images', [])
+                if images:
+                    if isinstance(images[0], dict):
+                        img_url = images[0].get('url', '')
+                    else:
+                        img_url = str(images[0])
+                if not img_url:
+                    img_url = p.get('imageUrl', '') or p.get('image', '')
                 
-                page_count = 0
-                for p in products:
-                    try:
-                        # Handle different image structures
-                        img_url = ''
-                        images = p.get('images', [])
-                        if images:
-                            if isinstance(images[0], dict):
-                                img_url = images[0].get('url', '')
-                            else:
-                                img_url = str(images[0])
-                        if not img_url:
-                            img_url = p.get('imageUrl', '') or p.get('image', '')
-                        
-                        # Handle different price structures
-                        was_price = p.get('wasPriceData', {})
-                        if isinstance(was_price, dict):
-                            orig_price = was_price.get('value', 0)
-                        else:
-                            orig_price = was_price or 0
-                        
-                        curr_price = p.get('price', {})
-                        if isinstance(curr_price, dict):
-                            disc_price = curr_price.get('value', 0)
-                        else:
-                            disc_price = curr_price or 0
-                        
-                        raw = {
-                            "product_id": str(p.get('code', '')),
-                            "name": p.get('name', ''),
-                            "brand": p.get('brandName', p.get('brand', 'N/A')),
-                            "price_original": orig_price or p.get('mrp', 0),
-                            "price_discounted": disc_price,
-                            "discount_percentage": p.get('discount', None),
-                            "image_url": img_url,
-                            "product_url": "https://www.ajio.com" + str(p.get('url', '')),
-                        }
-                        all_results.append(self.normalize(raw, conf['name']))
-                        page_count += 1
-                    except Exception as e:
-                        logger.debug(f"Ajio item error: {e}")
+                was_price = p.get('wasPriceData', {})
+                if isinstance(was_price, dict):
+                    orig_price = was_price.get('value', 0)
+                else:
+                    orig_price = was_price or 0
                 
-                logger.info(f"  [AJIO] Page {page + 1}: {page_count} items")
+                curr_price = p.get('price', {})
+                if isinstance(curr_price, dict):
+                    disc_price = curr_price.get('value', 0)
+                else:
+                    disc_price = curr_price or 0
                 
-                # Stop if no products on this page
-                if not products:
-                    break
-                    
+                raw = {
+                    "product_id": str(p.get('code', '')),
+                    "name": p.get('name', ''),
+                    "brand": p.get('brandName', p.get('brand', 'N/A')),
+                    "price_original": orig_price or p.get('mrp', 0),
+                    "price_discounted": disc_price,
+                    "discount_percentage": p.get('discount', None),
+                    "image_url": img_url,
+                    "product_url": "https://www.ajio.com" + str(p.get('url', '')),
+                }
+                results.append(self.normalize(raw, conf['name']))
             except Exception as e:
-                logger.error(f"Ajio parse error: {e}")
-            
-            time.sleep(random.uniform(2, 4))
+                logger.debug(f"Ajio item error: {e}")
+        return results
+
+    def scrape_ajio(self) -> List[Dict[str, Any]]:
+        logger.info("Scraping Ajio (Playwright browser)...")
+        conf = config.STORES['ajio']
+        all_results = []
+        captured_data = []
+        
+        try:
+            with Stealth().use_sync(sync_playwright()) as pw:
+                browser = pw.chromium.launch(headless=True)
+                context = browser.new_context(
+                    viewport={"width": 1920, "height": 1080},
+                    user_agent=config.get_random_ua(),
+                    locale="en-IN",
+                )
+                page = context.new_page()
+                
+                # Intercept API responses
+                def handle_response(response):
+                    try:
+                        if '/api/category/' in response.url and response.status == 200:
+                            try:
+                                data = response.json()
+                                if data and ('products' in data or 'results' in data):
+                                    captured_data.append(data)
+                                    logger.info(f"  [AJIO] Intercepted API response with product data")
+                            except:
+                                pass
+                    except:
+                        pass
+                
+                page.on("response", handle_response)
+                
+                browse_url = conf.get('browse_url', 'https://www.ajio.com/s/bras-4621-72911')
+                logger.info(f"  [AJIO] Navigating to {browse_url}")
+                page.goto(browse_url, wait_until="domcontentloaded", timeout=30000)
+                time.sleep(3)
+                
+                # Scroll down to trigger lazy loading of products
+                for scroll in range(8):
+                    page.evaluate("window.scrollBy(0, 1000)")
+                    time.sleep(random.uniform(1, 2))
+                    logger.debug(f"  [AJIO] Scroll {scroll + 1}/8")
+                
+                # Parse captured API data
+                for data in captured_data:
+                    products = self._parse_ajio_products(data, conf)
+                    all_results.extend(products)
+                
+                # Fallback: parse page HTML if no API data was intercepted
+                if not all_results:
+                    logger.info("  [AJIO] No API data intercepted, parsing HTML...")
+                    html = page.content()
+                    soup = BeautifulSoup(html, 'html.parser')
+                    
+                    items = soup.select('[class*="product"], [class*="item"], .rilrtl-products-list__item')
+                    for item in items:
+                        try:
+                            name_el = item.select_one('[class*="nameCls"], [class*="name"], [class*="title"]')
+                            if not name_el: continue
+                            name = name_el.get_text(strip=True)
+                            if not name: continue
+                            
+                            brand_el = item.select_one('[class*="brand"]')
+                            brand = brand_el.get_text(strip=True) if brand_el else name.split(' ')[0]
+                            
+                            price_els = item.select('[class*="price"]')
+                            prices = []
+                            for pe in price_els:
+                                p_val = self.clean_price(pe.get_text())
+                                if p_val > 0:
+                                    prices.append(p_val)
+                            prices = sorted(set(prices))
+                            
+                            img = item.select_one('img[src*="ajio"], img[data-src], img')
+                            img_url = ''
+                            if img:
+                                img_url = img.get('src', '') or img.get('data-src', '')
+                            
+                            link = item.select_one('a[href]')
+                            product_url = ''
+                            if link:
+                                href = link.get('href', '')
+                                product_url = href if href.startswith('http') else 'https://www.ajio.com' + href
+                            
+                            if name and prices:
+                                raw = {
+                                    "product_id": str(random.getrandbits(32)),
+                                    "name": name,
+                                    "brand": brand,
+                                    "price_original": prices[-1] if len(prices) > 1 else prices[0],
+                                    "price_discounted": prices[0],
+                                    "image_url": img_url,
+                                    "product_url": product_url,
+                                }
+                                all_results.append(self.normalize(raw, conf['name']))
+                        except Exception as e:
+                            logger.debug(f"Ajio HTML item error: {e}")
+                
+                browser.close()
+        except Exception as e:
+            logger.error(f"[AJIO] Playwright error: {e}")
         
         results = self._dedup_results(all_results)
         logger.info(f"[AJIO] Total unique items: {len(results)}")
         return results
 
     def scrape_zivame(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Zivame (multi-page)...")
+        logger.info("Scraping Zivame (Playwright browser)...")
         conf = config.STORES['zivame']
-        self.pre_flight("zivame", conf.get('browse_url', "https://www.zivame.com/"))
-        
         all_results = []
+        captured_data = []
         
-        # Strategy 1: Try Zivame's API endpoint with pagination
-        api_url = conf['url']
-        base_params = conf.get('params', {})
-        
-        for page in range(config.MAX_PAGES):
-            params = dict(base_params)
-            params['page'] = str(page)
-            
-            logger.info(f"  [ZIVAME] API Page={page + 1}")
-            data = self.safe_request_json(api_url, "zivame", params=params)
-            
-            if data:
-                try:
-                    products = data.get('products', [])
+        try:
+            with Stealth().use_sync(sync_playwright()) as pw:
+                browser = pw.chromium.launch(headless=True)
+                context = browser.new_context(
+                    viewport={"width": 1920, "height": 1080},
+                    user_agent=config.get_random_ua(),
+                    locale="en-IN",
+                )
+                page = context.new_page()
+                
+                # Intercept API responses
+                def handle_response(response):
+                    try:
+                        url = response.url
+                        if response.status == 200 and ('zmapi' in url or 'search' in url or 'product' in url):
+                            content_type = response.headers.get('content-type', '')
+                            if 'json' in content_type or 'application' in content_type:
+                                try:
+                                    data = response.json()
+                                    if data and isinstance(data, dict):
+                                        if any(k in data for k in ['products', 'items', 'data', 'results']):
+                                            captured_data.append(data)
+                                            logger.info(f"  [ZIVAME] Intercepted API response")
+                                except:
+                                    pass
+                    except:
+                        pass
+                
+                page.on("response", handle_response)
+                
+                browse_url = conf.get('browse_url', 'https://www.zivame.com/lingerie/bras.html')
+                logger.info(f"  [ZIVAME] Navigating to {browse_url}")
+                page.goto(browse_url, wait_until="domcontentloaded", timeout=30000)
+                time.sleep(4)
+                
+                # Scroll to load more products
+                for scroll in range(10):
+                    page.evaluate("window.scrollBy(0, 800)")
+                    time.sleep(random.uniform(1, 1.5))
+                
+                # Parse intercepted API data
+                for data in captured_data:
+                    products = data.get('products', data.get('items', []))
                     if not products and 'data' in data:
                         products = data['data'].get('products', data['data'].get('items', []))
                     if not products and 'results' in data:
                         products = data.get('results', [])
-                    if not products and 'items' in data:
-                        products = data.get('items', [])
                     
-                    page_count = 0
                     for p in products:
                         try:
                             raw = {
@@ -702,29 +795,18 @@ class StoreScrapers(ScraperBase):
                                 "product_url": p.get('url', p.get('productUrl', '')),
                             }
                             if raw['product_url'] and not raw['product_url'].startswith('http'):
-                                raw['product_url'] = "https://www.zivame.com" + raw['product_url']
+                                raw['product_url'] = 'https://www.zivame.com' + raw['product_url']
                             all_results.append(self.normalize(raw, conf['name']))
-                            page_count += 1
                         except Exception as e:
                             logger.debug(f"Zivame API item error: {e}")
-                    
-                    logger.info(f"  [ZIVAME] API Page {page + 1}: {page_count} items")
-                    if not products:
-                        break
-                except Exception as e:
-                    logger.error(f"Zivame API parse error: {e}")
-            
-            time.sleep(random.uniform(2, 4))
-        
-        # Strategy 2: Fall back to HTML scraping if API returned nothing
-        if not all_results:
-            browse_url = conf.get('browse_url', 'https://www.zivame.com/lingerie/bras.html')
-            html = self.safe_request(browse_url, "zivame")
-            if html:
-                try:
+                
+                # Fallback: parse rendered HTML
+                if not all_results:
+                    logger.info("  [ZIVAME] No API data, parsing rendered HTML...")
+                    html = page.content()
                     soup = BeautifulSoup(html, 'html.parser')
                     
-                    # Try JSON-LD   
+                    # Try JSON-LD
                     scripts = soup.select('script[type="application/ld+json"]')
                     for script in scripts:
                         try:
@@ -736,7 +818,7 @@ class StoreScrapers(ScraperBase):
                                     raw = {
                                         "product_id": str(random.getrandbits(32)),
                                         "name": p.get('name', ''),
-                                        "brand": "Zivame",
+                                        "brand": 'Zivame',
                                         "price_original": offers.get('highPrice', offers.get('price', 0)),
                                         "price_discounted": offers.get('lowPrice', offers.get('price', 0)),
                                         "image_url": p.get('image', ''),
@@ -746,31 +828,49 @@ class StoreScrapers(ScraperBase):
                         except json.JSONDecodeError:
                             continue
                     
-                    # HTML fallback
+                    # Direct HTML product cards
                     if not all_results:
-                        items = soup.select('.product-item, [data-product-id], .product-card')
+                        items = soup.select('[class*="product"], [class*="card"], [class*="item"]')
                         for item in items:
                             try:
-                                name_tag = item.select_one('.product-item-link, .product-name, a[title]')
-                                if not name_tag: continue
+                                name_el = item.select_one('[class*="name"], [class*="title"], a[title]')
+                                if not name_el: continue
+                                name = name_el.get_text(strip=True)
+                                if not name or len(name) < 5: continue
                                 
-                                price_disc = item.select_one('.price-wrapper .price, .special-price .price, .offer-price')
-                                price_orig = item.select_one('.old-price .price, .regular-price .price, .mrp-price')
+                                price_els = item.select('[class*="price"]')
+                                prices = []
+                                for pe in price_els:
+                                    pv = self.clean_price(pe.get_text())
+                                    if pv > 0: prices.append(pv)
+                                prices = sorted(set(prices))
                                 
-                                raw = {
-                                    "product_id": str(item.get('data-product-id', random.getrandbits(32))),
-                                    "name": name_tag.get_text(strip=True),
-                                    "brand": "Zivame",
-                                    "price_original": price_orig.get_text(strip=True) if price_orig else (price_disc.get_text(strip=True) if price_disc else 0),
-                                    "price_discounted": price_disc.get_text(strip=True) if price_disc else 0,
-                                    "image_url": item.select_one('img').get('src', '') if item.select_one('img') else "",
-                                    "product_url": name_tag.get('href', ''),
-                                }
-                                all_results.append(self.normalize(raw, conf['name']))
+                                img = item.select_one('img')
+                                img_url = img.get('src', '') or img.get('data-src', '') if img else ''
+                                
+                                link = item.select_one('a[href]')
+                                product_url = ''
+                                if link:
+                                    href = link.get('href', '')
+                                    product_url = href if href.startswith('http') else 'https://www.zivame.com' + href
+                                
+                                if name and prices:
+                                    raw = {
+                                        "product_id": str(random.getrandbits(32)),
+                                        "name": name,
+                                        "brand": 'Zivame',
+                                        "price_original": prices[-1] if len(prices) > 1 else prices[0],
+                                        "price_discounted": prices[0],
+                                        "image_url": img_url,
+                                        "product_url": product_url,
+                                    }
+                                    all_results.append(self.normalize(raw, conf['name']))
                             except Exception as e:
                                 logger.debug(f"Zivame HTML item error: {e}")
-                except Exception as e:
-                    logger.debug(f"Zivame HTML parse error: {e}")
+                
+                browser.close()
+        except Exception as e:
+            logger.error(f"[ZIVAME] Playwright error: {e}")
         
         results = self._dedup_results(all_results)
         logger.info(f"[ZIVAME] Total unique items: {len(results)}")
@@ -846,81 +946,149 @@ class StoreScrapers(ScraperBase):
         return results
 
     def scrape_nykaa(self) -> List[Dict[str, Any]]:
-        logger.info("Scraping Nykaa Fashion (multi-page)...")
+        logger.info("Scraping Nykaa Fashion (Playwright browser)...")
         conf = config.STORES['nykaa']
-        self.pre_flight("nykaa", conf.get('browse_url', "https://www.nykaafashion.com/bras/c/595"))
-        
-        url = conf['url']
-        base_params = conf.get('params', {})
         all_results = []
+        captured_data = []
         
-        for page in range(1, config.MAX_PAGES + 1):
-            params = dict(base_params)
-            params['currentPage'] = str(page)
-            
-            logger.info(f"  [NYKAA] Page={page}")
-            data = self.safe_request_json(url, "nykaa", params=params)
-            
-            if not data:
-                # Fallback: try with different params
-                alt_params = {
-                    "categoryId": conf.get('categoryId', '595'),
-                    "PageSize": "50",
-                    "currentPage": str(page),
-                    "sort": "popularity",
-                }
-                data = self.safe_request_json(url, "nykaa", params=alt_params)
-            
-            if not data:
-                # Fallback 2: Try HTML scraping from browse page
-                if page == 1:
-                    browse_url = conf.get('browse_url', 'https://www.nykaafashion.com/bras/c/595')
-                    html = self.safe_request(browse_url, "nykaa")
-                    if html:
-                        try:
-                            match = re.search(r'window\.__PRELOADED_STATE__\s*=\s*({.*?});\s*</script>', html, re.DOTALL)
-                            if match:
-                                data = json.loads(match.group(1))
-                        except:
-                            pass
-                if not data:
-                    continue
-            
-            try:
-                products = data.get('data', {}).get('products', [])
-                if not products and 'products' in data:
-                    products = data['products']
-                if not products and 'response' in data:
-                    products = data['response'].get('products', [])
+        try:
+            with Stealth().use_sync(sync_playwright()) as pw:
+                browser = pw.chromium.launch(headless=True)
+                context = browser.new_context(
+                    viewport={"width": 1920, "height": 1080},
+                    user_agent=config.get_random_ua(),
+                    locale="en-IN",
+                )
+                page = context.new_page()
                 
-                page_count = 0
-                for p in products:
+                # Intercept API responses for product data
+                def handle_response(response):
                     try:
-                        if not p.get('name') and not p.get('title'):
-                            continue
-                        raw = {
-                            "product_id": str(p.get('id', p.get('productId', ''))),
-                            "name": p.get('name', p.get('title', '')),
-                            "brand": p.get('brandName', p.get('brand_name', p.get('brand', 'N/A'))),
-                            "price_original": p.get('mrp', p.get('originalPrice', 0)),
-                            "price_discounted": p.get('price', p.get('offerPrice', 0)),
-                            "discount_percentage": p.get('discount', None),
-                            "image_url": p.get('imageUrl', p.get('image_url', p.get('image', ''))),
-                            "product_url": "https://www.nykaafashion.com" + str(p.get('productUrl', p.get('url', ''))),
-                        }
-                        all_results.append(self.normalize(raw, conf['name']))
-                        page_count += 1
-                    except Exception as e:
-                        logger.debug(f"Nykaa item error: {e}")
+                        url = response.url
+                        if response.status == 200 and ('categories/products' in url or 'product' in url or 'catalog' in url):
+                            content_type = response.headers.get('content-type', '')
+                            if 'json' in content_type:
+                                try:
+                                    data = response.json()
+                                    if data and isinstance(data, dict):
+                                        if any(k in str(data.keys()) for k in ['products', 'data', 'response']):
+                                            captured_data.append(data)
+                                            logger.info(f"  [NYKAA] Intercepted API response")
+                                except:
+                                    pass
+                    except:
+                        pass
                 
-                logger.info(f"  [NYKAA] Page {page}: {page_count} items")
+                page.on("response", handle_response)
                 
-                if not products:
-                    break
-            except Exception as e:
-                logger.error(f"Nykaa parse error: {e}")
-            
-            time.sleep(random.uniform(2, 4))
+                browse_url = conf.get('browse_url', 'https://www.nykaafashion.com/bras/c/595')
+                logger.info(f"  [NYKAA] Navigating to {browse_url}")
+                page.goto(browse_url, wait_until="domcontentloaded", timeout=30000)
+                time.sleep(4)
+                
+                # Scroll to load more products
+                for scroll in range(10):
+                    page.evaluate("window.scrollBy(0, 800)")
+                    time.sleep(random.uniform(1, 1.5))
+                
+                # Parse intercepted API data
+                for data in captured_data:
+                    products = data.get('data', {}).get('products', [])
+                    if not products and 'products' in data:
+                        products = data['products']
+                    if not products and 'response' in data:
+                        products = data['response'].get('products', [])
+                    
+                    for p in products:
+                        try:
+                            if not p.get('name') and not p.get('title'):
+                                continue
+                            raw = {
+                                "product_id": str(p.get('id', p.get('productId', ''))),
+                                "name": p.get('name', p.get('title', '')),
+                                "brand": p.get('brandName', p.get('brand_name', p.get('brand', 'N/A'))),
+                                "price_original": p.get('mrp', p.get('originalPrice', 0)),
+                                "price_discounted": p.get('price', p.get('offerPrice', 0)),
+                                "discount_percentage": p.get('discount', None),
+                                "image_url": p.get('imageUrl', p.get('image_url', p.get('image', ''))),
+                                "product_url": 'https://www.nykaafashion.com' + str(p.get('productUrl', p.get('url', ''))),
+                            }
+                            all_results.append(self.normalize(raw, conf['name']))
+                        except Exception as e:
+                            logger.debug(f"Nykaa item error: {e}")
+                
+                # Fallback: Parse rendered HTML
+                if not all_results:
+                    logger.info("  [NYKAA] No API data, parsing HTML...")
+                    html = page.content()
+                    soup = BeautifulSoup(html, 'html.parser')
+                    
+                    # Try embedded state
+                    try:
+                        match = re.search(r'window\.__PRELOADED_STATE__\s*=\s*({.*?});\s*</script>', html, re.DOTALL)
+                        if match:
+                            state_data = json.loads(match.group(1))
+                            products = state_data.get('data', {}).get('products', state_data.get('products', []))
+                            for p in products:
+                                try:
+                                    raw = {
+                                        "product_id": str(p.get('id', '')),
+                                        "name": p.get('name', p.get('title', '')),
+                                        "brand": p.get('brandName', 'N/A'),
+                                        "price_original": p.get('mrp', 0),
+                                        "price_discounted": p.get('price', 0),
+                                        "image_url": p.get('imageUrl', ''),
+                                        "product_url": 'https://www.nykaafashion.com' + str(p.get('productUrl', '')),
+                                    }
+                                    all_results.append(self.normalize(raw, conf['name']))
+                                except:
+                                    pass
+                    except:
+                        pass
+                    
+                    # Direct HTML cards
+                    if not all_results:
+                        items = soup.select('[class*="product"], [class*="card"]')
+                        for item in items:
+                            try:
+                                name_el = item.select_one('[class*="title"], [class*="name"]')
+                                if not name_el: continue
+                                name = name_el.get_text(strip=True)
+                                if not name or len(name) < 5: continue
+                                
+                                price_els = item.select('[class*="price"]')
+                                prices = []
+                                for pe in price_els:
+                                    pv = self.clean_price(pe.get_text())
+                                    if pv > 0: prices.append(pv)
+                                prices = sorted(set(prices))
+                                
+                                img = item.select_one('img')
+                                img_url = img.get('src', '') if img else ''
+                                
+                                link = item.select_one('a[href]')
+                                product_url = ''
+                                if link:
+                                    href = link.get('href', '')
+                                    product_url = href if href.startswith('http') else 'https://www.nykaafashion.com' + href
+                                
+                                if name and prices:
+                                    raw = {
+                                        "product_id": str(random.getrandbits(32)),
+                                        "name": name,
+                                        "brand": name.split(' ')[0],
+                                        "price_original": prices[-1] if len(prices) > 1 else prices[0],
+                                        "price_discounted": prices[0],
+                                        "image_url": img_url,
+                                        "product_url": product_url,
+                                    }
+                                    all_results.append(self.normalize(raw, conf['name']))
+                            except Exception as e:
+                                logger.debug(f"Nykaa HTML item error: {e}")
+                
+                browser.close()
+        except Exception as e:
+            logger.error(f"[NYKAA] Playwright error: {e}")
         
         results = self._dedup_results(all_results)
         logger.info(f"[NYKAA] Total unique items: {len(results)}")
