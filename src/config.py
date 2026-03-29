@@ -15,19 +15,89 @@ MAX_PAGES = 2  # Number of pages to scrape per store/query
 SEARCH_QUERIES = {
     "amazon": [
         "bras+for+women",
+        "t-shirt+bra",
+        "push+up+bra",
+        "sports+bra+women",
+        "bralette+for+women",
+        "padded+bra",
+        "strapless+bra",
         "bras+discount",
-        "lingerie+bras+women",
     ],
     "flipkart": [
         "bras+for+women",
+        "t-shirt+bra",
+        "push+up+bra",
+        "sports+bra",
+        "bralette",
+        "padded+bra",
+        "strapless+bra",
         "bras+discount",
-        "lingerie+bras",
     ],
     "myntra": [
         "bras",
-        "lingerie bras",
-        "women bras",
+        "t-shirt bra",
+        "push up bra",
+        "sports bra",
+        "bralette",
+        "padded bra",
+        "strapless bra",
     ],
+}
+
+# --- BRA CATEGORIES ---
+BRA_CATEGORIES = [
+    "T-Shirt Bra", "Full Coverage Bra", "Seamless Bra", "Minimizer Bra", 
+    "Unlined Bra", "Lined Bra", "Underwire Bra", "Wireless Bra", 
+    "Push-Up Bra", "Padded Bra", "Balconette Bra", "Plunge Bra", 
+    "Sports Bra", "Maternity Bra", "Nursing Bra", "Post-Surgery Bra", 
+    "Sleep Bra", "Strapless Bra", "Backless Bra", "Convertible Bra", 
+    "Multiway Bra", "Halter Bra", "Stick-On Bra", "Lace Bra", 
+    "Bralette", "Longline Bra", "Cage Bra", "Sheer Bra", 
+    "Full Cup Bra", "Demi Cup Bra", "Half Cup Bra", "Quarter Cup Bra", 
+    "Front Closure Bra", "Trainer Bra", "Silicone Bra", 
+    "Mastectomy Bra", "Cooling Bra", "Posture Corrector Bra"
+]
+
+# Category mapping for classification (Keywords)
+CATEGORY_KEYWORDS = {
+    "T-Shirt Bra": ["t-shirt", "tshirt", "t shirt"],
+    "Full Coverage Bra": ["full coverage", "full cup"],
+    "Seamless Bra": ["seamless", "no show", "laser cut"],
+    "Minimizer Bra": ["minimizer", "minimize"],
+    "Unlined Bra": ["unlined", "non-padded", "non padded", "no pad"],
+    "Lined Bra": ["lined", "lightly lined"],
+    "Underwire Bra": ["underwire", "wired"],
+    "Wireless Bra": ["wireless", "non-wired", "wire-free", "wirefree"],
+    "Push-Up Bra": ["push-up", "pushup", "push up", "level 1", "level 2", "level 3"],
+    "Padded Bra": ["padded", "padding"],
+    "Balconette Bra": ["balconette", "balcony"],
+    "Plunge Bra": ["plunge"],
+    "Sports Bra": ["sports", "active", "workout", "gym", "impact"],
+    "Maternity Bra": ["maternity"],
+    "Nursing Bra": ["nursing", "feeding"],
+    "Post-Surgery Bra": ["post-surgery", "post surgery", "recovery"],
+    "Sleep Bra": ["sleep", "night", "leisure"],
+    "Strapless Bra": ["strapless"],
+    "Backless Bra": ["backless"],
+    "Convertible Bra": ["convertible"],
+    "Multiway Bra": ["multiway", "multi-way"],
+    "Halter Bra": ["halter"],
+    "Stick-On Bra": ["stick-on", "stickon", "adhesive", "nubra"],
+    "Lace Bra": ["lace", "lacy"],
+    "Bralette": ["bralette"],
+    "Longline Bra": ["longline", "long line"],
+    "Cage Bra": ["cage"],
+    "Sheer Bra": ["sheer", "transparent"],
+    "Full Cup Bra": ["full cup"],
+    "Demi Cup Bra": ["demi cup", "demi"],
+    "Half Cup Bra": ["half cup"],
+    "Quarter Cup Bra": ["quarter cup"],
+    "Front Closure Bra": ["front closure", "front open"],
+    "Trainer Bra": ["trainer", "beginner", "starter"],
+    "Silicone Bra": ["silicone"],
+    "Mastectomy Bra": ["mastectomy"],
+    "Cooling Bra": ["cooling", "breathable"],
+    "Posture Corrector Bra": ["posture", "corrector"]
 }
 
 # --- PREMIUM BRAS CONFIG ---

@@ -235,11 +235,28 @@ class ScraperBase:
         else:
             disc = int(self.clean_price(disc))
 
+        # --- CATEGORIZATION LOGIC ---
+        name_lower = str(raw.get('name', '')).lower()
+        category = "Bras" # Default
+        
+        # Try to find a more specific category from config.CATEGORY_KEYWORDS
+        found_cats = []
+        for cat, keywords in config.CATEGORY_KEYWORDS.items():
+            for kw in keywords:
+                if kw.lower() in name_lower:
+                    found_cats.append(cat)
+                    break
+        
+        if found_cats:
+            # Join multiple categories if found, or just take the first
+            category = found_cats[0] 
+
         return {
             "product_id": str(raw.get('product_id', '')),
             "name": str(raw.get('name', 'N/A')).strip(),
             "brand": str(raw.get('brand', 'N/A')).strip(),
-            "category": "Bras",
+            "category": category,
+            "category_all": found_cats, # Store all matches for better filtering
             "price_original": original,
             "price_discounted": discounted,
             "discount_percentage": disc,
@@ -250,7 +267,7 @@ class ScraperBase:
             "image_url": self.enhance_image_quality(str(raw.get('image_url', ''))),
             "product_url": str(raw.get('product_url', '')),
             "website_source": source,
-            "stock_status": str(raw.get('stock_status', 'In Stock')),
+            "stock_status": raw.get('stock_status', 'In Stock'),
             "scraped_at": datetime.now().isoformat()
         }
 
